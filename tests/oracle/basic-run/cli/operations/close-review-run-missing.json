@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "close-review-run",
+    "--run-id",
+    "invented-missing-run",
+    "--confirmed"
+  ],
+  "exit_status": 2,
+  "stderr": "",
+  "stdout": "{\"status\": \"blocked\", \"error_code\": \"run_id_invalid\", \"notification_sent\": false}\n"
+}

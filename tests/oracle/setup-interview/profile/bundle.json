@@ -1,0 +1,22 @@
+{
+  "cadence": "weekly",
+  "cadence_anchor": null,
+  "exceptional_only": true,
+  "freshness_max_age_hours": 24.0,
+  "market_only": false,
+  "max_recommendations": 120,
+  "mode": "passive",
+  "paths": {
+    "ledger_db": "/tmp/pulse-port-oracle/setup-interview/installation/local_only/profiles/invented/ledger.sqlite3",
+    "narrative": "/tmp/pulse-port-oracle/setup-interview/installation/local_only/profiles/invented/profile.md",
+    "outbox": "/tmp/pulse-port-oracle/setup-interview/installation/local_only/profiles/invented/outbox",
+    "preferences": "/tmp/pulse-port-oracle/setup-interview/installation/local_only/profiles/invented/preferences.toml",
+    "profile_config": "/tmp/pulse-port-oracle/setup-interview/installation/local_only/profiles/invented/profile.toml",
+    "review_db": "/tmp/pulse-port-oracle/setup-interview/installation/local_only/profiles/invented/review.sqlite3",
+    "source_db": "/tmp/pulse-port-oracle/setup-interview/installation/data/nav.sqlite3"
+  },
+  "profile_id": "invented",
+  "readiness": "not-ready",
+  "readiness_reason": "shared source database is missing",
+  "timezone": "Europe/Oslo"
+}

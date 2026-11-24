@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "dashboard-build",
+    "--offline"
+  ],
+  "exit_status": 1,
+  "stderr": "Dashboard build failed: [Errno 2] No such file or directory: '/tmp/pulse-port-oracle/basic-run/installation/dashboard/bun.lock'\n",
+  "stdout": ""
+}

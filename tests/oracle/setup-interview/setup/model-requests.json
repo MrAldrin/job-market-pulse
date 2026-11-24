@@ -1,0 +1,1597 @@
+[
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "current_role",
+      "trusted_question": {
+        "ask": "What do you do today?",
+        "follow_up": [
+          "Which parts do you want more of?",
+          "Which parts do you want less of?"
+        ],
+        "why": "The judge needs a starting point for comparing job duties."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "experience_years",
+      "trusted_question": {
+        "ask": "How many years of relevant experience do you have, and in which kinds of work?",
+        "follow_up": [
+          "Which experience is recent?",
+          "Are you changing to a new kind of work?"
+        ],
+        "why": "The judge compares stated experience requirements with your background."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "education",
+      "trusted_question": {
+        "ask": "What education, training or qualifications do you want the judge to know about?",
+        "follow_up": [
+          "Which qualifications are current?",
+          "Is there training you are willing to take?"
+        ],
+        "why": "Some ads require a qualification; missing evidence must stay unknown."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "strongest_skills",
+      "trusted_question": {
+        "ask": "What are your strongest skills, and how have you used them?",
+        "follow_up": [
+          "Give one example of work you did well."
+        ],
+        "why": "Concrete experience helps the judge distinguish a direct match from a possible one."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "tools",
+      "trusted_question": {
+        "ask": "Which tools, equipment or methods can you use with confidence?",
+        "follow_up": [
+          "Which would you like to learn?",
+          "Which do you no longer want to use?"
+        ],
+        "why": "The judge can compare your experience with the methods named in an ad."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "next_job",
+      "trusted_question": {
+        "ask": "What should be different in your next job?",
+        "follow_up": [
+          "What should stay the same?"
+        ],
+        "why": "The judge needs your direction, not just a match to your current work."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "wanted_roles",
+      "trusted_question": {
+        "ask": "Which roles or kinds of work would you most like next?",
+        "follow_up": [
+          "Describe the duties if job titles are unclear."
+        ],
+        "why": "The judge compares each ad with the work you actually want."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "acceptable_roles",
+      "trusted_question": {
+        "ask": "Which other roles would you consider, even if they are not your first choice?",
+        "follow_up": [
+          "What would make such a role worth considering?"
+        ],
+        "why": "An acceptable alternative can be a possible match without being exceptional."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "seniority",
+      "trusted_question": {
+        "ask": "What level of responsibility do you want in the next job?",
+        "follow_up": [
+          "Would you accept a different level to change direction?"
+        ],
+        "why": "Job titles alone do not establish the right level of responsibility."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "leadership_or_specialist",
+      "trusted_question": {
+        "ask": "Do you prefer leading people, specialist work, a mix, or neither?",
+        "follow_up": [
+          "How much responsibility for other people do you want?"
+        ],
+        "why": "The judge must not assume that promotion or management is your goal."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "domains",
+      "trusted_question": {
+        "ask": "Which subjects, services or industries interest you?",
+        "follow_up": [
+          "Which interests matter most?"
+        ],
+        "why": "The same duties can be more appealing in a field you care about."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "employer_kind",
+      "trusted_question": {
+        "ask": "What kind of employer or workplace would suit you?",
+        "follow_up": [
+          "Does size, ownership or purpose matter?",
+          "Which parts are preferences rather than limits?"
+        ],
+        "why": "The judge can use employer preferences when the ad supplies evidence."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "team",
+      "trusted_question": {
+        "ask": "What kind of team and support do you work best with?",
+        "follow_up": [
+          "How much independent work do you want?"
+        ],
+        "why": "Team expectations help explain fit without assuming an ad proves its culture."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "ways_of_working",
+      "trusted_question": {
+        "ask": "How do you like work to be planned and carried out?",
+        "follow_up": [
+          "What balance of routine, variety and change suits you?"
+        ],
+        "why": "The judge can compare stated working practices with your preferences."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "exceptional_job",
+      "trusted_question": {
+        "ask": "What would make a job exceptional enough for you to act on it?",
+        "follow_up": [
+          "Which two or three features matter most?",
+          "What would be good but not exceptional?"
+        ],
+        "why": "An exceptional match needs compelling ad evidence, passed hard limits and no unresolved fit uncertainty."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "avoid_tasks",
+      "trusted_question": {
+        "ask": "Which tasks do you want to avoid?",
+        "follow_up": [
+          "Are these strict limits or preferences?",
+          "Would a small amount be acceptable?"
+        ],
+        "why": "The judge must distinguish unwanted duties from a strict reason to reject a job."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "avoid_domains",
+      "trusted_question": {
+        "ask": "Are there subjects, services or industries you do not want to work in?",
+        "follow_up": [
+          "Are these strict limits or preferences?"
+        ],
+        "why": "A good match in duties can still be wrong for your direction."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "avoid_employers",
+      "trusted_question": {
+        "ask": "Are there kinds of employer or workplace you would not consider?",
+        "follow_up": [
+          "Are these strict limits or preferences?",
+          "What public ad evidence would identify the problem?"
+        ],
+        "why": "The judge should use your stated boundaries, not invent employer preferences."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "language",
+      "trusted_question": {
+        "ask": "Which language requirements can you meet, and which can you not meet?",
+        "follow_up": [
+          "Which languages can you use at work?",
+          "Would you learn another language?"
+        ],
+        "why": "An unmet strict language requirement can fail a hard constraint; an unstated requirement stays unknown."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "travel",
+      "trusted_question": {
+        "ask": "How much work travel, including overnight stays, can you accept?",
+        "follow_up": [
+          "Does the frequency or length of trips change your answer?"
+        ],
+        "why": "Travel duties can conflict with a limit even when the workplace is nearby."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "security_clearance",
+      "trusted_question": {
+        "ask": "Are there security-clearance requirements you cannot or do not want to meet?",
+        "follow_up": [
+          "You do not need to give sensitive reasons or identifiers."
+        ],
+        "why": "The judge must not assume eligibility for a stated clearance requirement."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "contract_type",
+      "trusted_question": {
+        "ask": "Which contract types and durations can you accept?",
+        "follow_up": [
+          "Would you accept a time-limited contract for the right work?"
+        ],
+        "why": "A temporary or other contract may not meet the person's stated needs."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "working_hours",
+      "trusted_question": {
+        "ask": "What working hours, shifts and amount of work can you accept?",
+        "follow_up": [
+          "Do evenings, nights or weekends change your answer?"
+        ],
+        "why": "The judge needs explicit limits on hours rather than assumptions about availability."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "notice_period",
+      "trusted_question": {
+        "ask": "What notice period or earliest start date should the judge know about?",
+        "follow_up": [
+          "Is there any flexibility?"
+        ],
+        "why": "A stated start date can create uncertainty about availability."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "yes_examples",
+      "trusted_question": {
+        "ask": "Name one or two jobs or employers you would say yes to today, and explain why.",
+        "follow_up": [
+          "Which features would matter if the employer name were different?"
+        ],
+        "why": "Examples show which combinations of features make a strong personal match."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  },
+  {
+    "limits": {
+      "timeout_seconds": 60.0
+    },
+    "prompt": {
+      "current_question_id": "no_examples",
+      "trusted_question": {
+        "ask": "Name a job or employer you would say no to today, and explain why.",
+        "follow_up": [
+          "Was the problem a strict limit or a preference?"
+        ],
+        "why": "A negative example helps separate a poor match from an uncertain one."
+      },
+      "untrusted_context": {
+        "existing_text": null,
+        "user_answers": {
+          "interview_acceptable_roles": "I can also consider an invented analytics engineer role.",
+          "interview_avoid_domains": "I prefer not to work on invented gambling products.",
+          "interview_avoid_employers": "I prefer not to join an invented employer with unclear duties.",
+          "interview_avoid_tasks": "I prefer not to spend most of the week on sales calls.",
+          "interview_contract_type": "I prefer a permanent invented employment contract.",
+          "interview_contract_type_strict": "no",
+          "interview_current_role": "I build data tools for an invented public library.",
+          "interview_domains": "I prefer invented libraries and other public information services.",
+          "interview_education": "I hold an invented computer science degree from Fictional College.",
+          "interview_employer_kind": "I prefer a stable invented public or nonprofit employer.",
+          "interview_exceptional_job": "An exceptional job lets me improve useful public data tools.",
+          "interview_experience_years": "I have seven invented years of data engineering experience.",
+          "interview_language": "I can work in invented Norwegian and English environments.",
+          "interview_language_strict": "no",
+          "interview_leadership_or_specialist": "I prefer specialist work with occasional mentoring.",
+          "interview_minimum_salary": "701000",
+          "interview_next_job": "I want to build useful data tools for an invented community.",
+          "interview_no_examples": "An invented commission-only sales role would not interest me.",
+          "interview_notice_period": "My invented notice period is three months.",
+          "interview_security_clearance": "I have no invented security clearance to declare.",
+          "interview_security_clearance_strict": "no",
+          "interview_seniority": "I prefer an experienced individual contributor role.",
+          "interview_strongest_skills": "I use Python and SQL to build tested data pipelines.",
+          "interview_team": "I want a small supportive team with clear responsibilities.",
+          "interview_tools": "I use invented Python, SQL and Linux systems each week.",
+          "interview_travel": "I prefer occasional planned travel rather than weekly travel.",
+          "interview_travel_strict": "no",
+          "interview_wanted_roles": "I want data engineer or software developer roles.",
+          "interview_ways_of_working": "I prefer code review, automated tests and calm delivery.",
+          "interview_work_location": "1,2",
+          "interview_working_hours": "I prefer ordinary daytime work with predictable hours.",
+          "interview_working_hours_strict": "no",
+          "interview_yes_examples": "An invented library data engineer role would interest me."
+        }
+      }
+    },
+    "reviewer": {
+      "batch_size": 5,
+      "effort": "medium",
+      "harness": "pi",
+      "model": "fixed",
+      "provider": "synthetic",
+      "reviewer_id": "judge"
+    }
+  }
+]

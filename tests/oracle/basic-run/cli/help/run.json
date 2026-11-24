@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "run",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse run [-h] --review REVIEW [--stage] [--title-rules TITLE_RULES]\n                 [--limit LIMIT] [--market-facts] [--allow-changed-repeats]\n\noptions:\n  -h, --help            show this help message and exit\n  --review REVIEW\n  --stage\n  --title-rules TITLE_RULES\n  --limit LIMIT\n  --market-facts        Add counts for your reviewed jobs only, from the\n                        profile NAV feed\n  --allow-changed-repeats\n"
+}

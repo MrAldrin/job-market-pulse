@@ -1,0 +1,481 @@
+# Market taxonomy for deterministic role-family and term counts.
+# Patterns are case-insensitive regular expressions (Python re syntax).
+# Literal strings ('...') avoid escaping. Bump `version` on any rule change;
+# counts from different versions are not comparable unless re-recorded.
+#
+# Classification order (see src/lib/server/market/taxonomy.ts and docs/pipeline/market.md):
+# 0. Excluded titles (excluded_titles below): other. Checked before families.
+# 1. Title families matching the title. Two core data families (data_science,
+#    data_engineering, analytics_bi) matching together mean mixed_data.
+# 2. One title family: that family. Several: text hits decide; ties use the
+#    order below.
+# 3. No specific title family: generic data title (mixed_data), else text
+#    fallback (needs text_min_hits), else other.
+
+version = "2026.10-v5"
+
+# Academic posts (PhD, postdoc, fellowships) are not tech/data job roles here.
+# Title patterns only. Matching ads are family "other"; their terms still count.
+excluded_titles = [
+  '\bph\.?d\b',
+  '\bpostdo(c|k)\w*',
+  '\bstipendiat\w*',
+  '\bresearch\s+fellows?\b',
+  # Sales titles mentioning AI are not tech roles.
+  '\w*selger\w*',
+  '\bsales\b',
+]
+
+[settings]
+enabled = true
+# Text-only fallback needs at least this many matching text patterns.
+text_min_hits = 2
+
+[[families]]
+key = "design"
+label = "Design (UX/UI/graphic)"
+title = [
+  '\w*designer\w*',
+  '\bdesign\w*(?!\s*[-/]?\s*(engineer\w*|ingeniør\w*|system\w*))',
+  '\bgrafisk\w*',
+  '\b(ux|ui)\b(?![\s/-]*(utvikler|developer|engineer|ingeniør|frontend))',
+]
+text = [
+  '\bux\b',
+  '\bui\b',
+  '\bfigma\b',
+  '\bbrukeropplevelse\w*',
+  '\buser (experience|interface|research)\b',
+  '\bgrafisk\w*',
+  '\bdesign system\w*',
+]
+
+[[families]]
+key = "data_science"
+label = "Data science"
+title = [
+  '\bdata\s*scien\w*',
+  '\bdataviter\w*',
+  '\bstatistiker\w*',
+  '\bstatistician\w*',
+]
+text = [
+  '\bdata scien\w*',
+  '\bdataviter\w*',
+  '\bstatistic\w*',
+  '\bregression\b',
+  '\bregresjon\w*',
+  '\bhypothes\w*',
+  '\bexperiment\w*',
+  '\ba/b\b',
+]
+
+[[families]]
+key = "data_engineering"
+label = "Data engineering"
+title = [
+  '\bdata\s*(engineer[a-zæøå0-9_]*|ingeni[a-zæøå0-9_]*|platform[a-zæøå0-9_]*|plattform[a-zæøå0-9_]*|architect[a-zæøå0-9_]*|arkitekt[a-zæøå0-9_]*|warehouse[a-zæøå0-9_]*|pipeline[a-zæøå0-9_]*)',
+  '\bdatavarehus\w*',
+  '\bdatapipeline\w*',
+  '\betl\b',
+  '\belt\b',
+  '\bdbt\b',
+  '\bdatabricks\b',
+  '\bspark\b',
+  '\bairflow\b',
+  '\bkafka\b',
+  '\bdatabase\s*(admin\w*|administrator\w*|utvikler\w*|developer\w*)',
+  '\bdba\b',
+]
+text = [
+  '\bdbt\b',
+  '\bairflow\b',
+  '\bspark\b',
+  '\bdatabricks\b',
+  '\bsnowflake\b',
+  '\betl\b',
+  '\belt\b',
+  '\bdata pipelines?\b',
+  '\bdatavarehus\w*',
+  '\bdata warehouse\w*',
+  '\bkafka\b',
+]
+
+[[families]]
+key = "analytics_bi"
+label = "Analytics / BI"
+title = [
+  '\bdata[\s-]*(analytiker\w*|analyst\w*|analytics?\w*)',
+  '\bbusiness[\s-]*analy\w*',
+  '\bforretnings[\s-]*analytiker\w*',
+  '\bsystem[\s-]*analytiker\w*',
+  '\banalytics\s+engineer\w*',
+  '\bbi\b',
+  '\bpower\s*bi\b',
+  '\btableau\b',
+  '\blooker\b',
+  '\bqlik\w*',
+  '\bbusiness intelligence\b',
+  '\bdashboard\w*',
+  '\brapportering\w*',
+]
+text = [
+  '\bdashboards?\b',
+  '\bpower bi\b',
+  '\btableau\b',
+  '\blooker\b',
+  '\bbusiness intelligence\b',
+  '\bkpi\w*',
+  '\brapportering\w*',
+]
+
+[[families]]
+key = "ai_infrastructure"
+label = "AI infrastructure (LLMs in production)"
+title = [
+  '\bllms?\b',
+  '\bllmops\b',
+  '\bmlops\b',
+  '\bgen[- ]?ai\b',
+  '\bgenerativ\w*\s+ai\b',
+  '\brag\b',
+  '\bagentic\b',
+  # Not sales titles (selger, sales), which often name an AI agent product.
+  '^(?!.*(\w*selger\w*|\bsales\b)).*\bai[- ]?agents?\b',
+  '\bai[- ]?(plattform\w*|platform\w*|infrastruktur\w*|infrastructure\w*|operations?)\b',
+  '\bml[- ]?(plattform\w*|platform\w*|infrastruktur\w*|infrastructure\w*)\b',
+  '\binference\b',
+]
+text = [
+  '\bllms?\b',
+  '\bgenai\b',
+  '\brag\b',
+  '\bvector (database|store)s?\b',
+  '\bprompt\w*',
+  '\bmlops\b',
+  '\bmodel serving\b',
+  '\binference\b',
+  '\bopenai\b',
+]
+
+[[families]]
+key = "ml_ai_engineering"
+label = "ML / AI engineering"
+title = [
+  '\bmachine learning\b',
+  '\bmaskinlæring[a-zæøå0-9_]*',
+  '\bkunstig intelligens\b',
+  '\bdeep learning\b',
+  '\bcomputer vision\b',
+  '\bnlp\b',
+  '\bnatural language processing\b',
+  '\b(ml|ai|ki)\b',
+]
+text = [
+  '\bmachine learning\b',
+  '\bmaskinlæring[a-zæøå0-9_]*',
+  '\bdeep learning\b',
+  '\bneural\w*',
+  '\bpytorch\b',
+  '\btensorflow\b',
+  '\bscikit-learn\b',
+  '\bcomputer vision\b',
+  '\bnlp\b',
+]
+
+[[families]]
+key = "software_development"
+label = "Software development"
+title = [
+  '\w*utvikler\w*',
+  '\w*developer\w*',
+  '\bprogrammer\w*',
+  '\bsoftware\w*',
+  '\bfull[- ]?stack\w*',
+  '\bfront[- ]?end\w*',
+  '\bback[- ]?end\w*',
+  '\bdevops\b',
+  '\bsre\b',
+  '\bsite reliability\w*',
+  '\bcloud engineer\w*',
+  '\bplatform\s*engineer\w*',
+  '\bplattform\w*\s*(engineer\w*|ingeniør\w*|utvikler\w*)',
+  '\bsdet\b',
+]
+text = [
+  '\bpython\b',
+  '\bjava\b',
+  '\btypescript\b',
+  '\bkubernetes\b',
+  '\bdocker\b',
+  '\bmicroservices?\b',
+  '\bapi(er|s)?\b',
+  '\bci/cd\b',
+  '\breact\b',
+]
+
+[[families]]
+key = "mixed_data"
+label = "Mixed data roles"
+# Generic data titles, used only when no specific title family matches.
+# Not data centre, network or teaching words (datasenter, data center, datanett,
+# datateknologi).
+title = [
+  '\b(?!datasent\w*|data[\s-]*cent(er|re)\w*|datanett\w*|datateknologi\w*)data\w*',
+]
+text = []
+
+[[terms]]
+group = "ai"
+label = "AI"
+pattern = '\bai\b|\bki\b|\bartificial intelligence\b|\bkunstig intelligens\b'
+
+[[terms]]
+group = "ai"
+label = "LLM"
+pattern = '\bllms?\b'
+
+[[terms]]
+group = "ai"
+label = "GenAI"
+pattern = '\bgen[- ]?ai\b|\bgenerativ\w*\s+ai\b'
+
+[[terms]]
+group = "ai"
+label = "Machine learning"
+pattern = '\bmachine learning\b|\bmaskinlæring\w*'
+
+[[terms]]
+group = "ai"
+label = "RAG"
+pattern = '\brag\b'
+
+[[terms]]
+group = "ai"
+label = "AI agents"
+pattern = '\bai[- ]?agents?\b|\bagentic\b'
+
+[[terms]]
+group = "ai"
+label = "MLOps"
+pattern = '\bmlops\b'
+
+[[terms]]
+group = "ai"
+label = "Vector database"
+pattern = '\bvector (database|db|store)s?\b|\bpgvector\b'
+
+[[terms]]
+group = "ai"
+label = "OpenAI"
+pattern = '\bopenai\b'
+
+[[terms]]
+group = "ai"
+label = "Prompt"
+pattern = '\bprompts?\b|\bprompting\b'
+
+[[terms]]
+group = "data"
+label = "Data science"
+pattern = '\bdata\s*scien\w*|\bdataviter\w*'
+
+[[terms]]
+group = "data"
+label = "Data engineering"
+pattern = '\bdata\s*engineer\w*|\bdataingeni\w*'
+
+[[terms]]
+group = "data"
+label = "SQL"
+pattern = '\bsql\b'
+
+[[terms]]
+group = "data"
+label = "dbt"
+pattern = '\bdbt\b'
+
+[[terms]]
+group = "data"
+label = "Airflow"
+pattern = '\bairflow\b'
+
+[[terms]]
+group = "data"
+label = "Spark"
+pattern = '\bspark\b|\bpyspark\b'
+
+[[terms]]
+group = "data"
+label = "Databricks"
+pattern = '\bdatabricks\b'
+
+[[terms]]
+group = "data"
+label = "Snowflake"
+pattern = '\bsnowflake\b'
+
+[[terms]]
+group = "data"
+label = "Kafka"
+pattern = '\bkafka\b'
+
+[[terms]]
+group = "data"
+label = "DuckDB"
+pattern = '\bduckdb\b'
+
+[[terms]]
+group = "data"
+label = "Data warehouse"
+pattern = '\bdata ?warehouse\w*|\bdatavarehus\w*'
+
+[[terms]]
+group = "data"
+label = "Data lake"
+pattern = '\bdata ?lakes?\b|\bdatalake\w*'
+
+[[terms]]
+group = "data"
+label = "Semantic layer"
+pattern = '\bsemantic (layer|model)s?\b'
+
+[[terms]]
+group = "data"
+label = "ETL / ELT"
+pattern = '\betl\b|\belt\b'
+
+[[terms]]
+group = "cloud"
+label = "Azure"
+pattern = '\bazure\b'
+
+[[terms]]
+group = "cloud"
+label = "AWS"
+pattern = '\baws\b|\bamazon web services\b'
+
+[[terms]]
+group = "cloud"
+label = "GCP"
+pattern = '\bgcp\b|\bgoogle cloud\b'
+
+[[terms]]
+group = "cloud"
+label = "Kubernetes"
+pattern = '\bkubernetes\b|\bk8s\b'
+
+[[terms]]
+group = "cloud"
+label = "Docker"
+pattern = '\bdocker\b'
+
+[[terms]]
+group = "cloud"
+label = "Terraform"
+pattern = '\bterraform\b'
+
+[[terms]]
+group = "cloud"
+label = "Cloud"
+pattern = '\bcloud\b'
+
+[[terms]]
+group = "tools"
+label = "Power BI"
+pattern = '\bpower\s*bi\b'
+
+[[terms]]
+group = "tools"
+label = "Tableau"
+pattern = '\btableau\b'
+
+[[terms]]
+group = "tools"
+label = "Looker"
+pattern = '\blooker\b'
+
+[[terms]]
+group = "tools"
+label = "Excel"
+pattern = '\bexcel\b'
+
+[[terms]]
+group = "tools"
+label = "Power Platform"
+pattern = '\bpower platform\b'
+
+[[terms]]
+group = "tools"
+label = "Marimo"
+pattern = '\bmarimo\b'
+
+[[terms]]
+group = "tools"
+label = "Jupyter"
+pattern = '\bjupyter\w*'
+
+[[terms]]
+group = "tools"
+label = "Git"
+pattern = '\bgit\b|\bgithub\b|\bgitlab\b'
+
+[[terms]]
+group = "languages"
+label = "Python"
+pattern = '\bpython\b'
+
+[[terms]]
+group = "languages"
+label = "Java"
+pattern = '\bjava\b'
+
+[[terms]]
+group = "languages"
+label = "JavaScript"
+pattern = '\bjavascript\b'
+
+[[terms]]
+group = "languages"
+label = "TypeScript"
+pattern = '\btypescript\b'
+
+[[terms]]
+group = "languages"
+label = "Scala"
+pattern = '\bscala\b'
+
+[[terms]]
+group = "languages"
+label = "C#"
+pattern = '(?<!\w)c#(?!\w)'
+
+[[terms]]
+group = "languages"
+label = "Rust"
+pattern = '\brust\b'
+
+[[terms]]
+group = "design"
+label = "Figma"
+pattern = '\bfigma\b'
+
+[[terms]]
+group = "design"
+label = "UX"
+pattern = '\bux\b'
+
+[[terms]]
+group = "design"
+label = "UI"
+pattern = '\bui\b'
+
+[[terms]]
+group = "design"
+label = "User research"
+pattern = '\buser research\b|\bbrukerforsk\w*|\bbrukerinnsikt\w*'
+
+[[terms]]
+group = "design"
+label = "Design system"
+pattern = '\bdesign system\w*'

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Job Market Pulse">
+  <rect width="512" height="512" rx="112" fill="#F4EFE6"/>
+  <path d="M199 137V108Q199 91 216 91H296Q313 91 313 108V137" fill="none" stroke="#2B3A55" stroke-width="18"/>
+  <rect x="51" y="137" width="410" height="284" rx="34" fill="#2B3A55"/>
+  <g fill="none" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M154 216V319Q154 359 120 359Q97 359 91 336" stroke="#FFFFFF"/>
+    <path d="M182 359L205 216L256 316L307 216L330 359" stroke="#FF7A59"/>
+    <path d="M361 359V216H381Q427 216 427 262Q427 307 381 307H361" stroke="#FFFFFF"/>
+  </g>
+</svg>

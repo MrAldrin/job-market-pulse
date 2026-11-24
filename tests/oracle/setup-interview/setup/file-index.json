@@ -1,0 +1,38 @@
+{
+  "local_only/init-answers.toml": {
+    "artifact": "setup/files/init-answers.toml",
+    "mode": "0o600",
+    "sha256": "240aa149b41ff09aa75e290634c7c32a50538795f70099c908c9d8cf998b526d",
+    "size_bytes": 4277
+  },
+  "local_only/models.toml": {
+    "artifact": "setup/files/models.toml",
+    "mode": "0o600",
+    "sha256": "32dd6e92e1d2b68f20142499446a7ecfeba2d5f260ab80a94379865abe14c73a",
+    "size_bytes": 404
+  },
+  "local_only/profiles/invented/preferences.toml": {
+    "artifact": "setup/files/profiles/invented/preferences.toml",
+    "mode": "0o600",
+    "sha256": "b66c0465c46ffa8562e000e822dfdce7564591c6b40405df23a670958174a089",
+    "size_bytes": 377
+  },
+  "local_only/profiles/invented/profile.md": {
+    "artifact": "setup/files/profiles/invented/profile.md",
+    "mode": "0o600",
+    "sha256": "e934619c8fa9d2ebee9fc61b624b49fee0c8baedced22c6bbbe4df09595e8e4e",
+    "size_bytes": 4513
+  },
+  "local_only/profiles/invented/profile.toml": {
+    "artifact": "setup/files/profiles/invented/profile.toml",
+    "mode": "0o600",
+    "sha256": "f2036615dfdf39c71632e31da2d82cfbd2aea8988d0d30062f7bd26c0a7f164f",
+    "size_bytes": 305
+  },
+  "local_only/pulse.toml": {
+    "artifact": "setup/files/pulse.toml",
+    "mode": "0o600",
+    "sha256": "cd3a0e3a4ea6150b0bf8d00c9c8fd7e6d27efe3564b9aacdb4982d78b56662bb",
+    "size_bytes": 21
+  }
+}

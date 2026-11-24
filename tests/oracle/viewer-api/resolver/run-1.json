@@ -1,0 +1,198 @@
+{
+  "calls": [
+    {
+      "addresses": [
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+1&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+2&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+3&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+4&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+5&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+      ],
+      "coordinate_verification": {
+        "not_reported": 0,
+        "provider_false": 0,
+        "provider_true": 5
+      },
+      "details": [
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000001"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000002"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000003"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000004"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000005"
+        }
+      ],
+      "rejections": {
+        "address_mismatch": 0,
+        "invalid_coordinates": 0,
+        "invalid_input": 0,
+        "invalid_verification_flag": 0,
+        "no_unique_match": 0,
+        "postcode_mismatch": 0,
+        "unsupported_coordinate_system": 0
+      }
+    },
+    {
+      "addresses": [
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+8&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+9&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+11&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+12&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+13&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+      ],
+      "coordinate_verification": {
+        "not_reported": 0,
+        "provider_false": 0,
+        "provider_true": 5
+      },
+      "details": [
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000008"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000009"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-00000000000b"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-00000000000c"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-00000000000d"
+        }
+      ],
+      "rejections": {
+        "address_mismatch": 0,
+        "invalid_coordinates": 0,
+        "invalid_input": 0,
+        "invalid_verification_flag": 0,
+        "no_unique_match": 0,
+        "postcode_mismatch": 0,
+        "unsupported_coordinate_system": 0
+      }
+    },
+    {
+      "addresses": [
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+15&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+17&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+18&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+19&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2",
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+20&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+      ],
+      "coordinate_verification": {
+        "not_reported": 0,
+        "provider_false": 0,
+        "provider_true": 4
+      },
+      "details": [
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-00000000000f"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000011"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000012"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000013"
+        },
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000014"
+        }
+      ],
+      "rejections": {
+        "address_mismatch": 0,
+        "invalid_coordinates": 0,
+        "invalid_input": 0,
+        "invalid_verification_flag": 0,
+        "no_unique_match": 1,
+        "postcode_mismatch": 0,
+        "unsupported_coordinate_system": 0
+      }
+    },
+    {
+      "addresses": [
+        "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+20&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+      ],
+      "coordinate_verification": {
+        "not_reported": 0,
+        "provider_false": 0,
+        "provider_true": 0
+      },
+      "details": [
+        {
+          "kind": "detail",
+          "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000014"
+        }
+      ],
+      "rejections": {
+        "address_mismatch": 0,
+        "invalid_coordinates": 0,
+        "invalid_input": 1,
+        "invalid_verification_flag": 0,
+        "no_unique_match": 1,
+        "postcode_mismatch": 0,
+        "unsupported_coordinate_system": 0
+      }
+    }
+  ],
+  "results": [
+    {
+      "attempted": 5,
+      "last_uuid": "00000000-0000-0000-0000-000000000005",
+      "resolved": 5,
+      "unknown": 0,
+      "unsupported_detail": 0,
+      "version_mismatch": 0
+    },
+    {
+      "attempted": 5,
+      "last_uuid": "00000000-0000-0000-0000-00000000000d",
+      "resolved": 5,
+      "unknown": 0,
+      "unsupported_detail": 0,
+      "version_mismatch": 0
+    },
+    {
+      "attempted": 5,
+      "last_uuid": "00000000-0000-0000-0000-000000000014",
+      "resolved": 4,
+      "unknown": 1,
+      "unsupported_detail": 0,
+      "version_mismatch": 0
+    },
+    {
+      "attempted": 1,
+      "last_uuid": "00000000-0000-0000-0000-000000000014",
+      "resolved": 0,
+      "unknown": 1,
+      "unsupported_detail": 0,
+      "version_mismatch": 0
+    }
+  ]
+}

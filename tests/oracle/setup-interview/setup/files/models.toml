@@ -1,0 +1,4 @@
+"screen" = { "harness" = "pi", "model" = "synthetic/fixed", "effort" = "medium", "batch_size" = 20 }
+"judge" = { "harness" = "pi", "model" = "synthetic/fixed", "effort" = "medium", "batch_size" = 5 }
+"rejudge" = { "harness" = "pi", "model" = "synthetic/fixed", "effort" = "medium", "batch_size" = 5 }
+"calibrate" = { "harness" = "pi", "model" = "synthetic/fixed", "effort" = "medium", "batch_size" = 1 }

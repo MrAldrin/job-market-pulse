@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "reviewers",
+    "list"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "Configured model steps:\nscreen: pi, openai, synthetic-pi-model, effort medium, batch size 20\njudge: pi, openai, synthetic-pi-model, effort medium, batch size 5\nrejudge: pi, openai, synthetic-pi-model, effort medium, batch size 5\ncalibrate: pi, openai, synthetic-pi-model, effort medium, batch size 1\nPATH detection does not check login, credentials or model access.\n"
+}

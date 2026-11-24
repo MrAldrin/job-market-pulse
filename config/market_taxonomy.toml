@@ -1,0 +1,4 @@
+# Fresh installations do not classify or record Market counts.
+# An explicit local_only/config/market_taxonomy.toml can enable Market.
+[settings]
+enabled = false

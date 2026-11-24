@@ -1,0 +1,1 @@
+"# Explicit neutral alternative for people whose interests include academic,\n# sales or business-development roles. Use with pulse --title-rules; never\n# silently replace the owner's existing exclusions.\nversion = \"neutral-v1\"\nacademic = []\nbusiness_development = []\nsales = []\ntech_words = []\n"

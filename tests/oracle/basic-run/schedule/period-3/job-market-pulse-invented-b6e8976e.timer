@@ -1,0 +1,11 @@
+[Unit]
+Description=Job Market Pulse schedule
+
+[Timer]
+Unit=job-market-pulse-invented-b6e8976e.service
+OnCalendar=*-*-15 10:00:00 Europe/Oslo
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

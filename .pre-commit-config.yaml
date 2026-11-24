@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: pulse-private-values
+        name: Check tracked files for private values
+        entry: bun scripts/check-private-values.ts --require-list
+        language: system
+        pass_filenames: false
+        always_run: true

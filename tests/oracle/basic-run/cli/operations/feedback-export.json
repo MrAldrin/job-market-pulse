@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "feedback",
+    "export"
+  ],
+  "exit_status": 0,
+  "stderr": "Feedback: star=0, reaction=0, rating=0, legacy_verdict=0\n",
+  "stdout": "{\n  \"schema\": \"pulse.feedback_events\",\n  \"schema_version\": 1,\n  \"profile_id\": \"invented\",\n  \"events\": []\n}\n"
+}

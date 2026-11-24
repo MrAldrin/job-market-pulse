@@ -1,0 +1,132 @@
+[
+  {
+    "question_id": "current_role",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "experience_years",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "education",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "strongest_skills",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "tools",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "next_job",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "wanted_roles",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "acceptable_roles",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "seniority",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "leadership_or_specialist",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "domains",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "employer_kind",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "team",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "ways_of_working",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "exceptional_job",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "avoid_tasks",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "avoid_domains",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "avoid_employers",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "language",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "travel",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "security_clearance",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "contract_type",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "working_hours",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "notice_period",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "yes_examples",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  },
+  {
+    "question_id": "no_examples",
+    "reflection": "An invented model reflection must not become a user fact.",
+    "follow_up": null
+  }
+]

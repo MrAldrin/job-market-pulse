@@ -1,0 +1,4 @@
+screen = { harness = "pi", model = "openai/synthetic-pi-model", effort = "medium", batch_size = 20 }
+judge = { harness = "pi", model = "openai/synthetic-pi-model", effort = "medium", batch_size = 5 }
+rejudge = { harness = "pi", model = "openai/synthetic-pi-model", effort = "medium", batch_size = 5 }
+calibrate = { harness = "pi", model = "openai/synthetic-pi-model", effort = "medium", batch_size = 1 }

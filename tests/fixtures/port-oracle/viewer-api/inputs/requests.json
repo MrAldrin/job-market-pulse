@@ -1,0 +1,16 @@
+[
+  {"name":"unauthorized","method":"GET","path":"/app/snapshot.json","auth":false,"status":303},
+  {"name":"bad-host","method":"GET","path":"/app/snapshot.json","auth":false,"host":"wrong.synthetic.test","status":403},
+  {"name":"login","method":"POST","path":"/login","auth":false,"body":"username=invented&password=synthetic-password-0123456789&next=%2F","content_type":"application/x-www-form-urlencoded","status":303},
+  {"name":"snapshot","method":"GET","path":"/app/snapshot.json","auth":true,"status":200},
+  {"name":"feedback-before","method":"GET","path":"/shortlist-feedback","auth":true,"status":200},
+  {"name":"csrf-denied","method":"POST","path":"/shortlist-feedback","auth":true,"body":{"listing_id":"00000000-0000-0000-0000-000000000001","field":"starred","value":true},"status":403},
+  {"name":"star","method":"POST","path":"/shortlist-feedback","auth":true,"csrf":true,"body":{"listing_id":"00000000-0000-0000-0000-000000000001","field":"starred","value":true},"status":200},
+  {"name":"reaction","method":"POST","path":"/shortlist-feedback","auth":true,"csrf":true,"body":{"listing_id":"00000000-0000-0000-0000-000000000001","field":"reaction","value":"up"},"status":200},
+  {"name":"feedback-events-export","method":"GET","path":"/api/v1/feedback-events","auth":false,"bearer":true,"status":200},
+  {"name":"reaction-clear","method":"POST","path":"/shortlist-feedback","auth":true,"csrf":true,"body":{"listing_id":"00000000-0000-0000-0000-000000000001","field":"reaction","value":null},"status":200},
+  {"name":"starred-no-bearer","method":"GET","path":"/api/v1/starred-jobs","auth":true,"status":401},
+  {"name":"starred-export","method":"GET","path":"/api/v1/starred-jobs","auth":false,"bearer":true,"status":200},
+  {"name":"feedback-after","method":"GET","path":"/shortlist-feedback","auth":true,"status":200},
+  {"name":"unstar","method":"POST","path":"/shortlist-feedback","auth":true,"csrf":true,"body":{"listing_id":"00000000-0000-0000-0000-000000000001","field":"starred","value":false},"status":200}
+]

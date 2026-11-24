@@ -1,0 +1,147 @@
+{
+  "foreign_key_check": [],
+  "integrity_check": [
+    [
+      "ok"
+    ]
+  ],
+  "present": true,
+  "schema_objects": [
+    [
+      "index",
+      "sqlite_autoindex_digest_items_1",
+      "digest_items",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_digests_1",
+      "digests",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_metadata_1",
+      "metadata",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_notified_versions_1",
+      "notified_versions",
+      null
+    ],
+    [
+      "table",
+      "digest_items",
+      "digest_items",
+      "CREATE TABLE digest_items (\n                profile_id TEXT NOT NULL,\n                digest_key TEXT NOT NULL,\n                item_id TEXT NOT NULL,\n                item_version TEXT NOT NULL,\n                PRIMARY KEY (profile_id, digest_key, item_id),\n                FOREIGN KEY (profile_id, digest_key)\n                    REFERENCES digests (profile_id, digest_key)\n                    ON DELETE CASCADE\n            )"
+    ],
+    [
+      "table",
+      "digests",
+      "digests",
+      "CREATE TABLE digests (\n                profile_id TEXT NOT NULL,\n                digest_key TEXT NOT NULL,\n                payload_hash TEXT NOT NULL,\n                has_html INTEGER NOT NULL CHECK (has_html IN (0, 1)),\n                status TEXT NOT NULL CHECK (\n                    status IN ('staged', 'delivered', 'failed', 'uncertain')\n                ),\n                created_at TEXT NOT NULL,\n                updated_at TEXT NOT NULL,\n                PRIMARY KEY (profile_id, digest_key)\n            )"
+    ],
+    [
+      "table",
+      "metadata",
+      "metadata",
+      "CREATE TABLE metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL)"
+    ],
+    [
+      "table",
+      "notified_versions",
+      "notified_versions",
+      "CREATE TABLE notified_versions (\n                profile_id TEXT NOT NULL,\n                item_id TEXT NOT NULL,\n                item_version TEXT NOT NULL,\n                digest_key TEXT NOT NULL,\n                delivered_at TEXT NOT NULL,\n                PRIMARY KEY (profile_id, item_id, item_version)\n            )"
+    ]
+  ],
+  "tables": {
+    "digest_items": {
+      "columns": [
+        "profile_id",
+        "digest_key",
+        "item_id",
+        "item_version"
+      ],
+      "primary_key": [
+        "profile_id",
+        "digest_key",
+        "item_id"
+      ],
+      "rows": [
+        [
+          "invented",
+          "invented-discord",
+          "00000000-0000-0000-0000-000000000001",
+          "2026-10-19T10:00:00+00:00"
+        ]
+      ],
+      "sql": "CREATE TABLE digest_items (\n                profile_id TEXT NOT NULL,\n                digest_key TEXT NOT NULL,\n                item_id TEXT NOT NULL,\n                item_version TEXT NOT NULL,\n                PRIMARY KEY (profile_id, digest_key, item_id),\n                FOREIGN KEY (profile_id, digest_key)\n                    REFERENCES digests (profile_id, digest_key)\n                    ON DELETE CASCADE\n            )"
+    },
+    "digests": {
+      "columns": [
+        "profile_id",
+        "digest_key",
+        "payload_hash",
+        "has_html",
+        "status",
+        "created_at",
+        "updated_at"
+      ],
+      "primary_key": [
+        "profile_id",
+        "digest_key"
+      ],
+      "rows": [
+        [
+          "invented",
+          "invented-discord",
+          "f2154bdf0f976d68cbbb8750a223e1991cf7f5b5f98f98c1c3267b9f3da4119f",
+          1,
+          "uncertain",
+          "2026-10-19T12:00:00.000000+00:00",
+          "2026-10-19T12:00:00.000000+00:00"
+        ]
+      ],
+      "sql": "CREATE TABLE digests (\n                profile_id TEXT NOT NULL,\n                digest_key TEXT NOT NULL,\n                payload_hash TEXT NOT NULL,\n                has_html INTEGER NOT NULL CHECK (has_html IN (0, 1)),\n                status TEXT NOT NULL CHECK (\n                    status IN ('staged', 'delivered', 'failed', 'uncertain')\n                ),\n                created_at TEXT NOT NULL,\n                updated_at TEXT NOT NULL,\n                PRIMARY KEY (profile_id, digest_key)\n            )"
+    },
+    "metadata": {
+      "columns": [
+        "key",
+        "value"
+      ],
+      "primary_key": [
+        "key"
+      ],
+      "rows": [
+        [
+          "profile_id",
+          "invented"
+        ],
+        [
+          "schema_version",
+          "2"
+        ]
+      ],
+      "sql": "CREATE TABLE metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL)"
+    },
+    "notified_versions": {
+      "columns": [
+        "profile_id",
+        "item_id",
+        "item_version",
+        "digest_key",
+        "delivered_at"
+      ],
+      "primary_key": [
+        "profile_id",
+        "item_id",
+        "item_version"
+      ],
+      "rows": [],
+      "sql": "CREATE TABLE notified_versions (\n                profile_id TEXT NOT NULL,\n                item_id TEXT NOT NULL,\n                item_version TEXT NOT NULL,\n                digest_key TEXT NOT NULL,\n                delivered_at TEXT NOT NULL,\n                PRIMARY KEY (profile_id, item_id, item_version)\n            )"
+    }
+  },
+  "user_version": 0
+}

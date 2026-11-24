@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "demo"
+  ],
+  "exit_status": 1,
+  "stderr": "The dashboard is not built. Run: pulse dashboard-build\n",
+  "stdout": ""
+}

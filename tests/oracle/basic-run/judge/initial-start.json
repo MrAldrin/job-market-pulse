@@ -1,0 +1,12 @@
+{
+  "candidate_count": 13,
+  "completed_count": 0,
+  "eligible_count": 13,
+  "local_eligible_count": 13,
+  "model_calls": 0,
+  "run_id": "00000000-0000-0000-0000-000000002712",
+  "screened_out_count": 0,
+  "source": null,
+  "status": "running",
+  "type": "ready"
+}

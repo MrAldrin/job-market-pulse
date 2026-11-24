@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "init",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse init [-h] [--resume] [--answers ANSWERS] [--non-interactive]\n                  [--advanced] [--dry-run] [--step STEP] [--root ROOT]\n\noptions:\n  -h, --help         show this help message and exit\n  --resume           Resume matching incomplete private setup answers\n  --answers ANSWERS  Explicit answers in TOML; no prompts for these keys\n  --non-interactive\n  --advanced\n  --dry-run          Show the plan; write nothing, including saved answers\n  --step STEP        Repeat one registered step using the saved profile\n                     answers\n  --root ROOT\n"
+}

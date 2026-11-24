@@ -1,0 +1,193 @@
+# Observed labels, not a complete NAV taxonomy. No listing counts or identifiers.
+source = "NAV occupationCategories labels observed in the feed"
+retrieved = "2026-11-12"
+
+[[level1]]
+name = "Bygg og anlegg"
+plain = "Construction and civil engineering"
+level2 = [
+  "Andre ingeniører",
+  "Arbeidsleder, bygg og anlegg",
+  "Arealplanlegging og arkitektur",
+  "Hjelpearbeider Bygg og anlegg",
+  "Ingeniør bygg",
+  "Ingeniør miljøteknikk",
+  "Maskin- og kranfører",
+  "Skytebaser og sprengningsarbeidere",
+]
+
+[[level1]]
+name = "Helse og sosial"
+plain = "Health care and social services"
+level2 = [
+  "Andre helseyrker",
+  "Audiografer og logopeder",
+  "Bioingeniør",
+  "Ergoterapeut",
+  "Ernæringsfysiolog",
+  "Farmasøytisk og apotekerarbeid",
+  "Fysioterapeut",
+  "Helse- og miljørådgivere",
+  "Helsefagarbeider",
+  "Helsesekretær",
+  "Hjemmehjelper og personlig assistent",
+  "Leder innenfor helsetjenester",
+  "Lege",
+  "Miljøarbeidere",
+  "Optiker",
+  "Psykolog",
+  "Radiograf og audiograf",
+  "Rådgivere innen sosiale fagfelt",
+  "Sykepleier",
+  "Tannhelse/-pleie",
+  "Vernepleier",
+]
+
+[[level1]]
+name = "Håndverkere"
+plain = "Skilled trades and maintenance"
+level2 = [
+  "Betongfagarbeider",
+  "Elektriker/elektro",
+  "Maler",
+  "Mekaniker",
+  "Murer",
+  "Platearbeider og sveiser",
+  "Rørlegger",
+  "Skredder",
+  "Tømrer og snekker",
+  "Vaktmester",
+  "Øvrige håndverksyrker",
+]
+
+[[level1]]
+name = "IT"
+plain = "IT and software"
+level2 = [
+  "Drift, vedlikehold",
+  "Interaksjonsdesign",
+  "Ledere av IKT-enheter",
+  "Utvikling",
+]
+
+[[level1]]
+name = "Industri og produksjon"
+plain = "Industry and manufacturing"
+level2 = [
+  "Arbeidsleder, industri",
+  "Elektro/elektronikk",
+  "Fysikk, kjemi og metallurgi",
+  "Maskinteknikk og mekanikk",
+  "Matproduksjon og næringsmiddelarbeid",
+  "Olje, gass og bergverk",
+  "Tekstil og presisjonsarbeid",
+  "Trevarearbeid og –foredling",
+]
+
+[[level1]]
+name = "Kontor og økonomi"
+plain = "Office work, administration, finance and law"
+level2 = [
+  "Bank finans forsikring",
+  "Juridisk arbeid",
+  "Kontor, forvaltning og saksbehandling",
+  "Ledelse, administrasjon og rådgivning",
+  "Megling",
+  "Organisasjonsarbeid og politikk",
+  "Personal, arbeidsmiljø og rekruttering",
+  "Økonomi, statistikk og regnskap",
+]
+
+[[level1]]
+name = "Kultur og kreative yrker"
+plain = "Culture, media and creative work"
+level2 = [
+  "Andre yrker innen estetiske fag",
+  "Design, grafisk arbeid og illustrasjon",
+  "Fritid",
+  "Journalistikk, kommunikasjon og litteratur",
+  "Museum, bibliotek, arkiv",
+  "Musikk/lyd, foto og video",
+  "Reklame og dekorasjon",
+  "Religiøst arbeid",
+  "Sport og idrett",
+  "Underholdning, scene og teater",
+]
+
+[[level1]]
+name = "Natur og miljø"
+plain = "Nature, agriculture, animals and the environment"
+level2 = [
+  "Biologer, zoologer, botanikere",
+  "Jordbruk og dyrehold",
+  "Miljøvern",
+  "Naturvitenskapelige yrker",
+  "Skogbruk, gartnerarbeid og hagebruk",
+  "Veterinærer og dyrepleiere",
+]
+
+[[level1]]
+name = "Reiseliv og mat"
+plain = "Tourism, hotels and food services"
+level2 = [
+  "Baker og konditor",
+  "Kokk",
+  "Reiseliv, hotell og overnatting",
+  "Restaurant",
+]
+
+[[level1]]
+name = "Salg og service"
+plain = "Sales and services"
+level2 = [
+  "Eiendomsmegler",
+  "Frisør og velvære",
+  "Markedsføring og reklame",
+  "Personlig tjenesteyting",
+  "Renholdere og renovasjon",
+  "Salg, butikk- og varehandel",
+  "Tolk og oversettere",
+]
+
+[[level1]]
+name = "Sikkerhet og beredskap"
+plain = "Security and emergency services"
+level2 = [
+  "Brann-, utryknings- og redningspersonell",
+  "Politi, fengsel og toll",
+  "Vakt-, sikrings- og kontrollarbeid",
+]
+
+[[level1]]
+name = "Transport og lager"
+plain = "Transport, logistics and warehouse work"
+level2 = [
+  "Logistikk, lagerarbeid og innkjøp",
+  "Lufttrafikk",
+  "Sjøfart",
+  "Speditør og befrakter",
+  "Tog-, sporvogn- og vegtrafikk",
+  "Truckfører",
+]
+
+[[level1]]
+name = "Uoppgitt/ ikke identifiserbare"
+plain = "Occupation not specified or identified"
+level2 = [
+  "Ikke identifiserbare",
+]
+
+[[level1]]
+name = "Utdanning"
+plain = "Education and research"
+level2 = [
+  "Barnehage- og skolefritidsassistenter",
+  "Barnehagelærer",
+  "Forskningsarbeid",
+  "Grunnskole",
+  "Instruktører og pedagoger",
+  "Ledere av omsorgstjenetser for barn",
+  "Ledere av undervisning og utdanning",
+  "Universitet og høyskole",
+  "Videregående skole",
+]

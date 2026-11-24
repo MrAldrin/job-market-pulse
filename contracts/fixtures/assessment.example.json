@@ -1,0 +1,36 @@
+{
+  "schema": "pulse.assessment",
+  "schema_version": 1,
+  "assessments": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "version": "2026-01-02T07:00:00+00:00",
+      "fit": "exceptional",
+      "reason": "The synthetic role matches the demo profile and its stated hard limits.",
+      "evidence": ["Build small data tools with Python and SQL."],
+      "uncertainties": [],
+      "hard_constraints": "pass",
+      "ad_text_reviewed": true
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "version": "2026-01-03T07:00:00+00:00",
+      "fit": "possible",
+      "reason": "The synthetic tasks overlap with the demo interests, but the work pattern is unclear.",
+      "evidence": ["Maintain reports and work with the service team."],
+      "uncertainties": ["The synthetic ad does not state the work pattern."],
+      "hard_constraints": "unknown",
+      "ad_text_reviewed": true
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000003",
+      "version": "2026-01-04T07:00:00+00:00",
+      "fit": "unknown",
+      "reason": "The synthetic source has no full ad text, so personal fit is unknown.",
+      "evidence": [],
+      "uncertainties": ["Full ad text is unavailable."],
+      "hard_constraints": "unknown",
+      "ad_text_reviewed": false
+    }
+  ]
+}

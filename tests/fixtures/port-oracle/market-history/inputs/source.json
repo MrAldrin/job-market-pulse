@@ -1,0 +1,988 @@
+{
+  "runs": [
+    [
+      {
+        "body": {
+          "id": "22222222-2222-4222-8222-222222222222",
+          "items": [
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Software developer",
+                "uuid": "00000000-0000-0000-0000-000000000001"
+              },
+              "id": "event-1-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000001"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Software developer",
+                "uuid": "00000000-0000-0000-0000-000000000002"
+              },
+              "id": "event-2-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000002"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Software developer",
+                "uuid": "00000000-0000-0000-0000-000000000003"
+              },
+              "id": "event-3-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000003"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Software developer",
+                "uuid": "00000000-0000-0000-0000-000000000004"
+              },
+              "id": "event-4-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000004"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Database engineer",
+                "uuid": "00000000-0000-0000-0000-000000000005"
+              },
+              "id": "event-5-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000005"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Woodworker",
+                "uuid": "00000000-0000-0000-0000-000000000006"
+              },
+              "id": "event-6-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000006"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Developer recruiter",
+                "uuid": "00000000-0000-0000-0000-000000000007"
+              },
+              "id": "event-7-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000007"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Utvikler blåbær",
+                "uuid": "00000000-0000-0000-0000-000000000008"
+              },
+              "id": "event-8-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000008"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Developer",
+                "uuid": "00000000-0000-0000-0000-000000000009"
+              },
+              "id": "event-9-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000009"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Developer",
+                "uuid": "00000000-0000-0000-0000-00000000000a"
+              },
+              "id": "event-10-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000a"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Operations coordinator",
+                "uuid": "00000000-0000-0000-0000-00000000000b"
+              },
+              "id": "event-11-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000b"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Developer",
+                "uuid": "00000000-0000-0000-0000-00000000000c"
+              },
+              "id": "event-12-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000c"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Research fellow",
+                "uuid": "00000000-0000-0000-0000-00000000000d"
+              },
+              "id": "event-13-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000d"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Data analyst",
+                "uuid": "00000000-0000-0000-0000-00000000000e"
+              },
+              "id": "event-14-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000e"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Developer",
+                "uuid": "00000000-0000-0000-0000-00000000000f"
+              },
+              "id": "event-15-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000f"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Developer",
+                "uuid": "00000000-0000-0000-0000-000000000010"
+              },
+              "id": "event-16-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000010"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Developer",
+                "uuid": "00000000-0000-0000-0000-000000000011"
+              },
+              "id": "event-17-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000011"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Developer",
+                "uuid": "00000000-0000-0000-0000-000000000012"
+              },
+              "id": "event-18-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000012"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Developer",
+                "uuid": "00000000-0000-0000-0000-000000000013"
+              },
+              "id": "event-19-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000013"
+            },
+            {
+              "_feed_entry": {
+                "businessName": "Invented Works",
+                "municipal": "INVENTED",
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "title": "Developer",
+                "uuid": "00000000-0000-0000-0000-000000000014"
+              },
+              "id": "event-20-2026-10-18T12:00:00+00:00-ACTIVE",
+              "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000014"
+            }
+          ],
+          "next_url": null
+        },
+        "kind": "page",
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feed?last"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "An invented data role. Lønn kr 701 000 – 803 000 per år.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Software developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000001",
+            "workLocations": [
+              {
+                "address": "Invented Road 1",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000001"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000001"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "An invented engineering role. Lønn kr 900 000 per år.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Software developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000002",
+            "workLocations": [
+              {
+                "address": "Invented Road 2",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000002"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000002"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "applicationDue": "fortløpende",
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Software developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000003",
+            "workLocations": [
+              {
+                "address": "Invented Road 3",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000003"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000003"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "applicationDue": "2026-10-27T12:00:00+00:00",
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Software developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000004",
+            "workLocations": [
+              {
+                "address": "Invented Road 4",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000004"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000004"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Database engineer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000005",
+            "workLocations": [
+              {
+                "address": "Invented Road 5",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000005"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000005"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "Bygg og anlegg"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Woodworker",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000006",
+            "workLocations": [
+              {
+                "address": "Invented Road 6",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000006"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000006"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Developer recruiter",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000007",
+            "workLocations": [
+              {
+                "address": "Invented Road 7",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000007"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000007"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Utvikler blåbær",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000008",
+            "workLocations": [
+              {
+                "address": "Invented Road 8",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000008"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000008"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000009",
+            "workLocations": [
+              {
+                "address": "Invented Road 9",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000009"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000009"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "source": "SYNTHETIC",
+            "title": "Developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-00000000000a",
+            "workLocations": [
+              {
+                "address": "Invented Road 10",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-00000000000a"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000a"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Operations coordinator",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-00000000000b",
+            "workLocations": [
+              {
+                "address": "Invented Road 11",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-00000000000b"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000b"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-00000000000c",
+            "workLocations": [
+              {
+                "address": "Invented Road 12",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-00000000000c"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000c"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Research fellow",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-00000000000d",
+            "workLocations": [
+              {
+                "address": "Invented Road 13",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-00000000000d"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000d"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "Bygg og anlegg"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Data analyst",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-00000000000e",
+            "workLocations": [
+              {
+                "address": "Invented Road 14",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-00000000000e"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000e"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-00000000000f",
+            "workLocations": [
+              {
+                "address": "Invented Road 15",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-00000000000f"
+        },
+        "kind": "detail",
+        "point": [
+          62.0,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-00000000000f"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "source": "SYNTHETIC",
+            "title": "Developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000010",
+            "workLocations": [
+              {
+                "address": "Invented Road 16",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000010"
+        },
+        "kind": "detail",
+        "point": null,
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000010"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000011",
+            "workLocations": [
+              {
+                "address": "Invented Road 17",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000011"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000011"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000012",
+            "workLocations": [
+              {
+                "address": "Invented Road 18",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000012"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000012"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000013",
+            "workLocations": [
+              {
+                "address": "Invented Road 19",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000013"
+        },
+        "kind": "detail",
+        "point": [
+          60.01,
+          10.0
+        ],
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000013"
+      },
+      {
+        "body": {
+          "ad_content": {
+            "description": "Synthetic SQL software work.",
+            "employer": {
+              "name": "Invented Works"
+            },
+            "expires": "2099-01-01T00:00:00Z",
+            "occupationCategories": [
+              {
+                "level1": "IT"
+              }
+            ],
+            "source": "SYNTHETIC",
+            "title": "Developer",
+            "updated": "2026-10-19T10:00:00+00:00",
+            "uuid": "00000000-0000-0000-0000-000000000014",
+            "workLocations": [
+              {
+                "address": "Invented Road 20",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              },
+              {
+                "address": "",
+                "country": "NORGE",
+                "municipal": "INVENTED",
+                "postalCode": "1234"
+              }
+            ]
+          },
+          "sistEndret": "2026-10-19T10:00:00+00:00",
+          "status": "ACTIVE",
+          "uuid": "00000000-0000-0000-0000-000000000014"
+        },
+        "kind": "detail",
+        "point": null,
+        "url": "https://pam-stilling-feed.nav.no/api/v1/feedentry/00000000-0000-0000-0000-000000000014"
+      }
+    ]
+  ]
+}

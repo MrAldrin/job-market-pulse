@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "prepare",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse prepare [-h] [--title-rules TITLE_RULES] [--limit LIMIT]\n\noptions:\n  -h, --help            show this help message and exit\n  --title-rules TITLE_RULES\n  --limit LIMIT\n"
+}

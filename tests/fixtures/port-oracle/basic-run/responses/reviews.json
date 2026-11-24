@@ -1,0 +1,216 @@
+{
+  "answers": {
+    "full_review": {
+      "00000000-0000-0000-0000-000000000001": {
+        "ad_text_reviewed": true,
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "exceptional",
+        "hard_constraints": "pass",
+        "reason": "SQL software work directly matches building software and learning.",
+        "uncertainties": [],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000002": {
+        "ad_text_reviewed": true,
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "strong",
+        "hard_constraints": "pass",
+        "reason": "Software work fits, but the learning opportunities are not established.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000003": {
+        "ad_text_reviewed": true,
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "possible",
+        "hard_constraints": "pass",
+        "reason": "Some software work matches; the role scope is uncertain.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000004": {
+        "ad_text_reviewed": true,
+        "evidence": [],
+        "fit": "possible",
+        "hard_constraints": "pass",
+        "reason": "Software work is relevant, but the role scope and learning opportunities are not stated.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000005": {
+        "ad_text_reviewed": true,
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "poor",
+        "hard_constraints": "pass",
+        "reason": "The described work is not a convincing match for building software.",
+        "uncertainties": [],
+        "version": "2026-10-19T10:00:00+00:00"
+      }
+    },
+    "title_screen": {
+      "00000000-0000-0000-0000-000000000001": {
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000002": {
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000003": {
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000004": {
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000005": {
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000008": {
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000009": {
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-00000000000b": {
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-00000000000c": {
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-00000000000d": {
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000011": {
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000012": {
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "00000000-0000-0000-0000-000000000013": {
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      }
+    }
+  },
+  "queue": [
+    {
+      "candidates": [
+        {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000002",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000003",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000004",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000008",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000009",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000b",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000c",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-00000000000d",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000011",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000012",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000013",
+          "version": "2026-10-19T10:00:00+00:00"
+        }
+      ],
+      "stage": "title_screen"
+    },
+    {
+      "candidates": [
+        {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000002",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000003",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000004",
+          "version": "2026-10-19T10:00:00+00:00"
+        },
+        {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "version": "2026-10-19T10:00:00+00:00"
+        }
+      ],
+      "stage": "full_review"
+    }
+  ]
+}

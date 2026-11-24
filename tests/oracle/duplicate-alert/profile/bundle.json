@@ -1,0 +1,30 @@
+{
+  "default_reviewer": null,
+  "full_review_batch_size": 5,
+  "paths": {
+    "directory": "/tmp/pulse-port-oracle/duplicate-alert/installation/local_only/profiles/invented",
+    "ledger_db": "/tmp/pulse-port-oracle/duplicate-alert/installation/local_only/profiles/invented/ledger.sqlite3",
+    "narrative_file": "/tmp/pulse-port-oracle/duplicate-alert/installation/local_only/profiles/invented/profile.md",
+    "outbox_dir": "/tmp/pulse-port-oracle/duplicate-alert/installation/local_only/profiles/invented/outbox",
+    "preferences_file": "/tmp/pulse-port-oracle/duplicate-alert/installation/local_only/profiles/invented/preferences.toml",
+    "profile_file": "/tmp/pulse-port-oracle/duplicate-alert/installation/local_only/profiles/invented/profile.toml",
+    "profile_id": "invented",
+    "review_db": "/tmp/pulse-port-oracle/duplicate-alert/installation/local_only/profiles/invented/review.sqlite3",
+    "source_db": "/tmp/pulse-port-oracle/duplicate-alert/installation/data/source.sqlite3"
+  },
+  "policy": {
+    "cadence": {
+      "anchor": null,
+      "kind": "weekly"
+    },
+    "exceptional_only": true,
+    "freshness_max_age": {
+      "$seconds": 86400.0
+    },
+    "market_only": false,
+    "max_recommendations": 120,
+    "mode": "passive",
+    "timezone": "Europe/Oslo"
+  },
+  "profile_id": "invented"
+}

@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "refresh",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse refresh [-h] [--reviewer REVIEWER] [--reset] [--once] [--verbose]\n                     [--no-publish] [--dry-run] [--volume VOLUME]\n\noptions:\n  -h, --help           show this help message and exit\n  --reviewer REVIEWER\n  --reset\n  --once\n  --verbose            Show technical pipeline and upload details\n  --no-publish\n  --dry-run\n  --volume VOLUME      Railway volume (overrides publish.toml)\n"
+}

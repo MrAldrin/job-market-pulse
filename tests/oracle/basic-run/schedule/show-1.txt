@@ -1,0 +1,29 @@
+# job-market-pulse-invented-b6e8976e.service
+[Unit]
+Description=Job Market Pulse scheduled run
+
+[Service]
+Type=oneshot
+WorkingDirectory="/tmp/pulse-port-oracle/basic-run/installation"
+UMask=0077
+TimeoutStartSec=3600
+ExecStart="/synthetic/bin/uv" "run" "--project" "/tmp/pulse-port-oracle/basic-run/installation" "python" "-m" "pulse.cli.pulse" "--profile" "invented" "run-scheduled"
+
+# job-market-pulse-invented-b6e8976e.timer
+[Unit]
+Description=Job Market Pulse schedule
+
+[Timer]
+Unit=job-market-pulse-invented-b6e8976e.service
+OnCalendar=Fri *-*-* 09:00:00 Europe/Oslo
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target
+
+Next three run times (before randomized delay):
+2026-10-23T09:00:00+02:00
+2026-10-30T09:00:00+01:00
+2026-11-06T09:00:00+01:00
+Nothing was installed.

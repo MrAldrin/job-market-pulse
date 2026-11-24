@@ -1,0 +1,4 @@
+{
+  "interrupt_stage": "title_screen",
+  "expected_unknown_error": "interrupted_unknown"
+}

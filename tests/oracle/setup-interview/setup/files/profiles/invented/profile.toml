@@ -1,0 +1,18 @@
+[profile]
+id = "invented"
+
+[paths]
+profile = "profile.md"
+preferences = "preferences.toml"
+source_db = "data/nav.sqlite3"
+review_db = "review.sqlite3"
+ledger_db = "ledger.sqlite3"
+outbox = "outbox"
+
+[policy]
+mode = "passive"
+market_only = false
+freshness_max_age_hours = 24
+
+[schedule]
+schedule = "never"

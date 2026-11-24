@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "profile",
+    "check"
+  ],
+  "exit_status": 1,
+  "stderr": "",
+  "stdout": "ok  profile_dir  Profile directory exists.\nok  profile_toml  Profile policy TOML is readable.\nok  narrative  Profile text has enough content.\nok  preferences  Preferences are readable and valid.\nok  origin  An explicit origin is set.\nok  radius  An explicit radius is set.\nok  occupations  Allowed occupation categories are set.\nok  source_db  The configured source database exists.\nMISSING  reviewer  Setup is missing or invalid.  Fix: Create or correct local_only/models.toml using config/models.example.toml.\nok  outbox  The outbox directory exists.\n"
+}

@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "run-scheduled",
+    "--only-if-due",
+    "--period",
+    "weekly fri 09:00"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": ""
+}

@@ -1,0 +1,1046 @@
+{
+  "runs": [
+    {
+      "batches": [
+        {
+          "addresses": [
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 1",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+1&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 2",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+2&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 3",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+3&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 4",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+4&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 5",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+5&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            }
+          ],
+          "details": [
+            {
+              "body": {
+                "ad_content": {
+                  "description": "An invented data role. Lønn kr 701 000 – 803 000 per år.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Software developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000001",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 1",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000001"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000001"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "An invented engineering role. Lønn kr 900 000 per år.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Software developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000002",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 2",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000002"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000002"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "applicationDue": "fortløpende",
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Software developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000003",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 3",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000003"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000003"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "applicationDue": "2026-10-27T12:00:00+00:00",
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Software developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000004",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 4",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000004"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000004"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Database engineer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000005",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 5",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000005"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000005"
+            }
+          ]
+        },
+        {
+          "addresses": [
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 8",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+8&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 9",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+9&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 11",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+11&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 12",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+12&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 13",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+13&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            }
+          ],
+          "details": [
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Utvikler blåbær",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000008",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 8",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000008"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000008"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000009",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 9",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000009"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000009"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Operations coordinator",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-00000000000b",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 11",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-00000000000b"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-00000000000b"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-00000000000c",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 12",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-00000000000c"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-00000000000c"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Research fellow",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-00000000000d",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 13",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-00000000000d"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-00000000000d"
+            }
+          ]
+        },
+        {
+          "addresses": [
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 15",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 62.0,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+15&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 17",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+17&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 18",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+18&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 19",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+19&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 20",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  },
+                  {
+                    "adressetekst": "Invented Road 20",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 2
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+20&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            }
+          ],
+          "details": [
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-00000000000f",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 15",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-00000000000f"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-00000000000f"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000011",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 17",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000011"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000011"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000012",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 18",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000012"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000012"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000013",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 19",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000013"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000013"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000014",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 20",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    },
+                    {
+                      "address": "",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000014"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000014"
+            }
+          ]
+        },
+        {
+          "addresses": [
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 20",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  },
+                  {
+                    "adressetekst": "Invented Road 20",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 2
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+20&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            }
+          ],
+          "details": [
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000014",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 20",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    },
+                    {
+                      "address": "",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000014"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000014"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "batches": [
+        {
+          "addresses": [
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 1",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 1
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+1&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            },
+            {
+              "body": {
+                "adresser": [
+                  {
+                    "adressetekst": "Invented Road 20",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  },
+                  {
+                    "adressetekst": "Invented Road 20",
+                    "postnummer": "1234",
+                    "representasjonspunkt": {
+                      "epsg": "EPSG:4326",
+                      "lat": 60.01,
+                      "lon": 10.0
+                    },
+                    "stedfestingverifisert": true
+                  }
+                ],
+                "metadata": {
+                  "totaltAntallTreff": 2
+                }
+              },
+              "url": "https://ws.geonorge.no/adresser/v1/sok?adressetekst=Invented+Road+20&postnummer=1234&fuzzy=false&utkoordsys=4326&treffPerSide=2"
+            }
+          ],
+          "details": [
+            {
+              "body": {
+                "ad_content": {
+                  "description": "An invented data role. Lønn kr 701 000 – 803 000 per år.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Senior software developer",
+                  "updated": "2026-10-19T11:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000001",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 1",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T11:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000001"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000001"
+            },
+            {
+              "body": {
+                "ad_content": {
+                  "description": "Synthetic SQL software work.",
+                  "employer": {
+                    "name": "Invented Works"
+                  },
+                  "expires": "2099-01-01T00:00:00Z",
+                  "occupationCategories": [
+                    {
+                      "level1": "IT"
+                    }
+                  ],
+                  "source": "SYNTHETIC",
+                  "title": "Developer",
+                  "updated": "2026-10-19T10:00:00+00:00",
+                  "uuid": "00000000-0000-0000-0000-000000000014",
+                  "workLocations": [
+                    {
+                      "address": "Invented Road 20",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    },
+                    {
+                      "address": "",
+                      "country": "NORGE",
+                      "municipal": "INVENTED",
+                      "postalCode": "1234"
+                    }
+                  ]
+                },
+                "sistEndret": "2026-10-19T10:00:00+00:00",
+                "status": "ACTIVE",
+                "uuid": "00000000-0000-0000-0000-000000000014"
+              },
+              "kind": "detail",
+              "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000014"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

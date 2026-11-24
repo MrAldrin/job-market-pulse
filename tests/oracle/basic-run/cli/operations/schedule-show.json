@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "schedule",
+    "show"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "# job-market-pulse-invented-b6e8976e.service\n[Unit]\nDescription=Job Market Pulse scheduled run\n\n[Service]\nType=oneshot\nWorkingDirectory=\"/tmp/pulse-port-oracle/basic-run/installation\"\nUMask=0077\nTimeoutStartSec=3600\nExecStart=\"/synthetic/bin/uv\" \"run\" \"--project\" \"/tmp/pulse-port-oracle/basic-run/installation\" \"python\" \"-m\" \"pulse.cli.pulse\" \"--profile\" \"invented\" \"run-scheduled\"\n\n# job-market-pulse-invented-b6e8976e.timer\n[Unit]\nDescription=Job Market Pulse schedule\n\n[Timer]\nUnit=job-market-pulse-invented-b6e8976e.service\nOnCalendar=Fri *-*-* 09:00:00 Europe/Oslo\nPersistent=true\nRandomizedDelaySec=300\n\n[Install]\nWantedBy=timers.target\n\nNext three run times (before randomized delay):\n2026-10-23T09:00:00+02:00\n2026-10-30T09:00:00+01:00\n2026-11-06T09:00:00+01:00\nNothing was installed.\n"
+}

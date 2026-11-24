@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "close-review-run",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse close-review-run [-h] [--profile-root PROFILE_ROOT]\n                              --run-id RUN_ID --confirmed\n\noptions:\n  -h, --help            show this help message and exit\n  --profile-root PROFILE_ROOT\n  --run-id RUN_ID\n  --confirmed\n"
+}

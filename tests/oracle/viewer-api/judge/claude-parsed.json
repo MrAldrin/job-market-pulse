@@ -1,0 +1,16 @@
+{
+  "diagnostics": {
+    "answer_bytes": 24,
+    "answer_chars": 24,
+    "branch": "received",
+    "cost_usd": 0.01,
+    "excerpt": "[REDACTED malformed/prose text]",
+    "partial": false,
+    "stop_reason": "end_turn"
+  },
+  "error_code": null,
+  "input_tokens": 90,
+  "kind": "result",
+  "output_tokens": 30,
+  "text": "Synthetic Claude answer."
+}

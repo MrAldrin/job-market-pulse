@@ -1,0 +1,1 @@
+{"type":"result","subtype":"success","is_error":false,"result":"Synthetic Claude answer.","stop_reason":"end_turn","num_turns":1,"permission_denials":[],"usage":{"input_tokens":90,"output_tokens":30},"modelUsage":{"synthetic-claude-model":{}},"total_cost_usd":0.01}

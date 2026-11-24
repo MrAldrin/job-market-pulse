@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "reviewers",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse reviewers [-h] {detect,list} ...\n\npositional arguments:\n  {detect,list}\n    detect       Find harnesses on PATH; never start them\n    list         List configured model steps; no login check\n\noptions:\n  -h, --help     show this help message and exit\n"
+}

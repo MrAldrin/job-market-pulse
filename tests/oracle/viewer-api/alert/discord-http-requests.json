@@ -1,0 +1,24 @@
+[
+  {
+    "body": {
+      "$bytes_hex": "7b22636f6e74656e74223a224a6f62204d61726b65742050756c73655c6e41206a6f622d6d61726b65742075706461746520697320726561647920666f72206c6f63616c207265766965772e222c22616c6c6f7765645f6d656e74696f6e73223a7b227061727365223a5b5d7d7d"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    },
+    "method": "POST",
+    "target": "/api/webhooks/1/invented-token?wait=true"
+  },
+  {
+    "body": {
+      "$bytes_hex": "7b22636f6e74656e74223a224a6f62204d61726b65742050756c73655c6e41206a6f622d6d61726b65742075706461746520697320726561647920666f72206c6f63616c207265766965772e222c22616c6c6f7765645f6d656e74696f6e73223a7b227061727365223a5b5d7d7d"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    },
+    "method": "POST",
+    "target": "/api/webhooks/1/invented-token?wait=true"
+  }
+]

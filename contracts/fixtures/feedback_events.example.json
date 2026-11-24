@@ -1,0 +1,127 @@
+{
+  "schema": "pulse.feedback_events",
+  "schema_version": 1,
+  "profile_id": "demo",
+  "events": [
+    {
+      "event_id": "star:10000000-0000-4000-8000-000000000001:2026-01-14T08:00:00+00:00",
+      "listing_id": "10000000-0000-4000-8000-000000000001",
+      "source": "nav",
+      "source_version": null,
+      "kind": "star",
+      "value": true,
+      "reason": null,
+      "created_at": "2026-01-14T08:00:00+00:00",
+      "origin": "phone_shortlist",
+      "result_id": null
+    },
+    {
+      "event_id": "reaction:10000000-0000-4000-8000-000000000002:2026-01-14T09:00:00+00:00",
+      "listing_id": "10000000-0000-4000-8000-000000000002",
+      "source": "nav",
+      "source_version": null,
+      "kind": "reaction",
+      "value": "up",
+      "reason": "",
+      "created_at": "2026-01-14T09:00:00+00:00",
+      "origin": "phone_shortlist",
+      "result_id": null
+    },
+    {
+      "event_id": "rating:3",
+      "listing_id": "10000000-0000-4000-8000-000000000003",
+      "source": "nav",
+      "source_version": "2026-01-04T08:00:00+00:00",
+      "kind": "rating",
+      "value": "very_good",
+      "reason": "Synthetic feedback about this fictional example only.",
+      "created_at": "2026-01-14T10:00:00+00:00",
+      "origin": "local_ratings",
+      "result_id": "20000000-0000-4000-8000-000000000003"
+    },
+    {
+      "event_id": "rating:4",
+      "listing_id": "10000000-0000-4000-8000-000000000004",
+      "source": "nav",
+      "source_version": "2026-01-05T08:00:00+00:00",
+      "kind": "rating",
+      "value": "good",
+      "reason": "Synthetic feedback about this fictional example only.",
+      "created_at": "2026-01-14T11:00:00+00:00",
+      "origin": "local_ratings",
+      "result_id": "20000000-0000-4000-8000-000000000004"
+    },
+    {
+      "event_id": "rating:5",
+      "listing_id": "10000000-0000-4000-8000-000000000005",
+      "source": "nav",
+      "source_version": "2026-01-06T08:00:00+00:00",
+      "kind": "rating",
+      "value": "unsure",
+      "reason": "Synthetic feedback about this fictional example only.",
+      "created_at": "2026-01-14T12:00:00+00:00",
+      "origin": "local_ratings",
+      "result_id": "20000000-0000-4000-8000-000000000005"
+    },
+    {
+      "event_id": "rating:6",
+      "listing_id": "10000000-0000-4000-8000-000000000006",
+      "source": "nav",
+      "source_version": "2026-01-07T08:00:00+00:00",
+      "kind": "rating",
+      "value": "bad",
+      "reason": "Synthetic feedback about this fictional example only.",
+      "created_at": "2026-01-14T13:00:00+00:00",
+      "origin": "local_ratings",
+      "result_id": "20000000-0000-4000-8000-000000000006"
+    },
+    {
+      "event_id": "rating:7",
+      "listing_id": "10000000-0000-4000-8000-000000000007",
+      "source": "nav",
+      "source_version": "2026-01-08T08:00:00+00:00",
+      "kind": "rating",
+      "value": "very_bad",
+      "reason": "Synthetic feedback about this fictional example only.",
+      "created_at": "2026-01-14T14:00:00+00:00",
+      "origin": "local_ratings",
+      "result_id": "20000000-0000-4000-8000-000000000007"
+    },
+    {
+      "event_id": "legacy_verdict:8",
+      "listing_id": "10000000-0000-4000-8000-000000000008",
+      "source": "nav",
+      "source_version": "2026-01-09T08:00:00+00:00",
+      "kind": "legacy_verdict",
+      "value": "good",
+      "reason": "Synthetic feedback about this fictional example only.",
+      "created_at": "2026-01-14T15:00:00+00:00",
+      "origin": "legacy_review",
+      "result_id": ""
+    },
+    {
+      "event_id": "legacy_verdict:9",
+      "listing_id": "10000000-0000-4000-8000-000000000009",
+      "source": "nav",
+      "source_version": "2026-01-10T08:00:00+00:00",
+      "kind": "legacy_verdict",
+      "value": "bad",
+      "reason": "Synthetic feedback about this fictional example only.",
+      "created_at": "2026-01-14T16:00:00+00:00",
+      "origin": "legacy_review",
+      "result_id": null
+    },
+    {
+      "event_id": "legacy_verdict:10",
+      "listing_id": "10000000-0000-4000-8000-000000000010",
+      "source": "nav",
+      "source_version": "2026-01-11T08:00:00+00:00",
+      "kind": "legacy_verdict",
+      "value": "unsure",
+      "reason": "Synthetic feedback about this fictional example only.",
+      "created_at": "2026-01-14T17:00:00+00:00",
+      "origin": "legacy_review",
+      "result_id": null
+    }
+  ]
+}

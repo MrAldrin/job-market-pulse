@@ -1,0 +1,8 @@
+{
+  "input_files_unchanged": true,
+  "private_checkout_reads": "denied",
+  "snapshot_source_market_unchanged": false,
+  "socket_process_guard": true,
+  "synthetic_only": true,
+  "write_audit": "sandbox and assigned output only"
+}

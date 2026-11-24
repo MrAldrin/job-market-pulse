@@ -1,0 +1,717 @@
+{
+  "foreign_key_check": [],
+  "integrity_check": [
+    [
+      "ok"
+    ]
+  ],
+  "present": true,
+  "schema_objects": [
+    [
+      "index",
+      "one_open_personal_review_run",
+      "review_runs",
+      "CREATE UNIQUE INDEX one_open_personal_review_run\n            ON review_runs(profile_id)\n            WHERE status IN ('pending','running','partial')"
+    ],
+    [
+      "index",
+      "sqlite_autoindex_attempt_diagnostics_1",
+      "attempt_diagnostics",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_attempt_reviewers_1",
+      "attempt_reviewers",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_model_call_log_1",
+      "model_call_log",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_personal_state_profile_1",
+      "personal_state_profile",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_personal_state_schema_1",
+      "personal_state_schema",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_review_consents_1",
+      "review_consents",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_review_run_candidates_1",
+      "review_run_candidates",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_review_runs_1",
+      "review_runs",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_stage_attempt_candidates_1",
+      "stage_attempt_candidates",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_stage_attempts_1",
+      "stage_attempts",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_stage_attempts_2",
+      "stage_attempts",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_stage_results_1",
+      "stage_results",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_stage_results_2",
+      "stage_results",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_standing_consents_1",
+      "standing_consents",
+      null
+    ],
+    [
+      "index",
+      "stage_attempts_lookup",
+      "stage_attempts",
+      "CREATE INDEX stage_attempts_lookup\n            ON stage_attempts(run_id,stage,input_fingerprint,attempt_number)"
+    ],
+    [
+      "index",
+      "stage_results_current",
+      "stage_results",
+      "CREATE INDEX stage_results_current\n            ON stage_results(listing_id,stage,input_fingerprint,recorded_at)"
+    ],
+    [
+      "table",
+      "attempt_diagnostics",
+      "attempt_diagnostics",
+      "CREATE TABLE attempt_diagnostics (\n                    attempt_id TEXT PRIMARY KEY REFERENCES stage_attempts(attempt_id),\n                    payload_json TEXT NOT NULL\n                )"
+    ],
+    [
+      "table",
+      "attempt_reviewers",
+      "attempt_reviewers",
+      "CREATE TABLE attempt_reviewers (\n                    attempt_id TEXT PRIMARY KEY REFERENCES stage_attempts(attempt_id),\n                    consent_id TEXT NOT NULL REFERENCES review_consents(consent_id),\n                    harness_label TEXT NOT NULL\n                )"
+    ],
+    [
+      "table",
+      "model_call_log",
+      "model_call_log",
+      "CREATE TABLE model_call_log (\n                    attempt_id TEXT PRIMARY KEY REFERENCES stage_attempts(attempt_id),\n                    run_id TEXT NOT NULL REFERENCES review_runs(run_id),\n                    step TEXT NOT NULL,\n                    harness TEXT NOT NULL,\n                    provider TEXT NOT NULL,\n                    model TEXT NOT NULL,\n                    effort TEXT NOT NULL,\n                    started_at TEXT NOT NULL,\n                    input_tokens INTEGER,\n                    output_tokens INTEGER,\n                    wall_time_seconds REAL\n                )"
+    ],
+    [
+      "table",
+      "personal_state_profile",
+      "personal_state_profile",
+      "CREATE TABLE personal_state_profile (\n                    singleton INTEGER PRIMARY KEY CHECK(singleton=1),\n                    profile_id TEXT NOT NULL UNIQUE\n                )"
+    ],
+    [
+      "table",
+      "personal_state_schema",
+      "personal_state_schema",
+      "CREATE TABLE personal_state_schema (\n                    namespace TEXT PRIMARY KEY,\n                    version INTEGER NOT NULL CHECK(version >= 0)\n                )"
+    ],
+    [
+      "table",
+      "review_consents",
+      "review_consents",
+      "CREATE TABLE review_consents (\n                    consent_id TEXT PRIMARY KEY,\n                    profile_id TEXT NOT NULL\n                        REFERENCES personal_state_profile(profile_id),\n                    recorded_at TEXT NOT NULL,\n                    reviewer_id TEXT NOT NULL,\n                    harness_label TEXT NOT NULL,\n                    provider_label TEXT NOT NULL,\n                    model_label TEXT NOT NULL,\n                    reasoning_level TEXT NOT NULL,\n                    max_output_tokens INTEGER NOT NULL CHECK(max_output_tokens > 0),\n                    consenter TEXT NOT NULL,\n                    method TEXT NOT NULL,\n                    disclosure_sha256 TEXT NOT NULL,\n                    disclosure_text TEXT NOT NULL,\n                    run_id TEXT REFERENCES review_runs(run_id),\n                    standing_consent_id TEXT REFERENCES standing_consents(standing_id)\n                )"
+    ],
+    [
+      "table",
+      "review_run_candidates",
+      "review_run_candidates",
+      "CREATE TABLE review_run_candidates (\n                run_id TEXT NOT NULL REFERENCES review_runs(run_id),\n                listing_id TEXT NOT NULL,\n                source_version TEXT NOT NULL,\n                candidate_fingerprint TEXT NOT NULL,\n                status TEXT NOT NULL CHECK(status IN\n                    ('pending','screened','screened_out','completed')),\n                screening_result_id TEXT,\n                full_result_id TEXT,\n                PRIMARY KEY(run_id,listing_id)\n            )"
+    ],
+    [
+      "table",
+      "review_runs",
+      "review_runs",
+      "CREATE TABLE review_runs (\n                run_id TEXT PRIMARY KEY,\n                profile_id TEXT NOT NULL REFERENCES personal_state_profile(profile_id),\n                coverage_id TEXT NOT NULL,\n                source_checked_at TEXT NOT NULL,\n                profile_fingerprint TEXT NOT NULL,\n                preferences_fingerprint TEXT NOT NULL,\n                rules_fingerprint TEXT NOT NULL,\n                scoring_version TEXT NOT NULL,\n                status TEXT NOT NULL CHECK(status IN\n                    ('pending','running','partial','completed','failed','blocked','stale','superseded')),\n                candidate_count INTEGER NOT NULL CHECK(candidate_count BETWEEN 0 AND 10000),\n                started_at TEXT NOT NULL,\n                completed_at TEXT\n            , full_review_batch_size INTEGER NOT NULL DEFAULT 5 CHECK(full_review_batch_size BETWEEN 1 AND 10))"
+    ],
+    [
+      "table",
+      "stage_attempt_candidates",
+      "stage_attempt_candidates",
+      "CREATE TABLE stage_attempt_candidates (\n                attempt_id TEXT NOT NULL REFERENCES stage_attempts(attempt_id),\n                listing_id TEXT NOT NULL,\n                source_version TEXT NOT NULL,\n                input_fingerprint TEXT NOT NULL,\n                source_text_fingerprint TEXT,\n                snapshot_provenance_json TEXT,\n                upstream_result_id TEXT,\n                PRIMARY KEY(attempt_id,listing_id)\n            )"
+    ],
+    [
+      "table",
+      "stage_attempts",
+      "stage_attempts",
+      "CREATE TABLE stage_attempts (\n                attempt_id TEXT PRIMARY KEY,\n                run_id TEXT NOT NULL REFERENCES review_runs(run_id),\n                profile_id TEXT NOT NULL REFERENCES personal_state_profile(profile_id),\n                stage TEXT NOT NULL CHECK(stage IN ('title_screen','full_review')),\n                status TEXT NOT NULL CHECK(status IN\n                    ('pending','running','completed','failed','blocked','unknown')),\n                input_fingerprint TEXT NOT NULL,\n                manifest_id TEXT NOT NULL,\n                stage_version TEXT NOT NULL,\n                prompt_version TEXT NOT NULL,\n                attempt_number INTEGER NOT NULL CHECK(attempt_number > 0),\n                retry_of_attempt_id TEXT REFERENCES stage_attempts(attempt_id),\n                requested_at TEXT NOT NULL,\n                completed_at TEXT,\n                error_code TEXT,\n                provider_label TEXT,\n                model_label TEXT,\n                reasoning_level TEXT,\n                call_count INTEGER NOT NULL DEFAULT 0 CHECK(call_count >= 0),\n                request_bytes INTEGER CHECK(request_bytes >= 0),\n                response_bytes INTEGER CHECK(response_bytes >= 0),\n                input_tokens INTEGER CHECK(input_tokens >= 0),\n                output_tokens INTEGER CHECK(output_tokens >= 0),\n                response_fingerprint TEXT, blocked_sub_reason TEXT, submitted_at TEXT,\n                UNIQUE(run_id,stage,input_fingerprint,attempt_number)\n            )"
+    ],
+    [
+      "table",
+      "stage_results",
+      "stage_results",
+      "CREATE TABLE stage_results (\n                result_id TEXT PRIMARY KEY,\n                attempt_id TEXT NOT NULL REFERENCES stage_attempts(attempt_id),\n                listing_id TEXT NOT NULL,\n                stage TEXT NOT NULL CHECK(stage IN ('title_screen','full_review')),\n                source_version TEXT NOT NULL,\n                input_fingerprint TEXT NOT NULL,\n                result_fingerprint TEXT NOT NULL,\n                stage_version TEXT NOT NULL,\n                prompt_version TEXT NOT NULL,\n                profile_fingerprint TEXT NOT NULL,\n                preferences_fingerprint TEXT NOT NULL,\n                rules_fingerprint TEXT NOT NULL,\n                scoring_version TEXT NOT NULL,\n                result_json TEXT NOT NULL,\n                recorded_at TEXT NOT NULL,\n                supersedes_result_id TEXT REFERENCES stage_results(result_id),\n                upstream_result_id TEXT,\n                UNIQUE(attempt_id,listing_id)\n            )"
+    ],
+    [
+      "table",
+      "standing_consents",
+      "standing_consents",
+      "CREATE TABLE standing_consents (\n                    standing_id TEXT PRIMARY KEY,\n                    profile_id TEXT NOT NULL\n                        REFERENCES personal_state_profile(profile_id),\n                    recorded_at TEXT NOT NULL,\n                    consenter TEXT NOT NULL,\n                    method TEXT NOT NULL,\n                    reviewer_id TEXT NOT NULL,\n                    disclosure_sha256 TEXT NOT NULL,\n                    disclosure_text TEXT NOT NULL,\n                    revoked_at TEXT,\n                    revoked_by TEXT,\n                    expires_at TEXT\n                )"
+    ]
+  ],
+  "tables": {
+    "attempt_diagnostics": {
+      "columns": [
+        "attempt_id",
+        "payload_json"
+      ],
+      "primary_key": [
+        "attempt_id"
+      ],
+      "rows": [],
+      "sql": "CREATE TABLE attempt_diagnostics (\n                    attempt_id TEXT PRIMARY KEY REFERENCES stage_attempts(attempt_id),\n                    payload_json TEXT NOT NULL\n                )"
+    },
+    "attempt_reviewers": {
+      "columns": [
+        "attempt_id",
+        "consent_id",
+        "harness_label"
+      ],
+      "primary_key": [
+        "attempt_id"
+      ],
+      "rows": [],
+      "sql": "CREATE TABLE attempt_reviewers (\n                    attempt_id TEXT PRIMARY KEY REFERENCES stage_attempts(attempt_id),\n                    consent_id TEXT NOT NULL REFERENCES review_consents(consent_id),\n                    harness_label TEXT NOT NULL\n                )"
+    },
+    "model_call_log": {
+      "columns": [
+        "attempt_id",
+        "run_id",
+        "step",
+        "harness",
+        "provider",
+        "model",
+        "effort",
+        "started_at",
+        "input_tokens",
+        "output_tokens",
+        "wall_time_seconds"
+      ],
+      "primary_key": [
+        "attempt_id"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000002712",
+          "screen",
+          "pi",
+          "openai",
+          "synthetic-pi-model",
+          "medium",
+          "2026-10-19T12:00:00.000000+00:00",
+          null,
+          null,
+          null
+        ]
+      ],
+      "sql": "CREATE TABLE model_call_log (\n                    attempt_id TEXT PRIMARY KEY REFERENCES stage_attempts(attempt_id),\n                    run_id TEXT NOT NULL REFERENCES review_runs(run_id),\n                    step TEXT NOT NULL,\n                    harness TEXT NOT NULL,\n                    provider TEXT NOT NULL,\n                    model TEXT NOT NULL,\n                    effort TEXT NOT NULL,\n                    started_at TEXT NOT NULL,\n                    input_tokens INTEGER,\n                    output_tokens INTEGER,\n                    wall_time_seconds REAL\n                )"
+    },
+    "personal_state_profile": {
+      "columns": [
+        "singleton",
+        "profile_id"
+      ],
+      "primary_key": [
+        "singleton"
+      ],
+      "rows": [
+        [
+          1,
+          "invented"
+        ]
+      ],
+      "sql": "CREATE TABLE personal_state_profile (\n                    singleton INTEGER PRIMARY KEY CHECK(singleton=1),\n                    profile_id TEXT NOT NULL UNIQUE\n                )"
+    },
+    "personal_state_schema": {
+      "columns": [
+        "namespace",
+        "version"
+      ],
+      "primary_key": [
+        "namespace"
+      ],
+      "rows": [
+        [
+          "core",
+          1
+        ]
+      ],
+      "sql": "CREATE TABLE personal_state_schema (\n                    namespace TEXT PRIMARY KEY,\n                    version INTEGER NOT NULL CHECK(version >= 0)\n                )"
+    },
+    "review_consents": {
+      "columns": [
+        "consent_id",
+        "profile_id",
+        "recorded_at",
+        "reviewer_id",
+        "harness_label",
+        "provider_label",
+        "model_label",
+        "reasoning_level",
+        "max_output_tokens",
+        "consenter",
+        "method",
+        "disclosure_sha256",
+        "disclosure_text",
+        "run_id",
+        "standing_consent_id"
+      ],
+      "primary_key": [
+        "consent_id"
+      ],
+      "rows": [],
+      "sql": "CREATE TABLE review_consents (\n                    consent_id TEXT PRIMARY KEY,\n                    profile_id TEXT NOT NULL\n                        REFERENCES personal_state_profile(profile_id),\n                    recorded_at TEXT NOT NULL,\n                    reviewer_id TEXT NOT NULL,\n                    harness_label TEXT NOT NULL,\n                    provider_label TEXT NOT NULL,\n                    model_label TEXT NOT NULL,\n                    reasoning_level TEXT NOT NULL,\n                    max_output_tokens INTEGER NOT NULL CHECK(max_output_tokens > 0),\n                    consenter TEXT NOT NULL,\n                    method TEXT NOT NULL,\n                    disclosure_sha256 TEXT NOT NULL,\n                    disclosure_text TEXT NOT NULL,\n                    run_id TEXT REFERENCES review_runs(run_id),\n                    standing_consent_id TEXT REFERENCES standing_consents(standing_id)\n                )"
+    },
+    "review_run_candidates": {
+      "columns": [
+        "run_id",
+        "listing_id",
+        "source_version",
+        "candidate_fingerprint",
+        "status",
+        "screening_result_id",
+        "full_result_id"
+      ],
+      "primary_key": [
+        "run_id",
+        "listing_id"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-000000000001",
+          "2026-10-19T10:00:00+00:00",
+          "d62150a9c5dedb1d63e31c5fd1c2fa64d0b5533821dce74b75ec8de5da2fbf68",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-000000000002",
+          "2026-10-19T10:00:00+00:00",
+          "bd2f2c7454f812849dd6c70fa88c72224897c9e17ce48abca1e2487c8debb3a2",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-000000000003",
+          "2026-10-19T10:00:00+00:00",
+          "a315675c302b1f4a2c25831ca627a17eb739586c355325af7bc11f2c9458044d",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-000000000004",
+          "2026-10-19T10:00:00+00:00",
+          "bc87a24a25d5469ac0b2d5c3d3529b3bbcc47001dfb80e3a778b8d8ec171a0e3",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-000000000005",
+          "2026-10-19T10:00:00+00:00",
+          "031d1c6a1e4d10844f3f6e3a31ec09a157e20a361f87a876301662b7956c6f4b",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-000000000008",
+          "2026-10-19T10:00:00+00:00",
+          "b5e765256f61801ce166c9c28b78ecd62e6dace9f197cbb76e9cfaa5244768af",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-000000000009",
+          "2026-10-19T10:00:00+00:00",
+          "a2e217d992aeefce5af556e2571c109d83d327905065a3b819a4e9f8a2f6152a",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-00000000000b",
+          "2026-10-19T10:00:00+00:00",
+          "74505f313ef88955673d62c1390d1d46e06a595bab78445d97b9531963f0513d",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-00000000000c",
+          "2026-10-19T10:00:00+00:00",
+          "bedfa42e598eb970be553ecbfe4eaeceddd502e0a6b7bd5e88944fb871113e6f",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-00000000000d",
+          "2026-10-19T10:00:00+00:00",
+          "a5a9aeeb9c9ebc596b1f2bfb463184330efeb369c1d67f26666bd57f8e942604",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-000000000011",
+          "2026-10-19T10:00:00+00:00",
+          "538c254bad0f401da98f99aca38c9bf87d4145dca8cf4144eaad4dafa8eb0a74",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-000000000012",
+          "2026-10-19T10:00:00+00:00",
+          "76226fd0fefeb5eb2d7ebb530676575988cce4b4281f6b3f312775c2c964cb67",
+          "pending",
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "00000000-0000-0000-0000-000000000013",
+          "2026-10-19T10:00:00+00:00",
+          "df22412e70252529583a5f10b0fe88a4a1715eb9c65fb6e7fff45f85dec0590c",
+          "pending",
+          null,
+          null
+        ]
+      ],
+      "sql": "CREATE TABLE review_run_candidates (\n                run_id TEXT NOT NULL REFERENCES review_runs(run_id),\n                listing_id TEXT NOT NULL,\n                source_version TEXT NOT NULL,\n                candidate_fingerprint TEXT NOT NULL,\n                status TEXT NOT NULL CHECK(status IN\n                    ('pending','screened','screened_out','completed')),\n                screening_result_id TEXT,\n                full_result_id TEXT,\n                PRIMARY KEY(run_id,listing_id)\n            )"
+    },
+    "review_runs": {
+      "columns": [
+        "run_id",
+        "profile_id",
+        "coverage_id",
+        "source_checked_at",
+        "profile_fingerprint",
+        "preferences_fingerprint",
+        "rules_fingerprint",
+        "scoring_version",
+        "status",
+        "candidate_count",
+        "started_at",
+        "completed_at",
+        "full_review_batch_size"
+      ],
+      "primary_key": [
+        "run_id"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000002712",
+          "invented",
+          "5dcdeab1e6dbb5a22945161a6c02742104cf19e2e7255f6c60ccbac2f23f5fc1",
+          "2026-10-19T12:00:00+00:00",
+          "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+          "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+          "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+          "title-evidence-hard-radius-v3",
+          "running",
+          13,
+          "2026-10-19T12:00:00.000000+00:00",
+          null,
+          5
+        ]
+      ],
+      "sql": "CREATE TABLE review_runs (\n                run_id TEXT PRIMARY KEY,\n                profile_id TEXT NOT NULL REFERENCES personal_state_profile(profile_id),\n                coverage_id TEXT NOT NULL,\n                source_checked_at TEXT NOT NULL,\n                profile_fingerprint TEXT NOT NULL,\n                preferences_fingerprint TEXT NOT NULL,\n                rules_fingerprint TEXT NOT NULL,\n                scoring_version TEXT NOT NULL,\n                status TEXT NOT NULL CHECK(status IN\n                    ('pending','running','partial','completed','failed','blocked','stale','superseded')),\n                candidate_count INTEGER NOT NULL CHECK(candidate_count BETWEEN 0 AND 10000),\n                started_at TEXT NOT NULL,\n                completed_at TEXT\n            , full_review_batch_size INTEGER NOT NULL DEFAULT 5 CHECK(full_review_batch_size BETWEEN 1 AND 10))"
+    },
+    "stage_attempt_candidates": {
+      "columns": [
+        "attempt_id",
+        "listing_id",
+        "source_version",
+        "input_fingerprint",
+        "source_text_fingerprint",
+        "snapshot_provenance_json",
+        "upstream_result_id"
+      ],
+      "primary_key": [
+        "attempt_id",
+        "listing_id"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000000001",
+          "2026-10-19T10:00:00+00:00",
+          "a83d65ba3f59a5a50129a2c7c27ee05fbc8fbdb7e933d24dca79d488ff81787a",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000000002",
+          "2026-10-19T10:00:00+00:00",
+          "b0ffbec63a54682ca9f3218ef77470c1c2b7f0d4fe2c7e9f37263f9ce27bac4c",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000000003",
+          "2026-10-19T10:00:00+00:00",
+          "4ec11dc1b40cc258f624e07e164e0cce1a45e834188d022252a16a5a54cf15eb",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000000004",
+          "2026-10-19T10:00:00+00:00",
+          "86de4b47bde818b9e7ad76966d92777b82bf1a1b8b9f0584e7d1ea2273b16832",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000000005",
+          "2026-10-19T10:00:00+00:00",
+          "0ce8e4b02cdbed798aad31b46de900de25403a359caf25260288cff1ede83b3d",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000000008",
+          "2026-10-19T10:00:00+00:00",
+          "9b7ba6b79b0b09d36d3322a47fb4aa062ca8ffdedc424d5d602b6eef7e197f89",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000000009",
+          "2026-10-19T10:00:00+00:00",
+          "cbcd0cbf0399a883beb707374d21aa713475f755ee94b1d1fef8f90334ac1a97",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-00000000000b",
+          "2026-10-19T10:00:00+00:00",
+          "b0df3064ea3c070c95d3ae8389a89b7c0ce8fecfe26f9d7f2205dc6ce24da75c",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-00000000000c",
+          "2026-10-19T10:00:00+00:00",
+          "48ea4da8ba6bc5f19ee41673842f8abf4f8296709300c0eee63678fe5ac0c18d",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-00000000000d",
+          "2026-10-19T10:00:00+00:00",
+          "23c7b3b6ad26672aff4975b73b78a369a702cdd0e4d495c902d85fe7bd87d0a1",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000000011",
+          "2026-10-19T10:00:00+00:00",
+          "a1cc34f5caf427e88b4dc4cdd96f74697a7d19564897eb14d7e9529f88eb9fca",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000000012",
+          "2026-10-19T10:00:00+00:00",
+          "ea7b5237b4154297ca683e7b9750fd5e387868f7d0f811f921d27fb01953e170",
+          null,
+          null,
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000000013",
+          "2026-10-19T10:00:00+00:00",
+          "22ff9eaa331f9727aba04cf2ff143c654e3ec28ae357d3e597870b9c489b367a",
+          null,
+          null,
+          null
+        ]
+      ],
+      "sql": "CREATE TABLE stage_attempt_candidates (\n                attempt_id TEXT NOT NULL REFERENCES stage_attempts(attempt_id),\n                listing_id TEXT NOT NULL,\n                source_version TEXT NOT NULL,\n                input_fingerprint TEXT NOT NULL,\n                source_text_fingerprint TEXT,\n                snapshot_provenance_json TEXT,\n                upstream_result_id TEXT,\n                PRIMARY KEY(attempt_id,listing_id)\n            )"
+    },
+    "stage_attempts": {
+      "columns": [
+        "attempt_id",
+        "run_id",
+        "profile_id",
+        "stage",
+        "status",
+        "input_fingerprint",
+        "manifest_id",
+        "stage_version",
+        "prompt_version",
+        "attempt_number",
+        "retry_of_attempt_id",
+        "requested_at",
+        "completed_at",
+        "error_code",
+        "provider_label",
+        "model_label",
+        "reasoning_level",
+        "call_count",
+        "request_bytes",
+        "response_bytes",
+        "input_tokens",
+        "output_tokens",
+        "response_fingerprint",
+        "blocked_sub_reason",
+        "submitted_at"
+      ],
+      "primary_key": [
+        "attempt_id"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000002715",
+          "00000000-0000-0000-0000-000000002712",
+          "invented",
+          "title_screen",
+          "unknown",
+          "b67c937199be8152a033d21344b7ee7dc10b06309618d8eba7679ef786703213",
+          "7be4f01ad6ab76afc924a2b6bdbec65824a0606100ad8272defcf14776309b87",
+          "personal-review-stage-v1",
+          "dcbf5a5081b50a05973a3a08a9e4f7cadb2ef413c3f07baaaf83eed87c4e7372",
+          1,
+          null,
+          "2026-10-19T12:00:00.000000+00:00",
+          "2026-10-19T12:00:00.000000+00:00",
+          "interrupted_unknown",
+          "openai",
+          "synthetic-pi-model",
+          "medium",
+          1,
+          10344,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "2026-10-19T12:00:00.000000+00:00"
+        ]
+      ],
+      "sql": "CREATE TABLE stage_attempts (\n                attempt_id TEXT PRIMARY KEY,\n                run_id TEXT NOT NULL REFERENCES review_runs(run_id),\n                profile_id TEXT NOT NULL REFERENCES personal_state_profile(profile_id),\n                stage TEXT NOT NULL CHECK(stage IN ('title_screen','full_review')),\n                status TEXT NOT NULL CHECK(status IN\n                    ('pending','running','completed','failed','blocked','unknown')),\n                input_fingerprint TEXT NOT NULL,\n                manifest_id TEXT NOT NULL,\n                stage_version TEXT NOT NULL,\n                prompt_version TEXT NOT NULL,\n                attempt_number INTEGER NOT NULL CHECK(attempt_number > 0),\n                retry_of_attempt_id TEXT REFERENCES stage_attempts(attempt_id),\n                requested_at TEXT NOT NULL,\n                completed_at TEXT,\n                error_code TEXT,\n                provider_label TEXT,\n                model_label TEXT,\n                reasoning_level TEXT,\n                call_count INTEGER NOT NULL DEFAULT 0 CHECK(call_count >= 0),\n                request_bytes INTEGER CHECK(request_bytes >= 0),\n                response_bytes INTEGER CHECK(response_bytes >= 0),\n                input_tokens INTEGER CHECK(input_tokens >= 0),\n                output_tokens INTEGER CHECK(output_tokens >= 0),\n                response_fingerprint TEXT, blocked_sub_reason TEXT, submitted_at TEXT,\n                UNIQUE(run_id,stage,input_fingerprint,attempt_number)\n            )"
+    },
+    "stage_results": {
+      "columns": [
+        "result_id",
+        "attempt_id",
+        "listing_id",
+        "stage",
+        "source_version",
+        "input_fingerprint",
+        "result_fingerprint",
+        "stage_version",
+        "prompt_version",
+        "profile_fingerprint",
+        "preferences_fingerprint",
+        "rules_fingerprint",
+        "scoring_version",
+        "result_json",
+        "recorded_at",
+        "supersedes_result_id",
+        "upstream_result_id"
+      ],
+      "primary_key": [
+        "result_id"
+      ],
+      "rows": [],
+      "sql": "CREATE TABLE stage_results (\n                result_id TEXT PRIMARY KEY,\n                attempt_id TEXT NOT NULL REFERENCES stage_attempts(attempt_id),\n                listing_id TEXT NOT NULL,\n                stage TEXT NOT NULL CHECK(stage IN ('title_screen','full_review')),\n                source_version TEXT NOT NULL,\n                input_fingerprint TEXT NOT NULL,\n                result_fingerprint TEXT NOT NULL,\n                stage_version TEXT NOT NULL,\n                prompt_version TEXT NOT NULL,\n                profile_fingerprint TEXT NOT NULL,\n                preferences_fingerprint TEXT NOT NULL,\n                rules_fingerprint TEXT NOT NULL,\n                scoring_version TEXT NOT NULL,\n                result_json TEXT NOT NULL,\n                recorded_at TEXT NOT NULL,\n                supersedes_result_id TEXT REFERENCES stage_results(result_id),\n                upstream_result_id TEXT,\n                UNIQUE(attempt_id,listing_id)\n            )"
+    },
+    "standing_consents": {
+      "columns": [
+        "standing_id",
+        "profile_id",
+        "recorded_at",
+        "consenter",
+        "method",
+        "reviewer_id",
+        "disclosure_sha256",
+        "disclosure_text",
+        "revoked_at",
+        "revoked_by",
+        "expires_at"
+      ],
+      "primary_key": [
+        "standing_id"
+      ],
+      "rows": [],
+      "sql": "CREATE TABLE standing_consents (\n                    standing_id TEXT PRIMARY KEY,\n                    profile_id TEXT NOT NULL\n                        REFERENCES personal_state_profile(profile_id),\n                    recorded_at TEXT NOT NULL,\n                    consenter TEXT NOT NULL,\n                    method TEXT NOT NULL,\n                    reviewer_id TEXT NOT NULL,\n                    disclosure_sha256 TEXT NOT NULL,\n                    disclosure_text TEXT NOT NULL,\n                    revoked_at TEXT,\n                    revoked_by TEXT,\n                    expires_at TEXT\n                )"
+    }
+  },
+  "user_version": 0
+}

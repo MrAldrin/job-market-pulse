@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "schedule",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse schedule [-h] {show,install,status,remove} ...\n\npositional arguments:\n  {show,install,status,remove}\n\noptions:\n  -h, --help            show this help message and exit\n"
+}

@@ -1,0 +1,8 @@
+# Explicit neutral alternative for people whose interests include academic,
+# sales or business-development roles. Use with pulse --title-rules; never
+# silently replace the owner's existing exclusions.
+version = "neutral-v1"
+academic = []
+business_development = []
+sales = []
+tech_words = []

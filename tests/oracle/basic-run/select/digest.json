@@ -1,0 +1,30 @@
+{
+  "as_of": "2026-10-19T12:00:00+00:00",
+  "blocked_reasons": [],
+  "candidates": [
+    {
+      "assessed_at": "2026-10-19T12:00:00+00:00",
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "fit": "exceptional",
+      "hard_constraints": [
+        [
+          "personal",
+          "pass"
+        ]
+      ],
+      "id": "00000000-0000-0000-0000-000000000001",
+      "reason": "SQL software work directly matches building software and learning.",
+      "salary": "Lønn ukjent",
+      "title": "Software developer",
+      "uncertainties": [],
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000001",
+      "version": "2026-10-19T10:00:00+00:00"
+    }
+  ],
+  "market_context": null,
+  "pack": null,
+  "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+  "profile_id": "invented",
+  "status": "ready"
+}

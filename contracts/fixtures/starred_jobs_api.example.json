@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "source_instance": "synthetic-railway",
+  "profile_id": "synthetic-owner",
+  "exported_at": "2026-11-10T09:00:00+00:00",
+  "snapshot_at": "2026-11-10T08:30:00+00:00",
+  "complete": true,
+  "jobs": [
+    {
+      "source": "nav",
+      "listing_id": "00000000-0000-4000-8000-000000000001",
+      "starred": true,
+      "reaction": null,
+      "feedback_updated_at": "2026-11-10T08:50:00+00:00",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-4000-8000-000000000001",
+      "details_state": "available",
+      "summary": {
+        "title": "Synthetic data role",
+        "employer": "Synthetic employer",
+        "deadline": null,
+        "expires_at": null,
+        "source_status": "unknown",
+        "source_version": null,
+        "source_checked_at": null
+      }
+    },
+    {
+      "source": "nav",
+      "listing_id": "00000000-0000-4000-8000-000000000002",
+      "starred": true,
+      "reaction": "up",
+      "feedback_updated_at": "2026-11-09T12:00:00+00:00",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-4000-8000-000000000002",
+      "details_state": "unavailable",
+      "summary": null
+    }
+  ]
+}

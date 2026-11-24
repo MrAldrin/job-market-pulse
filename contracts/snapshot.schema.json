@@ -1,0 +1,952 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pulse snapshot v1",
+  "description": "Portable display data only. Python also checks timestamps, unique job IDs, shortlist and salary references, market alignment and null gaps, and ordered trend periods. Optional sections can be null.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "generated_at",
+    "profile",
+    "source",
+    "counts",
+    "jobs",
+    "shortlist",
+    "market",
+    "reviewed_trend",
+    "salary"
+  ],
+  "properties": {
+    "schema": {
+      "const": "pulse.snapshot"
+    },
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "generated_at": {
+      "$ref": "#/$defs/timestamp"
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "mode"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/text"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "passive",
+            "active"
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "checked_at",
+        "coverage_note"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/text"
+        },
+        "checked_at": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/timestamp"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coverage_note": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eligible",
+        "reviewed",
+        "open",
+        "closed",
+        "pending",
+        "screened_out",
+        "failed"
+      ],
+      "properties": {
+        "eligible": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        },
+        "reviewed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        },
+        "open": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        },
+        "closed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        },
+        "pending": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        },
+        "screened_out": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        },
+        "failed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        }
+      }
+    },
+    "jobs": {
+      "type": "array",
+      "maxItems": 2000,
+      "items": {
+        "$ref": "#/$defs/job"
+      }
+    },
+    "shortlist": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "job_ids",
+        "rule"
+      ],
+      "properties": {
+        "job_ids": {
+          "type": "array",
+          "maxItems": 2000,
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        },
+        "rule": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "market": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "taxonomy_version",
+            "captured_at",
+            "monthly",
+            "weekly",
+            "note"
+          ],
+          "properties": {
+            "taxonomy_version": {
+              "$ref": "#/$defs/text"
+            },
+            "captured_at": {
+              "$ref": "#/$defs/timestamp"
+            },
+            "monthly": {
+              "$ref": "#/$defs/market_series"
+            },
+            "weekly": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/market_series"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "note": {
+              "$ref": "#/$defs/text"
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reviewed_trend": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/reviewed_trend"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "salary": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/salary"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "market_series": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "periods",
+        "families",
+        "terms"
+      ],
+      "properties": {
+        "periods": {
+          "type": "array",
+          "maxItems": 1200,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "start",
+              "end",
+              "partial",
+              "ad_count",
+              "tech_total",
+              "sampled",
+              "taxonomy_version",
+              "captured_at",
+              "coverage"
+            ],
+            "properties": {
+              "label": {
+                "$ref": "#/$defs/text"
+              },
+              "start": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "end": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "partial": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "ad_count": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10000000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "tech_total": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10000000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sampled": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "taxonomy_version": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/text"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "captured_at": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/timestamp"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "coverage": {
+                "enum": [
+                  "partial",
+                  "unverified",
+                  "closed",
+                  "missing"
+                ]
+              }
+            }
+          }
+        },
+        "families": {
+          "type": "array",
+          "maxItems": 2000,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "label",
+              "counts"
+            ],
+            "properties": {
+              "key": {
+                "$ref": "#/$defs/text"
+              },
+              "label": {
+                "$ref": "#/$defs/text"
+              },
+              "counts": {
+                "type": "array",
+                "maxItems": 1200,
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 10000000
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "terms": {
+          "type": "array",
+          "maxItems": 2000,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "key",
+              "group",
+              "label",
+              "counts",
+              "tech_counts"
+            ],
+            "properties": {
+              "key": {
+                "$ref": "#/$defs/text"
+              },
+              "group": {
+                "$ref": "#/$defs/text"
+              },
+              "label": {
+                "$ref": "#/$defs/text"
+              },
+              "counts": {
+                "type": "array",
+                "maxItems": 1200,
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 10000000
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "tech_counts": {
+                "type": "array",
+                "maxItems": 1200,
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 10000000
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "pattern": "[^\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]"
+    },
+    "timestamp": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "pattern": "[^\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]",
+      "description": "An ISO 8601 timestamp with a timezone. The Python validator parses timestamps; producers should write UTC."
+    },
+    "review_text": {
+      "type": "string",
+      "description": "Between 1 and 1000 characters after trimming whitespace; supplied text is preserved.",
+      "pattern": "^[\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]*[^\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]([\\s\\S]{0,998}[^\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000])?[\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]*$",
+      "maxLength": 2000
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fit",
+        "reason",
+        "evidence",
+        "uncertainties",
+        "hard_constraints",
+        "ad_text_reviewed"
+      ],
+      "properties": {
+        "fit": {
+          "type": "string",
+          "enum": [
+            "exceptional",
+            "strong",
+            "possible",
+            "poor",
+            "unknown"
+          ]
+        },
+        "reason": {
+          "$ref": "#/$defs/review_text"
+        },
+        "evidence": {
+          "type": "array",
+          "maxItems": 20,
+          "items": {
+            "$ref": "#/$defs/review_text"
+          }
+        },
+        "uncertainties": {
+          "type": "array",
+          "maxItems": 20,
+          "items": {
+            "$ref": "#/$defs/review_text"
+          }
+        },
+        "hard_constraints": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail",
+            "unknown"
+          ]
+        },
+        "ad_text_reviewed": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "fit": {
+                "enum": [
+                  "exceptional",
+                  "strong"
+                ]
+              }
+            },
+            "required": [
+              "fit"
+            ]
+          },
+          "then": {
+            "properties": {
+              "ad_text_reviewed": {
+                "const": true
+              },
+              "evidence": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "fit": {
+                "const": "exceptional"
+              }
+            },
+            "required": [
+              "fit"
+            ]
+          },
+          "then": {
+            "properties": {
+              "hard_constraints": {
+                "const": "pass"
+              },
+              "uncertainties": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ]
+    },
+    "job": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "source",
+        "source_version",
+        "title",
+        "employer",
+        "locations",
+        "url",
+        "expires_at",
+        "status",
+        "first_found_at",
+        "reviewed_at",
+        "result_id",
+        "assessment"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/text"
+        },
+        "source": {
+          "$ref": "#/$defs/text"
+        },
+        "source_version": {
+          "$ref": "#/$defs/text"
+        },
+        "title": {
+          "$ref": "#/$defs/text"
+        },
+        "employer": {
+          "$ref": "#/$defs/text"
+        },
+        "locations": {
+          "type": "array",
+          "maxItems": 2000,
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        },
+        "url": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 2000,
+          "pattern": "^https://"
+        },
+        "expires_at": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/timestamp"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "open",
+            "closed"
+          ]
+        },
+        "first_found_at": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/timestamp"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewed_at": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/timestamp"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "result_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "assessment": {
+          "$ref": "#/$defs/assessment"
+        }
+      }
+    },
+    "reviewed_period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "start",
+        "count"
+      ],
+      "properties": {
+        "label": {
+          "$ref": "#/$defs/text"
+        },
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        }
+      }
+    },
+    "reviewed_trend": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "weekly",
+        "monthly"
+      ],
+      "properties": {
+        "weekly": {
+          "type": "array",
+          "maxItems": 1200,
+          "items": {
+            "$ref": "#/$defs/reviewed_period"
+          }
+        },
+        "monthly": {
+          "type": "array",
+          "maxItems": 1200,
+          "items": {
+            "$ref": "#/$defs/reviewed_period"
+          }
+        }
+      }
+    },
+    "salary_ad": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "job_id",
+        "title",
+        "employer",
+        "month",
+        "changed",
+        "form",
+        "low",
+        "high",
+        "period",
+        "period_inferred",
+        "sko_code",
+        "ltr_min",
+        "ltr_max",
+        "yearly_midpoint",
+        "sko_or_vague",
+        "closed",
+        "outside_plausible_range"
+      ],
+      "properties": {
+        "job_id": {
+          "$ref": "#/$defs/text"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "employer": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "month": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}$"
+        },
+        "changed": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$"
+        },
+        "form": {
+          "anyOf": [
+            {
+              "enum": [
+                "range",
+                "single",
+                "max",
+                "vague"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "low": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000000000000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "high": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000000000000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "period": {
+          "anyOf": [
+            {
+              "enum": [
+                "year",
+                "month",
+                "hour"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "period_inferred": {
+          "type": "boolean"
+        },
+        "sko_code": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/text"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ltr_min": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ltr_max": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "yearly_midpoint": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000000000000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sko_or_vague": {
+          "type": "boolean"
+        },
+        "closed": {
+          "type": "boolean"
+        },
+        "outside_plausible_range": {
+          "type": "boolean"
+        }
+      }
+    },
+    "salary_month": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "month",
+        "facts",
+        "numeric",
+        "median_yearly",
+        "sko_or_vague"
+      ],
+      "properties": {
+        "month": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}$"
+        },
+        "facts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        },
+        "numeric": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        },
+        "median_yearly": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000000000000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sko_or_vague": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        }
+      }
+    },
+    "salary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ads",
+        "monthly",
+        "undated"
+      ],
+      "properties": {
+        "ads": {
+          "type": "array",
+          "maxItems": 2000,
+          "items": {
+            "$ref": "#/$defs/salary_ad"
+          }
+        },
+        "monthly": {
+          "type": "array",
+          "maxItems": 1200,
+          "items": {
+            "$ref": "#/$defs/salary_month"
+          }
+        },
+        "undated": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000
+        }
+      }
+    }
+  }
+}

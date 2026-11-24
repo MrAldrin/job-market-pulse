@@ -1,0 +1,118 @@
+{
+  "batch_count": 1,
+  "batch_ids_fingerprint": "81ec6e53f559d400c8cea9887b245946b39dee819ac7f8470c3d84b0d2753a87",
+  "batch_index": 1,
+  "candidate_count": 4,
+  "candidate_offset": 0,
+  "candidates": [
+    {
+      "detail_missing": false,
+      "employer": "Synthetic employer",
+      "expires_at": "2026-01-25T12:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "4dcc3c16a45bd50c4ec2d1d41cbfb405f7931d06cce6ca8fac2c9e64e0bb8859",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000001",
+      "locations": [
+        "Synthetic town"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000001",
+      "version": "2026-01-14T12:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Synthetic employer",
+      "expires_at": "2026-01-25T12:00:00+00:00",
+      "geography": "inside",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000004",
+      "locations": [
+        "Synthetic town"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Operations coordinator",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000004",
+      "version": "2026-01-14T12:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Synthetic employer",
+      "expires_at": "2026-01-25T12:00:00+00:00",
+      "geography": "inside",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000005",
+      "locations": [
+        "Synthetic town"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Research fellow",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000005",
+      "version": "2026-01-14T12:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Synthetic employer",
+      "expires_at": "2026-01-25T12:00:00+00:00",
+      "geography": "inside",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000007",
+      "locations": [
+        "Synthetic town"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Liker du båter?",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000007",
+      "version": "2026-01-14T12:00:00+00:00"
+    }
+  ],
+  "caught_up": true,
+  "checked_at": "2026-01-15T11:55:00+00:00",
+  "coverage": "Bounded NAV change-feed pool; excludes FINN-sourced ads.",
+  "coverage_id": "043df570c13ec8ed9ee5fc3cfaa5041d2e095a0b7918b17654d4b898fea93a3e",
+  "eligible_count": 4,
+  "fit_preferences": {
+    "allowed_occupation_categories": [
+      "IT"
+    ],
+    "excluded_employers": [],
+    "excluded_municipalities": [],
+    "excluded_title_terms": [],
+    "hard_limits": {
+      "exact_origin_included": false,
+      "geography_already_applied": true,
+      "geography_radius_is_explicit": true,
+      "geography_radius_km": 40.0,
+      "other_constraints": "Use only constraints stated in the supplied profile; otherwise unknown."
+    },
+    "nearby_municipalities": [
+      "Synthetic suburb"
+    ],
+    "preferred_municipalities": [
+      "Synthetic town"
+    ],
+    "preferred_terms": [
+      "developer"
+    ]
+  },
+  "limit": 120,
+  "manifest_id": "afa6e6877ba8afdcd52a7b8b52d2b44cf83d77e72177c176f72f782138fef8a7",
+  "preferences_fingerprint": "4c9687bebe852526c6fbc6829e6e209c6dcd9c06f698fe9bfae87dc1e4921015",
+  "profile_fingerprint": "3ecceb8c3645d4eb8ff6175c491e2fe04ec4acbbe5a23ab23d3c42183ade9025",
+  "profile_id": "person",
+  "remaining_count": 4,
+  "reviewed_count": 0,
+  "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+  "schema_version": 1,
+  "scoring_version": "title-evidence-hard-radius-v3",
+  "truncated": false
+}

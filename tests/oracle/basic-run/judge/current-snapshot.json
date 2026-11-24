@@ -1,0 +1,796 @@
+{
+  "candidates": [
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": {
+        "ad_text_reviewed": true,
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "exceptional",
+        "hard_constraints": "pass",
+        "id": "00000000-0000-0000-0000-000000000001",
+        "reason": "SQL software work directly matches building software and learning.",
+        "uncertainties": [],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "full_review_attempt_status": "completed",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": "cb6a8ccfe377b75f23863872f9d34eeeafa28c5d571f20cfc853d48e2c694490",
+      "full_review_result_id": "00000000-0000-0000-0000-000000002735",
+      "full_review_status": "completed",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000001",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": true,
+      "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000001",
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "advance_to_full_review",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000001"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": {
+        "ad_text_reviewed": true,
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "strong",
+        "hard_constraints": "pass",
+        "id": "00000000-0000-0000-0000-000000000002",
+        "reason": "Software work fits, but the learning opportunities are not established.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "full_review_attempt_status": "completed",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": "867c7d03497cce37c9f0a17772df828f5ae12ed110c7101e908ae94f007d2887",
+      "full_review_result_id": "00000000-0000-0000-0000-000000002736",
+      "full_review_status": "completed",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000002",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": true,
+      "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000002",
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "advance_to_full_review",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000002"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": {
+        "ad_text_reviewed": true,
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "possible",
+        "hard_constraints": "pass",
+        "id": "00000000-0000-0000-0000-000000000003",
+        "reason": "Some software work matches; the role scope is uncertain.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "full_review_attempt_status": "completed",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": "17835a5c4405e8320aa5eb735ecec1f4eb2e6be1bca83acc8f3460adac633e18",
+      "full_review_result_id": "00000000-0000-0000-0000-000000002737",
+      "full_review_status": "completed",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000003",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": true,
+      "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000003",
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "advance_to_full_review",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000003"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": {
+        "ad_text_reviewed": true,
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "evidence": [],
+        "fit": "possible",
+        "hard_constraints": "pass",
+        "id": "00000000-0000-0000-0000-000000000004",
+        "reason": "Software work is relevant, but the role scope and learning opportunities are not stated.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "full_review_attempt_status": "completed",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": "5c0ea34ccb42d09d9f44dba7dc842d07d1974eb8fe0f2a274e7eb165ed2243c7",
+      "full_review_result_id": "00000000-0000-0000-0000-000000002738",
+      "full_review_status": "completed",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000004",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": true,
+      "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000004",
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "advance_to_full_review",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000004"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": {
+        "ad_text_reviewed": true,
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "poor",
+        "hard_constraints": "pass",
+        "id": "00000000-0000-0000-0000-000000000005",
+        "reason": "The described work is not a convincing match for building software.",
+        "uncertainties": [],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "full_review_attempt_status": "completed",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": "923479e4da60b55726f98fcc182ec49e2b1c82fb83faef486f69d4ba13ca1848",
+      "full_review_result_id": "00000000-0000-0000-0000-000000002739",
+      "full_review_status": "completed",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000005",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": false,
+      "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000005",
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "advance_to_full_review",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Database engineer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000005"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": null,
+      "full_review_attempt_status": "not_eligible",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": null,
+      "full_review_result_id": null,
+      "full_review_status": "pending",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000008",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": false,
+      "review_prompt_version": null,
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000008",
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "screened_out",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Utvikler blåbær",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000008"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": null,
+      "full_review_attempt_status": "not_eligible",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": null,
+      "full_review_result_id": null,
+      "full_review_status": "pending",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000009",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": false,
+      "review_prompt_version": null,
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000009",
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "screened_out",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000009"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": null,
+      "full_review_attempt_status": "not_eligible",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": null,
+      "full_review_result_id": null,
+      "full_review_status": "pending",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-00000000000b",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": false,
+      "review_prompt_version": null,
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-00000000000b",
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "screened_out",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Operations coordinator",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-00000000000b"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": null,
+      "full_review_attempt_status": "not_eligible",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": null,
+      "full_review_result_id": null,
+      "full_review_status": "pending",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-00000000000c",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": false,
+      "review_prompt_version": null,
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-00000000000c",
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "screened_out",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-00000000000c"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": null,
+      "full_review_attempt_status": "not_eligible",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": null,
+      "full_review_result_id": null,
+      "full_review_status": "pending",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-00000000000d",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": false,
+      "review_prompt_version": null,
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-00000000000d",
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "screened_out",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Research fellow",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-00000000000d"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": null,
+      "full_review_attempt_status": "not_eligible",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": null,
+      "full_review_result_id": null,
+      "full_review_status": "pending",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000011",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": false,
+      "review_prompt_version": null,
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000011",
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "screened_out",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000011"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": null,
+      "full_review_attempt_status": "not_eligible",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": null,
+      "full_review_result_id": null,
+      "full_review_status": "pending",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000012",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": false,
+      "review_prompt_version": null,
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000012",
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "screened_out",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000012"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": null,
+      "full_review_attempt_status": "not_eligible",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": null,
+      "full_review_result_id": null,
+      "full_review_status": "pending",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000013",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": false,
+      "review_prompt_version": null,
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000013",
+        "outcome": "screened_out",
+        "reason": "The title does not establish the preferred software-building work.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "screened_out",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000013"
+    }
+  ],
+  "checked_at": "2026-10-19T12:00:00+00:00",
+  "closed": [],
+  "coverage_id": "5dcdeab1e6dbb5a22945161a6c02742104cf19e2e7255f6c60ccbac2f23f5fc1",
+  "eligibility_verified": true,
+  "eligible_count": 13,
+  "failed_count": 0,
+  "pending_count": 0,
+  "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+  "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+  "profile_id": "invented",
+  "ranked": [
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": {
+        "ad_text_reviewed": true,
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "exceptional",
+        "hard_constraints": "pass",
+        "id": "00000000-0000-0000-0000-000000000001",
+        "reason": "SQL software work directly matches building software and learning.",
+        "uncertainties": [],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "full_review_attempt_status": "completed",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": "cb6a8ccfe377b75f23863872f9d34eeeafa28c5d571f20cfc853d48e2c694490",
+      "full_review_result_id": "00000000-0000-0000-0000-000000002735",
+      "full_review_status": "completed",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000001",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": true,
+      "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000001",
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "advance_to_full_review",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000001"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": {
+        "ad_text_reviewed": true,
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "strong",
+        "hard_constraints": "pass",
+        "id": "00000000-0000-0000-0000-000000000002",
+        "reason": "Software work fits, but the learning opportunities are not established.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "full_review_attempt_status": "completed",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": "867c7d03497cce37c9f0a17772df828f5ae12ed110c7101e908ae94f007d2887",
+      "full_review_result_id": "00000000-0000-0000-0000-000000002736",
+      "full_review_status": "completed",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000002",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": true,
+      "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000002",
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "advance_to_full_review",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000002"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": {
+        "ad_text_reviewed": true,
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "possible",
+        "hard_constraints": "pass",
+        "id": "00000000-0000-0000-0000-000000000003",
+        "reason": "Some software work matches; the role scope is uncertain.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "full_review_attempt_status": "completed",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": "17835a5c4405e8320aa5eb735ecec1f4eb2e6be1bca83acc8f3460adac633e18",
+      "full_review_result_id": "00000000-0000-0000-0000-000000002737",
+      "full_review_status": "completed",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000003",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": true,
+      "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000003",
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "advance_to_full_review",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000003"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": {
+        "ad_text_reviewed": true,
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "evidence": [],
+        "fit": "possible",
+        "hard_constraints": "pass",
+        "id": "00000000-0000-0000-0000-000000000004",
+        "reason": "Software work is relevant, but the role scope and learning opportunities are not stated.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "full_review_attempt_status": "completed",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": "5c0ea34ccb42d09d9f44dba7dc842d07d1974eb8fe0f2a274e7eb165ed2243c7",
+      "full_review_result_id": "00000000-0000-0000-0000-000000002738",
+      "full_review_status": "completed",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000004",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": true,
+      "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000004",
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "advance_to_full_review",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000004"
+    },
+    {
+      "application_due": null,
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "full_review": {
+        "ad_text_reviewed": true,
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "poor",
+        "hard_constraints": "pass",
+        "id": "00000000-0000-0000-0000-000000000005",
+        "reason": "The described work is not a convincing match for building software.",
+        "uncertainties": [],
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "full_review_attempt_status": "completed",
+      "full_review_blocked_sub_reason": null,
+      "full_review_input_fingerprint": "923479e4da60b55726f98fcc182ec49e2b1c82fb83faef486f69d4ba13ca1848",
+      "full_review_result_id": "00000000-0000-0000-0000-000000002739",
+      "full_review_status": "completed",
+      "lifecycle_status": "saved_source_unconfirmed",
+      "listing_id": "00000000-0000-0000-0000-000000000005",
+      "locations": [
+        "INVENTED"
+      ],
+      "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+      "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+      "provenance": "Validated staged review",
+      "recommendable": false,
+      "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+      "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+      "scoring_version": "title-evidence-hard-radius-v3",
+      "screening": {
+        "assessed_at": "2026-10-19T12:00:00+00:00",
+        "id": "00000000-0000-0000-0000-000000000005",
+        "outcome": "advance_to_full_review",
+        "reason": "Software work warrants reading the full advertisement.",
+        "version": "2026-10-19T10:00:00+00:00"
+      },
+      "screening_attempt_status": "completed",
+      "screening_status": "advance_to_full_review",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "title": "Database engineer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000005"
+    }
+  ],
+  "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+  "scoring_version": "title-evidence-hard-radius-v3",
+  "screened_out_count": 8,
+  "unknown_attempt_count": 0
+}

@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "doctor"
+  ],
+  "exit_status": 1,
+  "stderr": "",
+  "stdout": "Tools:\n  ok  python  Python 3.11 or newer\n  ok  uv  uv is available\nProfile:\n  ok  selected  A profile is selected.\n  ok  profile_dir  Profile directory exists.\n  ok  profile_toml  Profile policy TOML is readable.\n  ok  narrative  Profile text has enough content.\n  ok  preferences  Preferences are readable and valid.\n  ok  origin  An explicit origin is set.\n  ok  radius  An explicit radius is set.\n  ok  occupations  Allowed occupation categories are set.\n  ok  source_db  The configured source database exists.\n  MISSING  reviewer  Setup is missing or invalid.\n    Fix: Create or correct local_only/models.toml using config/models.example.toml.\n  ok  outbox  The outbox directory exists.\nReviewer:\n  MISSING  settings  Per-step model settings are missing or invalid.\n    Fix: Create or correct local_only/models.toml using config/models.example.toml.\nSource:\n  ok  database  Source database and check time are readable.\n  ok  freshness  Source check is within the configured age.\nResults:\n  MISSING  last_run  No readable pipeline run record.\n    Fix: Complete an approved local pipeline run for this profile.\n  MISSING  snapshot  Snapshot JSON is missing, unreadable or not valid JSON.\n    Fix: Export this profile's saved results with pulse snapshot export.\nDashboard:\n  MISSING  build  Dashboard is not built.\n    Fix: Run pulse dashboard-build after dependency setup.\nSchedule:\n  WARN  timer  Not set up; timer status is unavailable or no timer is installed.\n    Fix: Choose a scheduler and approve its setup separately. Doctor does not install or enable timers.\n  ok  last_run  No scheduled run recorded; last good run: unknown.\n6 things need attention.\n"
+}

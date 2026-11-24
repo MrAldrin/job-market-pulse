@@ -1,0 +1,78 @@
+[
+  {
+    "attempt_id": "00000000-0000-0000-0000-000000002715",
+    "attempt_number": 1,
+    "blocked_sub_reason": null,
+    "candidate_ids": [
+      "00000000-0000-0000-0000-000000000001",
+      "00000000-0000-0000-0000-000000000002",
+      "00000000-0000-0000-0000-000000000003",
+      "00000000-0000-0000-0000-000000000004",
+      "00000000-0000-0000-0000-000000000005",
+      "00000000-0000-0000-0000-000000000008",
+      "00000000-0000-0000-0000-000000000009",
+      "00000000-0000-0000-0000-00000000000b",
+      "00000000-0000-0000-0000-00000000000c",
+      "00000000-0000-0000-0000-00000000000d",
+      "00000000-0000-0000-0000-000000000011",
+      "00000000-0000-0000-0000-000000000012",
+      "00000000-0000-0000-0000-000000000013"
+    ],
+    "completed_at": "2026-10-19T12:00:00+00:00",
+    "error_code": null,
+    "input_fingerprint": "b67c937199be8152a033d21344b7ee7dc10b06309618d8eba7679ef786703213",
+    "manifest_id": "7be4f01ad6ab76afc924a2b6bdbec65824a0606100ad8272defcf14776309b87",
+    "profile_id": "invented",
+    "prompt_version": "dcbf5a5081b50a05973a3a08a9e4f7cadb2ef413c3f07baaaf83eed87c4e7372",
+    "provenance": {
+      "call_count": 1,
+      "input_tokens": 100,
+      "model_label": "synthetic-pi-model",
+      "output_tokens": 50,
+      "provider_label": "openai",
+      "reasoning_level": "medium",
+      "request_bytes": 10344,
+      "response_bytes": 2620
+    },
+    "requested_at": "2026-10-19T12:00:00+00:00",
+    "retry_of_attempt_id": null,
+    "run_id": "00000000-0000-0000-0000-000000002712",
+    "stage": "title_screen",
+    "stage_version": "personal-review-stage-v1",
+    "status": "completed"
+  },
+  {
+    "attempt_id": "00000000-0000-0000-0000-000000002729",
+    "attempt_number": 1,
+    "blocked_sub_reason": null,
+    "candidate_ids": [
+      "00000000-0000-0000-0000-000000000001",
+      "00000000-0000-0000-0000-000000000002",
+      "00000000-0000-0000-0000-000000000003",
+      "00000000-0000-0000-0000-000000000004",
+      "00000000-0000-0000-0000-000000000005"
+    ],
+    "completed_at": "2026-10-19T12:00:00+00:00",
+    "error_code": null,
+    "input_fingerprint": "3fd3148f098675f1e9311e0bb364be049f45ef6d00320072c92214335904b9f4",
+    "manifest_id": "120a72229e4186cd95fb709bc454d3eb97e583020787be4ca57ccc0eccd1ced1",
+    "profile_id": "invented",
+    "prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+    "provenance": {
+      "call_count": 1,
+      "input_tokens": 100,
+      "model_label": "synthetic-pi-model",
+      "output_tokens": 50,
+      "provider_label": "openai",
+      "reasoning_level": "medium",
+      "request_bytes": 6860,
+      "response_bytes": 1809
+    },
+    "requested_at": "2026-10-19T12:00:00+00:00",
+    "retry_of_attempt_id": null,
+    "run_id": "00000000-0000-0000-0000-000000002712",
+    "stage": "full_review",
+    "stage_version": "personal-review-stage-v1",
+    "status": "completed"
+  }
+]

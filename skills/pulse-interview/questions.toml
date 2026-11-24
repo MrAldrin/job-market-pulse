@@ -1,0 +1,255 @@
+# Interview topics, not answers. Keep private answers in ignored profile storage.
+# short selects fallback-form questions. hard marks a possible hard-limit topic;
+# only the person's explicit answer can make it a strict limit.
+
+[[question]]
+id = "current_role"
+section = "background"
+ask = "What do you do today?"
+why = "The judge needs a starting point for comparing job duties."
+follow_up = ["Which parts do you want more of?", "Which parts do you want less of?"]
+short = true
+hard = false
+
+[[question]]
+id = "experience_years"
+section = "background"
+ask = "How many years of relevant experience do you have, and in which kinds of work?"
+why = "The judge compares stated experience requirements with your background."
+follow_up = ["Which experience is recent?", "Are you changing to a new kind of work?"]
+short = false
+hard = false
+
+[[question]]
+id = "education"
+section = "background"
+ask = "What education, training or qualifications do you want the judge to know about?"
+why = "Some ads require a qualification; missing evidence must stay unknown."
+follow_up = ["Which qualifications are current?", "Is there training you are willing to take?"]
+short = false
+hard = false
+
+[[question]]
+id = "strongest_skills"
+section = "background"
+ask = "What are your strongest skills, and how have you used them?"
+why = "Concrete experience helps the judge distinguish a direct match from a possible one."
+follow_up = ["Give one example of work you did well."]
+short = true
+hard = false
+
+[[question]]
+id = "tools"
+section = "background"
+ask = "Which tools, equipment or methods can you use with confidence?"
+why = "The judge can compare your experience with the methods named in an ad."
+follow_up = ["Which would you like to learn?", "Which do you no longer want to use?"]
+short = false
+hard = false
+
+[[question]]
+id = "next_job"
+section = "direction"
+ask = "What should be different in your next job?"
+why = "The judge needs your direction, not just a match to your current work."
+follow_up = ["What should stay the same?"]
+short = true
+hard = false
+
+[[question]]
+id = "wanted_roles"
+section = "direction"
+ask = "Which roles or kinds of work would you most like next?"
+why = "The judge compares each ad with the work you actually want."
+follow_up = ["Describe the duties if job titles are unclear."]
+short = true
+hard = false
+
+[[question]]
+id = "acceptable_roles"
+section = "direction"
+ask = "Which other roles would you consider, even if they are not your first choice?"
+why = "An acceptable alternative can be a possible match without being exceptional."
+follow_up = ["What would make such a role worth considering?"]
+short = false
+hard = false
+
+[[question]]
+id = "seniority"
+section = "direction"
+ask = "What level of responsibility do you want in the next job?"
+why = "Job titles alone do not establish the right level of responsibility."
+follow_up = ["Would you accept a different level to change direction?"]
+short = false
+hard = false
+
+[[question]]
+id = "leadership_or_specialist"
+section = "direction"
+ask = "Do you prefer leading people, specialist work, a mix, or neither?"
+why = "The judge must not assume that promotion or management is your goal."
+follow_up = ["How much responsibility for other people do you want?"]
+short = false
+hard = false
+
+[[question]]
+id = "domains"
+section = "wants"
+ask = "Which subjects, services or industries interest you?"
+why = "The same duties can be more appealing in a field you care about."
+follow_up = ["Which interests matter most?"]
+short = false
+hard = false
+
+[[question]]
+id = "employer_kind"
+section = "wants"
+ask = "What kind of employer or workplace would suit you?"
+why = "The judge can use employer preferences when the ad supplies evidence."
+follow_up = ["Does size, ownership or purpose matter?", "Which parts are preferences rather than limits?"]
+short = false
+hard = false
+
+[[question]]
+id = "team"
+section = "wants"
+ask = "What kind of team and support do you work best with?"
+why = "Team expectations help explain fit without assuming an ad proves its culture."
+follow_up = ["How much independent work do you want?"]
+short = false
+hard = false
+
+[[question]]
+id = "ways_of_working"
+section = "wants"
+ask = "How do you like work to be planned and carried out?"
+why = "The judge can compare stated working practices with your preferences."
+follow_up = ["What balance of routine, variety and change suits you?"]
+short = false
+hard = false
+
+[[question]]
+id = "exceptional_job"
+section = "wants"
+ask = "What would make a job exceptional enough for you to act on it?"
+why = "An exceptional match needs compelling ad evidence, passed hard limits and no unresolved fit uncertainty."
+follow_up = ["Which two or three features matter most?", "What would be good but not exceptional?"]
+short = true
+hard = false
+
+[[question]]
+id = "avoid_tasks"
+section = "avoid"
+ask = "Which tasks do you want to avoid?"
+why = "The judge must distinguish unwanted duties from a strict reason to reject a job."
+follow_up = ["Are these strict limits or preferences?", "Would a small amount be acceptable?"]
+short = true
+hard = false
+
+[[question]]
+id = "avoid_domains"
+section = "avoid"
+ask = "Are there subjects, services or industries you do not want to work in?"
+why = "A good match in duties can still be wrong for your direction."
+follow_up = ["Are these strict limits or preferences?"]
+short = false
+hard = false
+
+[[question]]
+id = "avoid_employers"
+section = "avoid"
+ask = "Are there kinds of employer or workplace you would not consider?"
+why = "The judge should use your stated boundaries, not invent employer preferences."
+follow_up = ["Are these strict limits or preferences?", "What public ad evidence would identify the problem?"]
+short = false
+hard = false
+
+[[question]]
+id = "language"
+section = "hard_limits"
+ask = "Which language requirements can you meet, and which can you not meet?"
+why = "An unmet strict language requirement can fail a hard constraint; an unstated requirement stays unknown."
+follow_up = ["Which languages can you use at work?", "Would you learn another language?"]
+short = true
+hard = true
+
+[[question]]
+id = "minimum_salary"
+section = "hard_limits"
+ask = "Optional: What is your strict minimum annual salary in NOK before tax for full-time work? Enter whole NOK."
+why = "The judge must not invent salary or treat an unstated salary as meeting a strict minimum."
+follow_up = ["What should the reviewer know about this minimum?"]
+short = true
+hard = true
+
+[[question]]
+id = "work_location"
+section = "hard_limits"
+ask = "Which arrangements are acceptable? Select numbers: 1 on-site, 2 hybrid, 3 fully remote. All selected are equally acceptable."
+why = "The judge needs explicit working-location limits and cannot assume remote work is offered."
+follow_up = ["What should the reviewer know about these arrangements?"]
+short = true
+hard = true
+
+[[question]]
+id = "travel"
+section = "hard_limits"
+ask = "How much work travel, including overnight stays, can you accept?"
+why = "Travel duties can conflict with a limit even when the workplace is nearby."
+follow_up = ["Does the frequency or length of trips change your answer?"]
+short = false
+hard = true
+
+[[question]]
+id = "security_clearance"
+section = "hard_limits"
+ask = "Are there security-clearance requirements you cannot or do not want to meet?"
+why = "The judge must not assume eligibility for a stated clearance requirement."
+follow_up = ["You do not need to give sensitive reasons or identifiers."]
+short = false
+hard = true
+
+[[question]]
+id = "contract_type"
+section = "hard_limits"
+ask = "Which contract types and durations can you accept?"
+why = "A temporary or other contract may not meet the person's stated needs."
+follow_up = ["Would you accept a time-limited contract for the right work?"]
+short = false
+hard = true
+
+[[question]]
+id = "working_hours"
+section = "hard_limits"
+ask = "What working hours, shifts and amount of work can you accept?"
+why = "The judge needs explicit limits on hours rather than assumptions about availability."
+follow_up = ["Do evenings, nights or weekends change your answer?"]
+short = false
+hard = true
+
+[[question]]
+id = "notice_period"
+section = "practical"
+ask = "What notice period or earliest start date should the judge know about?"
+why = "A stated start date can create uncertainty about availability."
+follow_up = ["Is there any flexibility?"]
+short = false
+hard = false
+
+[[question]]
+id = "yes_examples"
+section = "examples"
+ask = "Name one or two jobs or employers you would say yes to today, and explain why."
+why = "Examples show which combinations of features make a strong personal match."
+follow_up = ["Which features would matter if the employer name were different?"]
+short = false
+hard = false
+
+[[question]]
+id = "no_examples"
+section = "examples"
+ask = "Name a job or employer you would say no to today, and explain why."
+why = "A negative example helps separate a poor match from an uncertain one."
+follow_up = ["Was the problem a strict limit or a preference?"]
+short = false
+hard = false

@@ -1,0 +1,290 @@
+# TypeScript ownership; the map does not claim import or table isolation.
+[typescript_modules]
+"src/lib/server/feedback/hosted-feedback.ts" = { brick = "feedback", role = "Validate and read a saved copy of historical hosted feedback." }
+"src/lib/server/feedback/hosted-feedback-files.ts" = { brick = "feedback", role = "Read the private historical hosted feedback file with a size limit." }
+"src/lib/server/feedback/phone-store.ts" = { brick = "feedback", role = "Read and atomically set current phone feedback in an explicitly selected private SQLite file." }
+"src/lib/server/feedback/phone-store-schema.ts" = { brick = "feedback", role = "Validate phone feedback identifiers, rows and the frozen SQLite schema." }
+"src/lib/server/feedback/personal-rating.ts" = { brick = "feedback", role = "Append personal ratings and read bounded event rows through selected Judge state." }
+"src/lib/server/feedback/personal-rating-schema.ts" = { brick = "feedback", role = "Recognize frozen personal feedback SQLite layouts and create current v2 on first rating." }
+"src/lib/contracts/assessment.ts" = { brick = "judge", role = "Validate standalone offline assessment values without current Source admission." }
+"src/lib/server/judge/workflow-controller.ts" = { brick = "judge", role = "Coordinate resumable title and full review through canonical store, validation and Source APIs." }
+"src/lib/server/judge/workflow-payload.ts" = { brick = "judge", role = "Build bounded prompts from fit context, listing summaries and Source-bound full text, without admission settings." }
+"src/lib/server/judge/workflow-source.ts" = { brick = "judge", role = "Adapt actual selected Profile, Source and Filter services for review freshness and text acquisition." }
+"src/lib/server/judge/workflow-service.ts" = { brick = "judge", role = "Validate review options and hold an explicit scoped profile lock around the selected Judge resource." }
+"src/lib/server/judge/workflow-protocol.ts" = { brick = "judge", role = "Serve one bounded strict JSONL session through injected byte I/O." }
+"src/lib/server/judge/workflow-driver.ts" = { brick = "judge", role = "Drive explicitly selected native reviewer harness calls within the profile lock." }
+"src/lib/server/judge/workflow-receipt.ts" = { brick = "judge", role = "Finish actual model-call telemetry separately from response validation and recording." }
+"src/lib/server/judge/workflow-progress.ts" = { brick = "judge", role = "Add canonical run counts and distinct fixed skip reasons to workflow events." }
+"src/lib/contracts/judge-protocol.ts" = { brick = "judge", role = "Validate strict JSONL workflow control and response envelopes." }
+"src/lib/server/judge/harness.ts" = { brick = "judge", role = "Run one bounded model command with isolated temporary files and scoped process cleanup." }
+"src/lib/server/judge/harness-pi.ts" = { brick = "judge", role = "Build isolated Pi arguments and interpret final assistant JSONL events." }
+"src/lib/server/judge/model-picker.ts" = { brick = "judge", role = "List Pi candidates over bounded RPC and run an explicit fixed-prompt model test." }
+"src/lib/server/judge/harness-claude.ts" = { brick = "judge", role = "Build isolated Claude arguments and interpret bounded result envelopes." }
+"src/lib/server/judge/harness-errors.ts" = { brick = "judge", role = "Map harness outcomes without exposing provider error text." }
+"src/lib/server/judge/interview-protocol.ts" = { brick = "judge", role = "Validate isolated interview requests and parse one-turn program responses." }
+"src/lib/server/judge/interview-turn.ts" = { brick = "judge", role = "Run one bounded interview turn and verify cleanup of its owned POSIX process group." }
+"src/lib/server/judge/protocol-errors.ts" = { brick = "judge", role = "Define sanitized protocol errors." }
+"src/lib/server/judge/protocol.ts" = { brick = "judge", role = "Frame bounded JSONL records and count distinct skipped candidates." }
+"src/lib/server/judge/reviewer-errors.ts" = { brick = "judge", role = "Define sanitized local model-settings errors." }
+"src/lib/server/judge/reviewers.ts" = { brick = "judge", role = "Read installation-local per-step model settings without a tracked fallback." }
+"src/lib/server/judge/reviewer-detect.ts" = { brick = "judge", role = "Parse offline harness discovery without checking model or credential access." }
+"src/lib/server/judge/run-information.ts" = { brick = "judge", role = "Describe configured review calls without a consent or allow-list gate." }
+"src/lib/server/judge/workflow-errors.ts" = { brick = "judge", role = "Define sanitized workflow failure codes." }
+"src/lib/server/judge/workflow-support.ts" = { brick = "judge", role = "Validate workflow limits, exact selectors and Source-owned text bindings." }
+"src/cli/init-defaults.ts" = { brick = "cli", role = "Project selected setup settings to named prompt defaults without writing files." }
+"src/cli/init-filters.ts" = { brick = "cli", role = "Collect setup job areas and confirmed exclusion edits without saving them." }
+"src/cli/init-profile-choice.ts" = { brick = "cli", role = "Ask for the setup profile and search mode without selecting files." }
+"src/cli/init-prompts.ts" = { brick = "cli", role = "Apply named-answer precedence and bounded setup prompts." }
+"src/cli/init-alerts.ts" = { brick = "cli", role = "Collect and confirm notification settings without printing or saving recovery answers." }
+"src/cli/init-schedule.ts" = { brick = "cli", role = "Plan setup schedule settings and recovery answers without starting a timer." }
+"src/lib/server/dashboard/auth.ts" = { brick = "dashboard", role = "Validate dashboard login, sessions, client addresses and failed-login limits." }
+"src/lib/server/dashboard/config.ts" = { brick = "dashboard", role = "Own local/hosted authentication and selected dashboard data paths." }
+"src/lib/server/dashboard/errors.ts" = { brick = "dashboard", role = "Report safe dashboard boundary failures." }
+"src/lib/server/dashboard/checkout-build.ts" = { brick = "dashboard", role = "Stamp and check the dashboard build against checkout inputs." }
+"src/lib/server/dashboard/launcher.ts" = { brick = "dashboard", role = "Start the built adapter in a foreground loopback-only command scope." }
+"src/lib/server/dashboard/service.ts" = { brick = "dashboard", role = "Apply the Host gate and dispatch distinct page, local settings, session feedback and bearer paths." }
+"src/lib/contracts/settings-suggestions.ts" = { brick = "dashboard", role = "Define local suggestion input summaries, evidence and exact editor updates." }
+"src/lib/server/calibrate/settings-suggestion-rules.ts" = { brick = "calibrate", role = "Select bounded saved evidence and validate proposed settings changes." }
+"src/lib/server/calibrate/settings-suggestions.ts" = { brick = "calibrate", role = "Prepare one proposal from selected saved evidence through the configured harness." }
+"src/lib/server/dashboard/settings-suggestions.ts" = { brick = "dashboard", role = "Authorize a suggestion request and select the saved local inputs for Calibrate." }
+"src/lib/server/dashboard/local-settings.ts" = { brick = "dashboard", role = "Dispatch the validated loopback read and save protocol to Profile." }
+"src/lib/server/dashboard/run.ts" = { brick = "dashboard", role = "Own the selected dashboard refresh in the server scope and recover saved run status." }
+"src/lib/server/dashboard/run-response.ts" = { brick = "dashboard", role = "Apply the local run HTTP contract and the same-origin write check." }
+"src/lib/server/dashboard/response.ts" = { brick = "dashboard", role = "Set viewer response headers and bound viewer request bodies." }
+"src/lib/server/dashboard/feedback.ts" = { brick = "dashboard", role = "Bind validated browser feedback requests to saved jobs and the separate Feedback store." }
+"src/lib/server/dashboard/bearer-exports.ts" = { brick = "dashboard", role = "Apply one read-only bearer gate and dispatch the starred-jobs and hosted feedback events exports." }
+"src/lib/server/dashboard/snapshot.ts" = { brick = "dashboard", role = "Read validated saved snapshots through Snapshot services and preserve the stored JSON response bytes." }
+"src/cli/doctor.ts" = { brick = "cli", role = "Report local requirements and fixes for people and coding agents." }
+"src/cli/doctor-host.ts" = { brick = "cli", role = "Run read-only scheduler queries and disposable data directory checks." }
+"src/lib/contracts/doctor.ts" = { brick = "cli", role = "Define the versioned machine-readable doctor report." }
+"src/cli/profile-check-output.ts" = { brick = "cli", role = "Format complete profile findings and setup next steps without checking resources." }
+"src/cli/setup-checkout.ts" = { brick = "cli", role = "Run the checkout install, build, Doctor and interactive setup in order." }
+"src/cli/profile-check.ts" = { brick = "cli", role = "Collect selected read-only profile and model-settings findings without checking live access." }
+"src/cli/demo-preflight.ts" = { brick = "cli", role = "Check fixed demo resources and validate the shipped invented snapshot without launching the dashboard." }
+"src/cli/demo-snapshot.ts" = { brick = "cli", role = "Build a fresh v6 demo snapshot from the shipped synthetic example." }
+"src/cli/interview-session.ts" = { brick = "cli", role = "Collect bounded interview facts and validate one-shot guided reflections." }
+"src/cli/interview-step.ts" = { brick = "cli", role = "Plan unsaved profile text and guard the original against changes during confirmation." }
+"src/cli/init-state.ts" = { brick = "cli", role = "Select and snapshot setup-owned profile and shared settings without writes." }
+"src/cli/init-wizard.ts" = { brick = "cli", role = "Run selected setup steps, save recovery and collect confirmations before applying changes." }
+"src/cli/init-geography.ts" = { brick = "cli", role = "Collect setup area and radius with an injected postal-area lookup." }
+"src/cli/init-models.ts" = { brick = "cli", role = "Plan shared AI settings with injected harness discovery and optional metadata." }
+"src/cli/init-command.ts" = { brick = "cli", role = "Decode the setup command and bind the wizard to selected services." }
+"src/cli/init-checkout-host.ts" = { brick = "cli", role = "Supply checkout resources, scoped prompt input and selected setup adapters without model metadata queries." }
+"src/cli/init-terminal.ts" = { brick = "cli", role = "Read setup answers and translate prompt EOF or Ctrl-C into cancellation." }
+"src/lib/server/feedback/local-export.ts" = { brick = "feedback", role = "Compose saved feedback in frozen precedence and serialize the bounded local export." }
+"src/cli/init-output.ts" = { brick = "cli", role = "Format setup summaries and reviewed plan items without printing narrative or coordinates." }
+"src/cli/init-plan.ts" = { brick = "cli", role = "Review selected setup file edits and apply them after fresh confirmation." }
+"src/cli/init-recovery-answers.ts" = { brick = "cli", role = "Select supported setup inputs and validated interview values for recovery." }
+"src/cli/init-recovery.ts" = { brick = "cli", role = "Read named answers and guard private setup checkpoints with selected-input hashes." }
+"src/cli/pulse-status.ts" = { brick = "cli", role = "Report selected local pipeline and snapshot evidence without starting work." }
+"src/cli/display-time.ts" = { brick = "cli", role = "Allow only bounded producer UTC timestamps in local reports." }
+"src/cli/pulse.ts" = { brick = "cli", role = "Register the retained Pulse commands and bind the checkout runtime." }
+"src/cli/dashboard.ts" = { brick = "cli", role = "Select saved profile data or the invented demo fixture for the loopback dashboard." }
+"src/cli/desktop-launcher.ts" = { brick = "cli", role = "Check, install and remove the Linux checkout app menu entry." }
+"src/cli/desktop.ts" = { brick = "cli", role = "Start and supervise the installed Linux desktop shell without downloading Electron at runtime." }
+"src/cli/pulse-publish.ts" = { brick = "cli", role = "Preview and gate data-only Railway uploads of the selected snapshot." }
+"src/cli/pulse-refresh.ts" = { brick = "cli", role = "Compose refresh and upload under the installation lease, and expose separate local re-review." }
+"src/cli/sqlite-backup.ts" = { brick = "ops", role = "Make a private SQLite backup without copying cached ad text to the final artifact." }
+"src/cli/checkout-options.ts" = { brick = "cli", role = "Keep option-shaped tokens from becoming missing CLI text values." }
+"src/cli/checkout-toolchain.ts" = { brick = "cli", role = "Check the pinned Bun and minimum checkout Node.js versions." }
+"src/cli/checkout-reports.ts" = { brick = "cli", role = "Select and compose the owning read services for checkout reports." }
+"src/cli/pulse-selection.ts" = { brick = "cli", role = "Read the guarded default profile selector only when no explicit ID is supplied." }
+"src/cli/schedule.ts" = { brick = "cli", role = "Select and confirm installation, status and removal of the profile user timer." }
+"src/lib/contracts/example.ts" = { brick = "shared", role = "Show strict Effect Schema header validation without changing a product contract." }
+"src/lib/server/clock.ts" = { brick = "shared", role = "Use the Clock service in Oslo and provide fixed test time." }
+"src/lib/server/config.ts" = { brick = "shared", role = "Load PULSE_DATA_DIR through an injected configuration service." }
+"src/lib/server/health.ts" = { brick = "shared", role = "Report inert runtime readiness without pipeline work." }
+"src/lib/server/runtime.ts" = { brick = "shared", role = "Own the single server ManagedRuntime and live platform layers." }
+"src/lib/server/example/core.ts" = { brick = "shared", role = "Describe artifact presence without I/O or failure." }
+"src/lib/server/example/errors.ts" = { brick = "shared", role = "Name the example service's expected resource error." }
+"src/lib/server/example/service.ts" = { brick = "shared", role = "Probe artifact presence through the platform FileSystem service." }
+"src/lib/contracts/iso-time.ts" = { brick = "shared", role = "Parse Python-compatible ISO dates and times with microsecond identity." }
+"src/lib/contracts/support.ts" = { brick = "shared", role = "Define strict scalar, timestamp, header and explicit contract-registration helpers." }
+"src/lib/contracts/feedback-events.ts" = { brick = "feedback", role = "Validate feedback events v1 without reading or changing the feedback stores." }
+"src/lib/server/feedback/legacy-events.ts" = { brick = "feedback", role = "Project verdict events from one selected read-only legacy store without migrating it." }
+"src/lib/server/feedback/read-selected.ts" = { brick = "feedback", role = "Open an explicitly selected local feedback file read-only without creating or migrating it." }
+"src/lib/server/feedback/phone-events.ts" = { brick = "feedback", role = "Project current phone controls as feedback events and serve a bounded pinned export." }
+"src/lib/server/feedback/starred-jobs.ts" = { brick = "feedback", role = "Validate selected stars and structured metadata, then project the bounded starred-jobs v1 wire body without I/O." }
+"src/lib/server/feedback/starred-reader.ts" = { brick = "feedback", role = "Read the complete bounded star set for one selected profile from a pinned phone-store copy without initialization." }
+"src/lib/contracts/profile.ts" = { brick = "profile", role = "Define the unchanged Profile bundle, paths, cadence and status shapes." }
+"src/lib/contracts/profile-settings.ts" = { brick = "profile", role = "Validate separately owned TOML settings and preserve raw numeric types." }
+"src/lib/contracts/local-settings.ts" = { brick = "profile", role = "Define the editor wire shapes from the existing Profile and reviewer value schemas." }
+"src/lib/contracts/local-run.ts" = { brick = "dashboard", role = "Define the loopback refresh start and status API fields." }
+"src/lib/contracts/pipeline-progress.ts" = { brick = "orchestration", role = "Define pipeline stage names and safe progress events." }
+"src/lib/contracts/reviewer-settings.ts" = { brick = "judge", role = "Validate reviewer settings structure and the provider and model labels shared with the local editor." }
+"src/lib/server/profile/core.ts" = { brick = "profile", role = "Apply pure policy, cadence, path, serialization and safe mode-edit rules." }
+"src/lib/server/profile/errors.ts" = { brick = "profile", role = "Name sanitized Profile, place, postal-area and period errors." }
+"src/lib/server/profile/files.ts" = { brick = "profile", role = "Guard active files, private writes, atomic replacement and scoped handles." }
+"src/lib/server/profile/initialization.ts" = { brick = "profile", role = "Create deliberately unready private split settings without a setup controller." }
+"src/lib/contracts/ntfy-settings.ts" = { brick = "profile", role = "Validate the local notification settings inputs and outbound HTTPS dashboard link." }
+"src/lib/server/profile/ntfy-settings.ts" = { brick = "profile", role = "Read redacted notification settings and save them under the installation lock." }
+"src/lib/server/profile/local-settings.ts" = { brick = "profile", role = "Read selected current settings and atomically replace one validated private TOML file under the installation lock." }
+"src/lib/server/profile/lookup-http.ts" = { brick = "profile", role = "Restrict lookup endpoints, redirects, response bytes and elapsed time." }
+"src/lib/server/profile/place-lookup.ts" = { brick = "profile", role = "Validate bounded locality responses through an injected HTTP service." }
+"src/lib/server/profile/postcode-area.ts" = { brick = "profile", role = "Resolve a postal-area origin under a single injected-clock deadline." }
+"src/lib/server/profile/postcode-geometry.ts" = { brick = "profile", role = "Validate safe XML and resumable bounded polygon interior geometry." }
+"src/lib/server/profile/occupation-catalog.ts" = { brick = "profile", role = "Load normalized occupation choices without acting as an admission whitelist." }
+"src/lib/server/profile/narrative.ts" = { brick = "profile", role = "Validate readiness, render confirmed answers and edit supported UTF-8 sections." }
+"src/lib/server/profile/narrative-service.ts" = { brick = "profile", role = "Read trusted narrative resources and guarded private suggestions through Layers." }
+"src/lib/server/profile/schedule-config.ts" = { brick = "profile", role = "Rewrite only schedule and cadence settings after checking preservation." }
+"src/lib/server/profile/schedule-period.ts" = { brick = "profile", role = "Parse and validate inert Oslo schedule periods and future runs." }
+"src/lib/server/profile/settings.ts" = { brick = "profile", role = "Decode owned settings, merge defaults and hash parsed preferences and screening rules." }
+"src/lib/server/profile/service.ts" = { brick = "profile", role = "Load validated Profile bundles and readiness; freshly read selected personal inputs through shared decoders and fingerprints without re-entering readiness or legacy fallback." }
+"src/lib/server/profile/split-settings.ts" = { brick = "profile", role = "Convert explicitly selected legacy files without overwriting or normal-runtime fallback." }
+"src/lib/server/profile/suggestions.ts" = { brick = "profile", role = "Validate explicit exclusion suggestions and preserve unchanged source text." }
+"src/lib/server/shared/display-time.ts" = { brick = "shared", role = "Format aware instants in fixed Oslo while preserving naive or invalid text." }
+"src/lib/server/shared/json-input.ts" = { brick = "shared", role = "Retain raw JSON integer and float tokens for strict boundary validation." }
+"src/lib/server/shared/python-json.ts" = { brick = "shared", role = "Serialize Python-compatible numeric identities, key order and SHA-256 inputs." }
+"src/lib/server/shared/review-config.ts" = { brick = "shared", role = "Select an explicit review source without printing ignored configuration." }
+"src/lib/server/shared/installation-paths.ts" = { brick = "shared", role = "Select platform-specific installed paths and bundled read-only resources." }
+"src/lib/server/shared/parent-pipe.ts" = { brick = "shared", role = "Watch a private inherited pipe for a graceful stop request." }
+"src/lib/server/shared/paths.ts" = { brick = "shared", role = "Resolve physical paths before dot-dot and expand only explicit current-user Profile roots." }
+"src/lib/server/shared/windows-private-files.ts" = { brick = "shared", role = "Verify private Windows paths and inherited NTFS permissions before access." }
+"src/lib/server/shared/sqlite-resource.ts" = { brick = "shared", role = "Keep explicit scoped SQLite statements, reservations and transactions on their selected resource." }
+"src/lib/server/shared/readonly-sqlite.ts" = { brick = "shared", role = "Open bounded SQLite inputs read-only for queries owned by their bricks." }
+"src/lib/server/shared/text.ts" = { brick = "shared", role = "Preserve Python whitespace, Unicode case folding and printable-text rules." }
+"src/lib/server/shared/toml.ts" = { brick = "shared", role = "Read and write TOML with exact integer, float and date token identity." }
+"src/lib/server/shared/workplace-fingerprint.ts" = { brick = "shared", role = "Build and verify minimized exact workplace and point evidence fingerprints." }
+"src/lib/server/shared/html.ts" = { brick = "shared", role = "Decode HTML5 references with the frozen numeric and longest-prefix rules." }
+"src/lib/contracts/salary.ts" = { brick = "market", role = "Define stated salary facts without display or history policy." }
+"src/lib/server/market/salary.ts" = { brick = "market", role = "Extract explicit salary facts from ad text for Source ingestion." }
+"src/lib/contracts/source-readers.ts" = { brick = "source", role = "Validate saved ads, evidence rows and read-only Source snapshots." }
+"src/lib/contracts/observations.ts" = { brick = "source", role = "Define profile-scoped observation history and immutable run outcomes." }
+"src/lib/server/source/errors.ts" = { brick = "source", role = "Name sanitized Source, resolver and observation failures." }
+"src/lib/server/source/core.ts" = { brick = "source", role = "Validate feed values, API routes, clocks and occupation records." }
+"src/lib/server/source/store.ts" = { brick = "source", role = "Acquire explicit scoped SQLite resources without default stores or upgrades." }
+"src/lib/server/source/schema.ts" = { brick = "source", role = "Initialize newly owned Source stores and explicitly upgrade legacy layouts." }
+"src/lib/server/source/readers.ts" = { brick = "source", role = "Read version-bound ads and evidence through explicit snapshot resources." }
+"src/lib/server/source/observations.ts" = { brick = "source", role = "Store atomic profile history and fixed per-run observation status." }
+"src/lib/server/source/nav-client.ts" = { brick = "source", role = "Bound NAV requests, token acquisition and external response replay." }
+"src/lib/server/source/ingestion.ts" = { brick = "source", role = "Apply feed pages atomically and retain only minimized active-ad text." }
+"src/lib/server/source/scrub.ts" = { brick = "source", role = "Remove contact data from minimized ingest text without removing stated pay." }
+"src/lib/server/source/topics.ts" = { brick = "source", role = "Label broad fixed collection topics without admission or scoring." }
+"src/lib/contracts/source.ts" = { brick = "source", role = "Define bounded Source results and the required Filter policy seam." }
+"src/lib/contracts/source-locations.ts" = { brick = "source", role = "Validate address responses, resolver inputs and location outcomes." }
+"src/lib/contracts/source-review.ts" = { brick = "source", role = "Define ephemeral source-text decisions, batches and admission inputs." }
+"src/lib/server/source/locations.ts" = { brick = "source", role = "Resolve exact official addresses under budgets and source-version CAS." }
+"src/lib/server/source/review-text.ts" = { brick = "source", role = "Check source snapshots and hydrate review text without persistence." }
+"src/lib/server/source/pipeline.ts" = { brick = "source", role = "Refresh fair bounded evidence slices using Filter-owned decisions." }
+"src/lib/server/source/resources.ts" = { brick = "source", role = "Keep private resolution checkpoints in files and read source freshness." }
+"src/lib/server/source/service.ts" = { brick = "source", role = "Compose selected Source operations without eager stores or an unlocked refresh." }
+"src/lib/server/filter/candidate-filters.ts" = { brick = "filter", role = "Apply occupation-only admission and subset-only eligibility rules." }
+"src/lib/server/filter/errors.ts" = { brick = "filter", role = "Report expected Filter input failures." }
+"src/lib/contracts/filter.ts" = { brick = "filter", role = "Validate the unchanged candidate manifest wire boundary." }
+"src/lib/server/filter/manifest.ts" = { brick = "filter", role = "Bind admitted candidate batches to Profile settings and complete coverage." }
+"src/lib/server/filter/review.ts" = { brick = "filter", role = "Decode and validate title-screen and full-review assessments against authoritative candidates." }
+"src/lib/contracts/fit-review.ts" = { brick = "filter", role = "Define the frozen title-screen and full-review envelopes and assertions." }
+"src/lib/server/filter/stage-fingerprint.ts" = { brick = "filter", role = "Build exact submission bindings and narrower saved-review material and preferred-term digests." }
+"src/lib/server/shared/normalization.ts" = { brick = "shared", role = "Preserve Unicode15.1 NFKC with old-unassigned composition barriers." }
+"src/lib/server/shared/literal-match.ts" = { brick = "shared", role = "Match escaped literal terms with frozen CPython simple-case and word boundaries." }
+"src/lib/server/filter/title-evidence.ts" = { brick = "filter", role = "Match literal preferred terms and define neutral title evidence." }
+"src/lib/server/filter/evidence-pack.ts" = { brick = "filter", role = "Load and bind explicit installation-local topic and role evidence without changing Screen rules." }
+"src/lib/server/filter/assessment.ts" = { brick = "filter", role = "Explain preliminary title evidence and soft geography with explicit Screen selection." }
+"src/lib/server/filter/screen-context.ts" = { brick = "filter", role = "Select immutable neutral personal rules or compile the Profile-owned manual context." }
+"src/lib/server/filter/screen-rules.ts" = { brick = "filter", role = "Compile typed Screen groups with native JavaScript regex and retain exclusion precedence." }
+"src/lib/server/filter/geography.ts" = { brick = "filter", role = "Assess official points and whole-municipality radius bounds with frozen place normalization." }
+"src/lib/server/filter/geography-service.ts" = { brick = "filter", role = "Read public area extents through the filesystem resource Layer." }
+"src/lib/server/filter/source-policy.ts" = { brick = "filter", role = "Score Source snapshots and provide pure or contextual structural refresh-policy callbacks without SQL ownership." }
+"src/lib/server/filter/current-admission.ts" = { brick = "filter", role = "Recheck refreshed candidate admission against bound Profile settings and raw workplace evidence." }
+"src/lib/server/filter/service.ts" = { brick = "filter", role = "Build candidate manifests from an injected current Source snapshot and the shared clock." }
+"src/lib/server/filter/review-service.ts" = { brick = "filter", role = "Read bounded supplied reviews through the injected filesystem service." }
+"src/lib/server/shared/bounded-file.ts" = { brick = "shared", role = "Read a bounded file prefix plus one size-limit sentinel byte." }
+"src/lib/server/shared/strict-contract-json.ts" = { brick = "shared", role = "Preserve strict bounded duplicate-free JSON for digest and supplied-review inputs only." }
+"src/lib/contracts/select.ts" = { brick = "select", role = "Validate retained digest requests and selection values." }
+"src/lib/server/select/core.ts" = { brick = "select", role = "Validate and select complete current digest candidates without quotas." }
+"src/lib/server/select/digest-render.ts" = { brick = "select", role = "Render retained digest JSON, text and HTML." }
+"src/lib/server/select/errors.ts" = { brick = "select", role = "Tag expected Select boundary failures." }
+"src/lib/server/select/service.ts" = { brick = "select", role = "Read injected assessment requests for digest selection." }
+"src/lib/server/select/shortlist-select.ts" = { brick = "select", role = "Select saved current matches without padding or quotas." }
+"src/lib/server/select/phone-shortlist.ts" = { brick = "select", role = "Render phone cards and bounded metadata from one injected saved-review read." }
+"src/lib/contracts/alert.ts" = { brick = "alert", role = "Define retained staged-digest, delivery-state and approval contracts." }
+"src/lib/server/alert/errors.ts" = { brick = "alert", role = "Report safe delivery error codes without private data." }
+"src/lib/server/alert/core.ts" = { brick = "alert", role = "Hash canonical digest content and name redacted outbox artifacts." }
+"src/lib/server/alert/ledger.ts" = { brick = "alert", role = "Own selected schema-v2 delivery ledger transactions and readonly snapshots." }
+"src/lib/server/alert/artifacts.ts" = { brick = "alert", role = "Read and publish private outbox artifacts without following links or clobbering files." }
+"src/lib/server/alert/config.ts" = { brick = "alert", role = "Load explicit private Discord settings with safe source and profile checks." }
+"src/lib/server/alert/ntfy.ts" = { brick = "alert", role = "Project minimal notification text from snapshots and send one fixed ntfy.sh request." }
+"src/lib/server/alert/discord.ts" = { brick = "alert", role = "Validate fixed redacted previews and classify one Discord acknowledgement." }
+"src/lib/server/alert/http.ts" = { brick = "alert", role = "Make one verified HTTPS attempt with conservative submission-phase tracking." }
+"src/lib/server/alert/outbox.ts" = { brick = "alert", role = "Stage private artifacts separately from confirmed notification history." }
+"src/lib/server/alert/mime.ts" = { brick = "alert", role = "Serialize private digest content as deterministic recipient-free MIME." }
+"src/lib/server/alert/service.ts" = { brick = "alert", role = "Revalidate approval, claim uncertainty and record one delivery outcome." }
+"src/lib/contracts/market.ts" = { brick = "market", role = "Validate normalized market ads and retained aggregate snapshot values." }
+"src/lib/server/market/errors.ts" = { brick = "market", role = "Tag expected Market boundary failures." }
+"src/lib/server/market/core.ts" = { brick = "market", role = "Classify roles and count deduplicated family, term and unknown-title signals." }
+"src/lib/server/market/taxonomy.ts" = { brick = "market", role = "Load and validate tracked or selected installation taxonomy with native JavaScript regex." }
+"src/lib/server/market/salary-view.ts" = { brick = "market", role = "Render stated salary and calculate saved salary trends without I/O." }
+"src/lib/contracts/source-market.ts" = { brick = "source", role = "Validate Source-owned minimal market and retained salary facts." }
+"src/lib/server/source/market-readers.ts" = { brick = "source", role = "Read current Market inputs and retained salary facts from selected read-only Source snapshots." }
+"src/lib/server/market/periods.ts" = { brick = "market", role = "Group retained history and live captures by their explicit calendar basis." }
+"src/lib/server/market/trends.ts" = { brick = "market", role = "Calculate retained history, funnel, unknown-word and snapshot market facts." }
+"src/lib/server/market/history-store.ts" = { brick = "market", role = "Read frozen and ongoing aggregates without creating or migrating stores." }
+"src/lib/server/market/record-store.ts" = { brick = "market", role = "Initialize selected new aggregate tables and replace one retained snapshot in an owned transaction." }
+"src/lib/server/market/service.ts" = { brick = "market", role = "Record atomic weekly title and filtered-detail aggregates and provide read-only Market APIs." }
+"src/lib/contracts/judge-state.ts" = { brick = "judge", role = "Define private run, attempt and persisted identity schemas without duplicating public review wires." }
+"src/lib/server/judge/core.ts" = { brick = "judge", role = "Apply exact private fingerprints, UUID normalization and run-state rules." }
+"src/lib/server/judge/errors.ts" = { brick = "judge", role = "Name expected private Judge store failures without hiding defects." }
+"src/lib/server/judge/schema.ts" = { brick = "judge", role = "Validate readonly state schemas and retain frozen transactional writer initialization and additive upgrades." }
+"src/lib/server/judge/session.ts" = { brick = "judge", role = "Carry a selected scoped connection, UUID source and nested transactional write boundary." }
+"src/lib/server/judge/database.ts" = { brick = "judge", role = "Open only an explicitly selected private state store with guarded modes and a scoped Effect connection." }
+"src/lib/server/judge/runs.ts" = { brick = "judge", role = "Bind exact run candidates, resume and close runs, and read retry state." }
+"src/lib/server/judge/inputs.ts" = { brick = "judge", role = "Use public Candidate contracts and canonical Filter stage identity for claimed inputs." }
+"src/lib/server/judge/provenance.ts" = { brick = "judge", role = "Validate bounded raw snapshot provenance and preserve legacy and current expiry bindings." }
+"src/lib/server/judge/stored.ts" = { brick = "judge", role = "Decode stored JSON without changing own keys and read private attempt and result records." }
+"src/lib/server/judge/attempts.ts" = { brick = "judge", role = "Claim exact stage batches, enforce linked retries and budgets, transition and recover attempts." }
+"src/lib/server/judge/history-context.ts" = { brick = "judge", role = "Save minimized result metadata and reuse digests, preserve original review context, and read legacy results." }
+"src/lib/server/judge/batches.ts" = { brick = "judge", role = "Run canonical validation at the frozen stage-result point and commit bound results atomically." }
+"src/lib/server/judge/rejudge.ts" = { brick = "judge", role = "Link a second assessment to the original Judge result and read its model labels." }
+"src/lib/server/judge/results.ts" = { brick = "judge", role = "Find exact reusable results and attach them under current source, profile, expiry and accepted-screen checks." }
+"src/lib/server/judge/prompts.ts" = { brick = "judge", role = "Keep frozen instruction bytes and derive canonical stage prompt versions without model or harness work." }
+"src/lib/server/judge/history-lifecycle.ts" = { brick = "judge", role = "Apply retained historical lifecycle and Oslo deadline policy to minimal Source-owned facts, without Source SQL." }
+"src/lib/server/judge/model-log.ts" = { brick = "judge", role = "Record only model-call identity and bounded numeric usage, with unknown usage retained as null." }
+"src/lib/server/judge/diagnostics.ts" = { brick = "judge", role = "Build bounded fixed-vocabulary diagnostics and independently sanitize selected-store upserts and optional reads." }
+"src/lib/server/judge/completion.ts" = { brick = "judge", role = "Rebuild and validate completed reviews before writer acquisition and again inside the owned completion transaction, then bind the retained ledger namespace and identity CAS." }
+"src/lib/server/judge/views.ts" = { brick = "judge", role = "Read exact cross-run attempts, progress counts and earliest staged full-review dates without writing state." }
+"src/lib/server/judge/snapshot.ts" = { brick = "judge", role = "Read canonical selected manifests and project current Judge results, accepted text bindings, ranking and expiry policy from saved state." }
+"src/lib/server/judge/dashboard.ts" = { brick = "judge", role = "Read current and retained Source facts in one snapshot and merge saved reviews with current view and lifecycle policy without granting review admission." }
+"src/lib/server/judge/history-source.ts" = { brick = "judge", role = "Collect minimal history and display facts through accepted Source readers in one selected read-only Source snapshot." }
+"src/lib/server/judge/manifests.ts" = { brick = "judge", role = "Build canonical current manifests from selected Profile inputs and accepted one-snapshot Source facts." }
+"src/lib/server/judge/reuse.ts" = { brick = "judge", role = "Claim and validate real generated full-review reuse inside the owned transaction without a model call." }
+"src/lib/contracts/snapshot.ts" = { brick = "snapshot", role = "Validate strict snapshot v1 through v5 documents, private review inputs and run counts." }
+"src/lib/contracts/snapshot-settings.ts" = { brick = "snapshot", role = "Define captured settings and the v4 private review input fields." }
+"src/lib/server/snapshot/errors.ts" = { brick = "snapshot", role = "Define expected Snapshot boundary failures." }
+"src/lib/server/snapshot/inputs.ts" = { brick = "snapshot", role = "Describe internal saved-fact projections for snapshot construction." }
+"src/lib/server/snapshot/judge-inputs.ts" = { brick = "snapshot", role = "Adapt canonical selected readonly Judge dashboard and earliest full-review reads without private SQL." }
+"src/lib/server/snapshot/core.ts" = { brick = "snapshot", role = "Build and validate saved snapshot v1 without side effects." }
+"src/lib/server/snapshot/market-history.ts" = { brick = "snapshot", role = "Project accepted Market history into the explicit snapshot v2 wire." }
+"src/lib/server/snapshot/market-inputs.ts" = { brick = "snapshot", role = "Read canonical Source and Market APIs without treating new stock as complete v1 history." }
+"src/lib/server/snapshot/serialization.ts" = { brick = "snapshot", role = "Preserve compact upload JSON and retained salary numeric spelling." }
+"src/lib/server/snapshot/service.ts" = { brick = "snapshot", role = "Compose versioned snapshots without refreshing sources." }
+"src/lib/server/snapshot/settings.ts" = { brick = "snapshot", role = "Project selected settings, home location and narrative, excluding paths and runner configuration." }
+"src/lib/server/snapshot/store.ts" = { brick = "snapshot", role = "Write the retained upload container, read bounded newest rows, and read only starred metadata from a pinned copy." }
+"src/lib/server/snapshot/paths.ts" = { brick = "snapshot", role = "Reject symlinks and protected input aliases before capture writes." }
+"src/lib/server/snapshot/json-file.ts" = { brick = "snapshot", role = "Atomically replace validated private JSON exports." }
+"src/lib/server/snapshot/capture-core.ts" = { brick = "snapshot", role = "Keep only digest references inside the saved reviewed funnel." }
+"src/lib/server/snapshot/capture.ts" = { brick = "snapshot", role = "Capture page-free JSON and retained shortlist transport metadata." }
+"src/lib/server/snapshot/export-latest.ts" = { brick = "snapshot", role = "Export only the newest retained row to a new private upload container." }
+"src/lib/server/orchestration/pipeline-core.ts" = { brick = "orchestration", role = "Validate private run state and preserve the run-wide retry budget, reviewer pinning and reset lineage." }
+"src/lib/server/orchestration/scheduled-runs.ts" = { brick = "orchestration", role = "Store private scheduled-run outcomes and read the latest result and last good date without initializing a reader store." }
+"src/lib/server/orchestration/schedule-profile.ts" = { brick = "orchestration", role = "Resolve the selected Profile schedule and stable interval anchor for previews and due checks." }
+"src/lib/server/orchestration/schedule-render.ts" = { brick = "orchestration", role = "Render inert user-timer units and nominal run times with the retained quoting and installation identity." }
+"src/lib/server/orchestration/schedule-launchd-render.ts" = { brick = "orchestration", role = "Render an inert per-profile LaunchAgent property list and interval due arguments." }
+"src/lib/server/orchestration/schedule-launchd.ts" = { brick = "orchestration", role = "Manage confirmed per-user LaunchAgents through the Schedule service." }
+"src/lib/server/orchestration/schedule-windows-render.ts" = { brick = "orchestration", role = "Render Task Scheduler definitions and identities, and verify registered Windows actions and principals." }
+"src/lib/server/orchestration/schedule-windows.ts" = { brick = "orchestration", role = "Use the local Windows Task Scheduler behind the Schedule service and require confirmation for changes or a run." }
+"src/lib/server/orchestration/schedule.ts" = { brick = "orchestration", role = "Manage explicitly confirmed user timers through FileSystem and Command services, with rollback and unknown runtime status." }
+"src/lib/server/orchestration/schedule-environment.ts" = { brick = "orchestration", role = "Select the user-unit directory and render prospective TypeScript scheduled argv without claiming command readiness." }
+"src/lib/server/orchestration/pipeline-records.ts" = { brick = "orchestration", role = "Read strict private run records and replace them with synced private files under caller-held locks." }
+"src/lib/server/orchestration/pipeline-runner.ts" = { brick = "orchestration", role = "Run explicit stages under caller-held locks with saved retries, repeated preflight and nonblocking Market warnings." }
+"src/lib/server/orchestration/pipeline-stages.ts" = { brick = "orchestration", role = "Bind actual Source, selected Filter policy and warning-only Market recording into bounded collection stages without review or snapshot placeholders." }
+"src/lib/server/orchestration/ntfy-notifications.ts" = { brick = "orchestration", role = "Compare saved snapshots around refresh and trigger best-effort alerts." }
+"src/lib/server/orchestration/run-scheduled.ts" = { brick = "orchestration", role = "Apply schedule due gates and verify injected refresh completion while retaining the installation lease through final private history." }
+"src/lib/server/orchestration/windows-file-lock.ts" = { brick = "orchestration", role = "Hold a nonsharing Windows file handle for the lifetime of a writer lock." }
+"src/lib/server/orchestration/workflow-locks.ts" = { brick = "orchestration", role = "Acquire private nonblocking platform locks lazily and validate active root-bound installation leases." }
+"src/lib/server/orchestration/pipeline-snapshot.ts" = { brick = "orchestration", role = "Capture the selected profile snapshot and persistent shortlist, with run counts for normal refresh." }
+"src/lib/server/judge/harness-readiness.ts" = { brick = "judge", role = "Find reviewer executables and admit only a bounded, verified Pi probe receipt." }
+"src/lib/server/judge/harness-readiness-supervisor.ts" = { brick = "judge", role = "Own the detached Pi readiness group, read capped no-refresh output and stop on private control closure or deadline." }
+"src/lib/server/orchestration/pipeline-review.ts" = { brick = "orchestration", role = "Check harness readiness and drive bounded Judge sessions for refresh or explicit re-review." }
+"src/lib/server/orchestration/windows-failure-report.ts" = { brick = "orchestration", role = "Save a shareable Windows failure report from fixed stages and error messages." }
+"src/lib/server/orchestration/local-pipeline.ts" = { brick = "orchestration", role = "Run the selected local pipeline with native locks, the owning stages and a private run record." }
+"src/cli/run-local-pipeline.ts" = { brick = "cli", role = "Run the explicit checkout-local pipeline without feedback, upload or timer changes." }

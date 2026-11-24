@@ -1,0 +1,14 @@
+{
+  "executables": {
+    "uv": "/synthetic/bin/uv",
+    "python": "/synthetic/bin/python3.13",
+    "python3": "/synthetic/bin/python3.13",
+    "python3.13": "/synthetic/bin/python3.13",
+    "pi": "/synthetic/pi",
+    "claude": null,
+    "bun": null,
+    "node": null,
+    "systemctl": null,
+    "railway": null
+  }
+}

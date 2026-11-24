@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "review-claude",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse review-claude [-h] [--profile-root PROFILE_ROOT]\n                           [--max-output-tokens 16..50000]\n                           [--max-candidates 1..120] [--max-calls 1..32]\n                           [--all] [--listing-id UUID] [--check]\n\noptions:\n  -h, --help            show this help message and exit\n  --profile-root PROFILE_ROOT\n                        Select profile/source data separately from executing\n                        code\n  --max-output-tokens 16..50000\n  --max-candidates 1..120\n  --max-calls 1..32\n  --all                 Repeat runs until no eligible job is left\n  --listing-id UUID     Review this exact listing (repeatable; defaults to\n                        dynamic selection)\n  --check               Check configured harnesses; no model call or source\n                        write\n"
+}

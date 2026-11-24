@@ -1,0 +1,2 @@
+# Keep tracked scripts and byte-compared fixtures identical on Windows.
+* text=auto eol=lf

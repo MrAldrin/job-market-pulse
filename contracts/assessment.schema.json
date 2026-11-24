@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pulse assessment v1",
+  "description": "One offline batch of assessment values. Current manifest membership, expiry, source details and authoritative version binding remain runtime checks in fit_contract.validate_review.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schema_version", "assessments"],
+  "properties": {
+    "schema": {"const": "pulse.assessment"},
+    "schema_version": {"type": "integer", "const": 1},
+    "assessments": {
+      "type": "array",
+      "maxItems": 120,
+      "description": "Listing IDs must be unique; the Python validator enforces this cross-row rule.",
+      "items": {"$ref": "#/$defs/assessment"}
+    }
+  },
+  "$defs": {
+    "review_text": {
+      "type": "string",
+      "description": "Between 1 and 1000 characters after trimming whitespace; supplied text is preserved.",
+      "pattern": "^[\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]*[^\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]([\\s\\S]{0,998}[^\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000])?[\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]*$"
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "fit", "reason", "evidence", "uncertainties", "hard_constraints", "ad_text_reviewed"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1, "maxLength": 2000, "pattern": "[^\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]"},
+        "version": {"type": "string", "minLength": 1, "maxLength": 2000, "pattern": "[^\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]"},
+        "fit": {"type": "string", "enum": ["exceptional", "strong", "possible", "poor", "unknown"]},
+        "reason": {"$ref": "#/$defs/review_text"},
+        "evidence": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/review_text"}},
+        "uncertainties": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/review_text"}},
+        "hard_constraints": {"type": "string", "enum": ["pass", "fail", "unknown"]},
+        "ad_text_reviewed": {"type": "boolean"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"fit": {"enum": ["exceptional", "strong"]}}, "required": ["fit"]},
+          "then": {"properties": {"ad_text_reviewed": {"const": true}, "evidence": {"minItems": 1}}}
+        },
+        {
+          "if": {"properties": {"fit": {"const": "exceptional"}}, "required": ["fit"]},
+          "then": {"properties": {"hard_constraints": {"const": "pass"}, "uncertainties": {"maxItems": 0}}}
+        }
+      ]
+    }
+  }
+}

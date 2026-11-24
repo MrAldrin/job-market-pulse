@@ -1,0 +1,28 @@
+[
+  {
+    "attempt_id": "00000000-0000-0000-0000-000000002715",
+    "effort": "medium",
+    "harness": "pi",
+    "input_tokens": null,
+    "model": "synthetic-pi-model",
+    "output_tokens": null,
+    "provider": "openai",
+    "run_id": "00000000-0000-0000-0000-000000002712",
+    "started_at": "2026-10-19T12:00:00.000000+00:00",
+    "step": "screen",
+    "wall_time_seconds": null
+  },
+  {
+    "attempt_id": "00000000-0000-0000-0000-000000002729",
+    "effort": "medium",
+    "harness": "pi",
+    "input_tokens": null,
+    "model": "synthetic-pi-model",
+    "output_tokens": null,
+    "provider": "openai",
+    "run_id": "00000000-0000-0000-0000-000000002712",
+    "started_at": "2026-10-19T12:00:00.000000+00:00",
+    "step": "judge",
+    "wall_time_seconds": null
+  }
+]

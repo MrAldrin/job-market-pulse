@@ -1,0 +1,8 @@
+[
+  "CREATE TABLE IF NOT EXISTS observation_schema (\n                singleton INTEGER PRIMARY KEY CHECK(singleton=1),\n                version INTEGER NOT NULL)",
+  "CREATE TABLE observations (\n                        listing_uuid TEXT PRIMARY KEY,\n                        source_changed_at TEXT NOT NULL,\n                        first_seen_at TEXT NOT NULL,\n                        last_seen_at TEXT NOT NULL)",
+  "CREATE TABLE observation_runs (\n                        run_id INTEGER PRIMARY KEY,\n                        started_at TEXT NOT NULL)",
+  "CREATE TABLE run_baselines (\n                        run_id INTEGER NOT NULL,\n                        listing_uuid TEXT NOT NULL,\n                        source_changed_at TEXT NOT NULL,\n                        PRIMARY KEY(run_id, listing_uuid))",
+  "CREATE TABLE run_observations (\n                        run_id INTEGER NOT NULL,\n                        listing_uuid TEXT NOT NULL,\n                        source_changed_at TEXT NOT NULL,\n                        observed_at TEXT NOT NULL,\n                        status TEXT NOT NULL CHECK(status IN\n                            ('new','changed','previously_seen')),\n                        PRIMARY KEY(run_id, listing_uuid))",
+  "CREATE TABLE observations (\n                        profile_id TEXT,\n                        profile_scope TEXT NOT NULL,\n                        listing_uuid TEXT NOT NULL,\n                        source_changed_at TEXT NOT NULL,\n                        first_seen_at TEXT NOT NULL,\n                        last_seen_at TEXT NOT NULL,\n                        PRIMARY KEY(profile_scope, listing_uuid))"
+]

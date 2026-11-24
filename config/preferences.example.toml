@@ -1,0 +1,29 @@
+# Copy to local_only/preferences.toml; that override is ignored by version control.
+# Values below are synthetic. The owner's real values live in local_only/config/.
+# This is a starting template, not a ready personal setup. Complete geography
+# and explicit admission rules before personal review.
+# Review uses a hard point-based radius; labels alone never establish eligibility.
+# Add verified origin_latitude, origin_longitude and origin_source together in
+# the ignored local override. No origin is guessed by this template.
+[geography]
+home_postcode = ""
+# Optional wording for the radius centre in the review UI.
+# home_label = "example town centre"
+radius_km = 25
+# Legacy label ordering only, NOT proof that these places are within 25 km.
+excluded_municipalities = []
+
+[jobs]
+# Explicit scoring field. An empty list is neutral. It does not admit a job.
+# No profession is selected by this example.
+preferred_terms = []
+# These are genuine exclusions, not merely lower-priority interests.
+excluded_title_terms = []
+excluded_employers = []
+# NAV occupationCategories labels. This is the only admission list.
+# Use a level1 name, or "level1 / level2" to keep one sub-box only.
+# The list must be nonempty. A title term cannot admit an ad.
+# Keep preferred_terms explicit too, even when it is empty.
+# config/occupation_categories.toml has 14 tracked level1 labels observed
+# on 2026-11-12. That file is not a complete NAV taxonomy.
+allowed_occupation_categories = []

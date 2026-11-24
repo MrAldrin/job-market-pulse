@@ -1,0 +1,49 @@
+{
+  "backfill": [
+    {
+      "label": "2026-08",
+      "period_start": "2026-08-01",
+      "period_end": "2026-08-31",
+      "ads": [
+        {
+          "uuid": "backfill-1",
+          "published": "2026-08-10",
+          "title": "Invented developer",
+          "employer": "Invented Works",
+          "municipality": "INVENTED",
+          "text": "",
+          "occupations": ""
+        },
+        {
+          "uuid": "backfill-2",
+          "published": "2026-08-12",
+          "title": "Invented carpenter",
+          "employer": "Imaginary AS",
+          "municipality": "INVENTED",
+          "text": "",
+          "occupations": ""
+        }
+      ]
+    },
+    {
+      "label": "2026-09",
+      "period_start": "2026-09-01",
+      "period_end": "2026-09-30",
+      "ads": [
+        {
+          "uuid": "backfill-3",
+          "published": "2026-09-09",
+          "title": "Data analyst",
+          "employer": "Invented Works",
+          "municipality": "INVENTED",
+          "text": "",
+          "occupations": ""
+        }
+      ]
+    }
+  ],
+  "run_labels": [
+    "2026-10-19-a",
+    "2026-10-19-b"
+  ]
+}

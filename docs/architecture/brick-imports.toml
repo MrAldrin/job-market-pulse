@@ -1,0 +1,141 @@
+# Current cross-brick imports, enforced by tests/test_brick_imports.py.
+# Same-brick and standard-library imports do not need entries.
+# This is a baseline, not a claim that the target brick boundaries are complete.
+# Entries marked debt keep existing coupling visible; do not copy them into new code.
+# New snapshot consumers in Dashboard go in STRICT_MODULES in the test. They may
+# import shared helpers and snapshot contract validators, not snapshot producers.
+
+[bricks]
+profile = [
+  "filter", # debt: profile configuration imports geography implementation.
+  "shared", # Pure fixed-zone utility: pulse.shared.timezone (contracts/fixed-oslo-utility.md).
+]
+source = [
+  "dashboard", # debt: source composition renders legacy HTML.
+  "feedback", # debt: source composition uses legacy feedback/version helpers.
+  "filter", # debt: source composition imports downstream scoring and geography.
+  "market", # debt: source persistence calls salary extraction directly.
+  "orchestration", # debt: source tools use workflow locks from orchestration.
+  "profile",
+  "shared",
+]
+filter = [
+  "feedback", # debt: manifest fingerprints use the legacy feedback store helper.
+  "judge", # debt: manifest binding imports Judge prompt versions.
+  "profile",
+  "shared",
+  "source",
+]
+judge = [
+  "feedback", # debt: review state uses legacy feedback/version helpers.
+  "filter",
+  "orchestration", # debt: Judge depends on orchestration protocols and locks.
+  "profile",
+  "shared",
+  "source",
+]
+select = [
+  "feedback", # debt: the reviewed-job funnel also reads rating storage.
+  "filter", # debt: digest selection imports the manifest validator.
+  "judge",
+  "market", # debt: digest selection calls salary extraction directly.
+  "profile",
+]
+snapshot = [
+  "dashboard", # debt: legacy snapshots render and store HTML pages.
+  "feedback", # debt: HTML capture shares feedback metadata and store identifiers.
+  "filter", # debt: HTML capture imports geography implementation.
+  "judge", # Includes saved review inputs and the named embedded-contract pair below.
+  "market", # debt: HTML capture reads market implementation directly.
+  "profile",
+  "select",
+  "shared",
+]
+dashboard = [
+  "calibrate", # debt: legacy UI invokes calibration workspace internals.
+  "feedback", # debt: legacy UI reads feedback stores and implements their write routes.
+  "filter", # debt: legacy UI computes relevance instead of reading a snapshot.
+  "judge", # debt: legacy UI reads the personal review store and models.
+  "market", # debt: legacy UI computes market and salary views from stores.
+  "orchestration", # debt: legacy UI uses workflow locks from orchestration.
+  "profile", # debt: legacy UI loads profile settings directly.
+  "select", # debt: legacy UI reads reviewed-job funnel membership directly.
+  "shared",
+  "snapshot", # Contract validation only for strict consumers.
+  "source", # debt: legacy UI reads observations and source-status internals.
+]
+alert = [
+  "orchestration", # debt: existing delivery staging uses orchestration locks.
+  "profile", # debt: existing delivery staging reads profiles, not snapshot metadata.
+]
+feedback = [
+  "filter", # debt: feedback exports and ratings import relevance implementation.
+  "profile", # debt: legacy feedback reads preferences and profile settings directly.
+  "shared",
+  "source", # debt: legacy feedback exports enrich events from source facts.
+]
+calibrate = [
+  "feedback",
+  "filter", # debt: calibration binds manifest and scoring internals.
+  "judge", # debt: calibration reads Judge state and prompt versions.
+  "orchestration", # debt: calibration uses orchestration locks.
+  "profile",
+  "select", # debt: calibration reads reviewed-job funnel membership directly.
+  "shared",
+]
+market = [
+  "orchestration", # debt: market tools use orchestration locks.
+  "select", # debt: market views depend on the reviewed-job funnel implementation.
+  "source",
+]
+orchestration = [
+  "alert",
+  "cli", # debt: orchestration calls the legacy CLI entry point and output formatter.
+  "filter",
+  "judge",
+  "market",
+  "profile",
+  "select",
+  "shared", # Pure fixed-zone utility: pulse.shared.timezone (contracts/fixed-oslo-utility.md).
+  "source",
+]
+cli = [
+  "alert",
+  "dashboard",
+  "feedback",
+  "filter",
+  "judge",
+  "market",
+  "ops",
+  "orchestration",
+  "profile",
+  "select",
+  "shared",
+  "snapshot",
+  "source",
+]
+ops = [
+  "cli",
+  "dashboard",
+  "feedback",
+  "filter",
+  "judge",
+  "market",
+  "orchestration",
+  "profile",
+  "shared",
+  "snapshot",
+  "source",
+]
+shared = [
+  "feedback", # Explicit validator registration only; not a runtime pipeline dependency.
+  "judge", # Explicit validator registration only; not a runtime pipeline dependency.
+  "snapshot", # Explicit validator registration only; not a runtime pipeline dependency.
+]
+
+# Named rule: embedded-contract imports (leader decision, 2026-11-12).
+# Validators may import contract_support and only the validator pairs listed here.
+# This does not permit other modules from the target brick or transitive exceptions.
+# contract_registry is registration infrastructure, not a validator.
+[embedded_contract_imports]
+"pulse.snapshot.contract_snapshot" = ["pulse.judge.contract_assessment"]

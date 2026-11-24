@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "record-review",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse record-review [-h] --review REVIEW [--title-rules TITLE_RULES]\n\noptions:\n  -h, --help            show this help message and exit\n  --review REVIEW\n  --title-rules TITLE_RULES\n"
+}

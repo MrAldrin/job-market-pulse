@@ -1,0 +1,283 @@
+{
+  "batch_count": 1,
+  "batch_ids_fingerprint": "3c7730fb125024d536907d7c0bd4cf6bb6c6ba7718d3d9b70184ca60d33bea48",
+  "batch_index": 1,
+  "candidate_count": 13,
+  "candidate_offset": 0,
+  "candidates": [
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "2841e318dfcbbac97752cbb177d45c08ae721e100b1dd3506ce6811043201ae5",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000001",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000001",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "d62ed27932e341564b6d5993cfbcfbd1471d7d5aeebe759923143e6fe141c85f",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000002",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000002",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "eab22759318cc2111287bc64e037c6ed94ff396b38f5dd0a718312ccec8177d4",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000003",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000003",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "197b80f68514500f724be36117819cdd0ad1541e822d525b237d54b8cb901265",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000004",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000004",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "37f681a526695034d226e44181be1b3d4c2eff21425eda02d571c707e2748896",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000005",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Database engineer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000005",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "6e3a60093aeedb505b4868bd2b23805a58db52a89345fcae38e0e57495f65ffb",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000008",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Utvikler blåbær",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000008",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "aa88b9fab6a82c8464abaf676da7d1d44114e95c2a443a0575f18c4a16602577",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000009",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000009",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "c927857505d6835c09b684c566c87c362aec6a23eb6495bfe13072fec5b3783b",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-00000000000b",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Operations coordinator",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-00000000000b",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "5262280be04ba7c5ddea5e446c1d550f7b3814d40baacdfd4fdb98bf37d19520",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-00000000000c",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-00000000000c",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "fab318062a79261d35cd243a593c4417912c15014febc072ea33c46eadca65ca",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-00000000000d",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Research fellow",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-00000000000d",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "66401685c9d38210642920f6337c17d9bfbea90d6087d26948a61b99723fb73d",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000011",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000011",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "89d650963679bf2f229756d0e707f5570856a58c5e55031fee0b030129741b47",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000012",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000012",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "detail_missing": false,
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "geography": "inside",
+      "geography_evidence_digest": "e4b4026bfbb547e597388613ca73b49bafe58961ddb3e1f755b9cc3cc8e2900e",
+      "geography_reason": "At least one approximate official workplace address point is within 40 km straight-line of the configured locality origin; not a commute measurement.",
+      "id": "00000000-0000-0000-0000-000000000013",
+      "locations": [
+        "INVENTED"
+      ],
+      "occupation_categories": [
+        "IT"
+      ],
+      "title": "Developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000013",
+      "version": "2026-10-19T10:00:00+00:00"
+    }
+  ],
+  "caught_up": true,
+  "checked_at": "2026-10-19T12:00:00+00:00",
+  "coverage": "Bounded NAV change-feed pool; excludes FINN-sourced ads.",
+  "coverage_id": "5dcdeab1e6dbb5a22945161a6c02742104cf19e2e7255f6c60ccbac2f23f5fc1",
+  "eligible_count": 13,
+  "fit_preferences": {
+    "allowed_occupation_categories": [
+      "IT"
+    ],
+    "excluded_employers": [],
+    "excluded_municipalities": [],
+    "excluded_title_terms": [
+      "recruiter"
+    ],
+    "hard_limits": {
+      "exact_origin_included": false,
+      "geography_already_applied": true,
+      "geography_radius_is_explicit": true,
+      "geography_radius_km": 40.0,
+      "other_constraints": "Use only constraints stated in the supplied profile; otherwise unknown."
+    },
+    "nearby_municipalities": [],
+    "preferred_municipalities": [
+      "Invented town"
+    ],
+    "preferred_terms": [
+      "developer"
+    ]
+  },
+  "limit": 120,
+  "manifest_id": "7be4f01ad6ab76afc924a2b6bdbec65824a0606100ad8272defcf14776309b87",
+  "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+  "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+  "profile_id": "invented",
+  "remaining_count": 13,
+  "reviewed_count": 0,
+  "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+  "schema_version": 1,
+  "scoring_version": "title-evidence-hard-radius-v3",
+  "truncated": false
+}

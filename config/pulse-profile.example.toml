@@ -1,0 +1,22 @@
+# Example private profile configuration; keep real profiles under ignored
+# local_only/profiles/<safe-id>/profile.toml.
+# Keep each private path within that person's profile directory. Never point at
+# another person's data or the owner's local_only/preferences.toml.
+[profile]
+id = "replace-with-safe-id"
+
+[paths]
+profile = "profile.md" # this person's private narrative, not this config file
+preferences = "preferences.toml"
+source_db = "data/shared-public-feed.sqlite3" # project-root relative
+review_db = "review.sqlite3"
+ledger_db = "ledger.sqlite3"
+outbox = "outbox"
+
+[policy]
+mode = "passive"
+market_only = false
+freshness_max_age_hours = 24
+
+# Model and batch choices now belong in local_only/models.toml.
+# See config/models.example.toml. The runner ignores legacy [review] choices.

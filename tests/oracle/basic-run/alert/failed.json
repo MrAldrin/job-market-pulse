@@ -1,0 +1,7 @@
+{
+  "channel": "redacted_discord",
+  "diagnostic_code": "transport_rejected",
+  "digest_key": "invented-discord",
+  "profile_id": "invented",
+  "status": "failed"
+}

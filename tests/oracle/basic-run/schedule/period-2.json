@@ -1,0 +1,8 @@
+{
+  "anchor": "2026-10-19",
+  "day_of_month": null,
+  "kind": "every_n_days",
+  "n": 3,
+  "time": "08:30",
+  "weekday": null
+}

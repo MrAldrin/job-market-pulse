@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "prepare"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "{\"status\": \"prepared\", \"directory\": \"/tmp/pulse-port-oracle/basic-run/installation/local_only/profiles/invented/runs/2ecfde19873d6ee214ad887448d885aa1cd770b4f4a74eb2b071e659204a778c\", \"coverage_id\": \"5dcdeab1e6dbb5a22945161a6c02742104cf19e2e7255f6c60ccbac2f23f5fc1\", \"eligible_count\": 13, \"reviewed_count\": 0, \"remaining_count\": 13, \"batch_count\": 1, \"batches\": [{\"index\": 1, \"directory\": \"/tmp/pulse-port-oracle/basic-run/installation/local_only/profiles/invented/runs/2ecfde19873d6ee214ad887448d885aa1cd770b4f4a74eb2b071e659204a778c\", \"candidate_count\": 13, \"manifest_id\": \"7be4f01ad6ab76afc924a2b6bdbec65824a0606100ad8272defcf14776309b87\"}], \"reviewer_called\": false, \"notification_sent\": false}\n"
+}

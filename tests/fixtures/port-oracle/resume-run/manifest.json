@@ -1,0 +1,83 @@
+{
+  "bundle": "resume-run",
+  "capture_id": "invented-resume-run",
+  "classification": "synthetic",
+  "clock": "2026-10-19T12:00:00+00:00",
+  "completeness": "scenario-specific synthetic inputs; not whole-market coverage",
+  "configuration_provenance": "fixture profile/preferences/model answers plus unchanged copied tracked assets",
+  "controlled_inputs": {
+    "hostname": "oracle.synthetic.test",
+    "monotonic": 123.0,
+    "uuid4_first_integer": 10000,
+    "wall_clock_utc": "2026-10-19T12:00:00+00:00"
+  },
+  "expected_sha256": {
+    "alert/before-ledger.json": "39011bf2c6ca216617b98a1cfa976ee3b6f11b9cb37f0d846d9b63597d1b355d",
+    "filter/run-1.json": "e9bbe4629ad5940438a3d385dfc6d185935d63969445b0d60d7eb79fdb905dc8",
+    "judge/attempts.json": "56a0e969ca09fd5d6fba7d3eb0504992b2f6b0b11504c0ac8685ac7d315d5990",
+    "judge/before-store.json": "39011bf2c6ca216617b98a1cfa976ee3b6f11b9cb37f0d846d9b63597d1b355d",
+    "judge/calls.json": "7c36b534f073a6bbd19d926a9cbb81cd81cc92753082ee4bfd6568249ccf771b",
+    "judge/claude-parsed.json": "c151cac7f2e16c6b1a789f70b900a6c6e8bcb237ad5059397faa33db9dc619c2",
+    "judge/claude-raw.json": "4e9d8b789915fe285665232a637e3bb2f321b81858b8527cc43aca7e7ef4c55b",
+    "judge/completion.json": "b76322dafca21895955184e359fcdf8c316f7130dab696de9dababd5392c2612",
+    "judge/current-snapshot.json": "d231d92d7909b4655a5f05ddcfa5af150eed1692324753611f573cce4ac26665",
+    "judge/detail-request-00000000-0000-0000-0000-000000000001.json": "492b23edc857bbba1627988a0340b24b7b127ffd9cac733841b7992a685249b6",
+    "judge/initial-start.json": "2c74961aa5094c39bd93f89e573caec349a4f07b8589b1bc12baf6a4594a46fe",
+    "judge/interrupted-store.json": "368e3f158053a8c0bee376af61210f5ec6a236559d7401b9de2cc57755a0179b",
+    "judge/model-call-log.json": "3500054b4711235d9b5769a690a0b8c5a714a9d4f9c7e421a410f1c1e6a2d835",
+    "judge/pi-parsed.json": "450972bebe9613b2c1c05a5ccd290d01b7598e3a33cbe6a3d8103e7c9ebcb969",
+    "judge/pi-raw.json": "9df192e43b6d2ef8731a83a3c2121768a6b59f57c562cbafc6ed096402b53727",
+    "judge/recovered-attempts.json": "97049473bd91f50b70a7a184ac48bd37907f1c667abbb47dd160617f8bc5d464",
+    "judge/recovered-store.json": "c3c858121eb9ca06984e040f9f69e059939748288988c1c0e924c7800604a7aa",
+    "judge/request-1-event.json": "a3c8d260f59c8e3ad65e12a991622967d152b0253b304fc0c336578f1b9581bc",
+    "judge/request-1-manifest.json": "980f7182ef308612f720747dbdb4ca127c1bac6f3e21c51b97e688841c22436a",
+    "judge/request-1-recorded.json": "88c6ef9a02f8bf46b98a4fd62fa5fa47ac56d93e816baadbaece3d7f9f58ec4f",
+    "judge/request-1-reply.json": "fcb65464b2cd83529160566172f03c33548f5bd5fc69f147d485ce9def5cdd5f",
+    "judge/request-1-system-prompt.txt": "2a77b477593c2f854d518de66cdee69840a3ff933f7defcb32e9c416bb0623e4",
+    "judge/request-1-user-prompt.txt": "4d44f775df8c5c2833da2007bbeb0bf934eb99d2cfae41317a06eb288aefe3e1",
+    "judge/request-2-event.json": "b191fc44abf757442f6a0e329216c7844d1bc76c11e84206e827cb4cda7fc019",
+    "judge/request-2-manifest.json": "eb7951ec3dd69d4f113701d73d44cb6df0f8ff444ef7b2ffd84b42ebd072296e",
+    "judge/request-2-recorded.json": "b18710e6a4f7571ac6eb0429a7a7bfa0d3e79af4c010cdd86aede31baa389f5d",
+    "judge/request-2-reply.json": "9cefe36d9f1edf2c7a220314d9aae26120bffca529440e5330f675659e077eda",
+    "judge/request-2-system-prompt.txt": "2493af7b818d63e56b5ab284a1f1b9732bdf922f890fbc1c39264f1ec4a60a01",
+    "judge/request-2-user-prompt.txt": "f47de0d7df7798e7aa202ede6e1238a9930515ace894b8b05587bd511460d022",
+    "judge/retry-confirmation.json": "d135565609b0b7912d52acb126908a4e1b64337572a4a54e72ce0078c8cd9100",
+    "judge/review-store.json": "2cc20324a9fe3e344c5664f35558d031ea23eca24b20328a142d318ca9333999",
+    "judge/running-attempts.json": "56d9d68e3282d46d806a57ec760112774ab40792094d2f267224e5a257f98f33",
+    "profile/bundle.json": "b81c1d71a3ed8bc7d9de99cf6ffb19009ce26bd711561ad0642b81c89e658cc0",
+    "provenance/safety.json": "7b679a2068d92ce6552aea0bc05416953c9040f719675776b8f8ea8a93ea83e3",
+    "resolver/run-1.json": "9141961defbc9f2f65c63744d058d585ce48ccdd46bcb900bfafa81cc14ca0e9",
+    "select/digest.html": "e6e389ac04124ef6c3ab5227312866e5aa26460b61d917e4dea1d6654f5a0ba3",
+    "select/digest.json": "adae7030b3cb012c2e715425d2d64434fad6e3b361b6710f0090409be925f42b",
+    "select/digest.txt": "418252d0e4e16d2a198ffb9ac56011f4b8ac76a97f71d17ab3c239057cd0c4f9",
+    "select/request.json": "54d5f2dac4b3b78213f02b91470b9247fdbd369e9161b5183ca7da939541a4d1",
+    "select/shortlist.html": "2269f1cc602a6dec3b95a480502677a73660a6b7f2c0dc64ad57a2c022269131",
+    "select/shortlist.json": "2bdb2edc93a6eb2366f6e2f9d18c6fdf9877aa13abca6699866953312319f0c3",
+    "snapshot/metadata.json": "fb3fa5e08cd83f6b22eb3967559f47c5e7d50f8aece9258226ac4318ee3a44f4",
+    "snapshot/snapshot-v1.json": "d2922db5c5c5eacceb50ad6ed3757730bc89d29e57a29f1822eaa6f64a460cc0",
+    "snapshot/upload-container.json": "3bbf366e7712593342c783538e25fbfa44ba19319def5626a9cddf7261164a31",
+    "source/run-1.json": "ddede917dd7de67dd8b7f818acd8e549d0f01280ae9c4f0874e7dfac1c002193"
+  },
+  "expires_at": null,
+  "fixture_version": 1,
+  "id_seed": 10000,
+  "input_bundles": [
+    "basic-run"
+  ],
+  "product_base_change": "pqkpkzkv",
+  "product_base_commit": "17c4a4bb3831a3007a1fa9f6bb29671665c9d37a",
+  "python": "3.13.11",
+  "schema_versions": {
+    "bundle": 1,
+    "candidate_manifest": 1,
+    "snapshot": 1
+  },
+  "sha256": {
+    "inputs/scenario.json": "f4db8f61754aba2a6fdf4ff10f74d3bf46d6d0bab374a8708e75f633f2a8dd32",
+    "responses/none.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "tools": {
+    "python": "3.13.11",
+    "sqlite": "3.50.4"
+  }
+}

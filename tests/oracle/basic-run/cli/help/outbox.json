@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "outbox",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse outbox [-h]\n\noptions:\n  -h, --help  show this help message and exit\n"
+}

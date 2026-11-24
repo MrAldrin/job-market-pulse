@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pulse feedback events v1",
+  "description": "One profile's feedback in a common read format. This contract does not merge or change stores. The Python validator checks unique event IDs and parses timestamps with a timezone. A cleared phone reaction is NOT an event: omit it, rather than exporting a reaction with a null or empty value. Unknown source versions, result IDs and reasons stay null or empty; never invent them.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "schema_version", "profile_id", "events"],
+  "properties": {
+    "schema": {"const": "pulse.feedback_events"},
+    "schema_version": {"type": "integer", "const": 1},
+    "profile_id": {"$ref": "#/$defs/text"},
+    "events": {
+      "type": "array",
+      "maxItems": 50000,
+      "description": "Event IDs are unique within this document. Repeated listing IDs are allowed because a listing can have several events.",
+      "items": {"$ref": "#/$defs/event"}
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "pattern": "[^\\u0009-\\u000d\\u001c-\\u0020\\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]"
+    },
+    "nullable_text": {"type": ["string", "null"], "maxLength": 2000},
+    "timestamp": {
+      "$ref": "#/$defs/text",
+      "description": "An ISO 8601 timestamp with a timezone. The Python validator parses this value. Producers should write UTC; the supplied text is preserved."
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event_id", "listing_id", "source", "source_version", "kind", "value", "reason", "created_at", "origin", "result_id"],
+      "properties": {
+        "event_id": {
+          "$ref": "#/$defs/text",
+          "description": "A stable ID: <kind>:<row id> for append-only stores, or <kind>:<listing_id>:<updated_at> for phone state."
+        },
+        "listing_id": {"$ref": "#/$defs/text"},
+        "source": {"$ref": "#/$defs/text"},
+        "source_version": {"$ref": "#/$defs/nullable_text"},
+        "kind": {"type": "string", "enum": ["star", "reaction", "rating", "legacy_verdict"]},
+        "value": {"type": ["boolean", "string"]},
+        "reason": {"$ref": "#/$defs/nullable_text"},
+        "created_at": {"$ref": "#/$defs/timestamp"},
+        "origin": {"type": "string", "enum": ["phone_shortlist", "local_ratings", "legacy_review"]},
+        "result_id": {"$ref": "#/$defs/nullable_text"}
+      },
+      "oneOf": [
+        {"properties": {"kind": {"const": "star"}, "value": {"type": "boolean"}}},
+        {"properties": {"kind": {"const": "reaction"}, "value": {"type": "string", "enum": ["up", "down"]}}},
+        {"properties": {"kind": {"const": "rating"}, "value": {"type": "string", "enum": ["very_good", "good", "unsure", "bad", "very_bad"]}}},
+        {"properties": {"kind": {"const": "legacy_verdict"}, "value": {"type": "string", "enum": ["good", "bad", "unsure"]}}}
+      ]
+    }
+  }
+}

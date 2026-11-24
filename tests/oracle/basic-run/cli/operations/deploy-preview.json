@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "deploy"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "Deploy preview: viewer code only; snapshot data is not changed.\nCommand not run: /tmp/pulse-port-oracle/basic-run/installation/scripts/railway_setup.sh --deploy-only --service digest-view --apply\nPreview only. Use --apply to deploy after owner approval.\n"
+}

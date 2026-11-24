@@ -1,0 +1,37 @@
+# Copy to ignored local_only/models.toml and choose models you can access.
+# These are placeholders, not working model IDs or login claims.
+# Pi model: "provider/model-id". Claude Code model: its unqualified model ID.
+# Each step can use a different harness and model. No reviewer allow-list,
+# dollar cap, or per-run consent is required. The hang timeout is 30 minutes.
+# screen batch_size: 1..120. judge: 1..10 (current full-review payload bound).
+# Re-judge is off until you select at least one first-score level.
+# Calibration settings are reserved for a separate workflow.
+# Example Claude Code table fields:
+# harness = "claude-code"
+# model = "your-claude-model"
+
+[screen]
+harness = "pi"
+model = "your-provider/your-model"
+effort = "medium"
+batch_size = 20
+
+[judge]
+harness = "pi"
+model = "your-provider/your-model"
+effort = "medium"
+batch_size = 5
+
+[rejudge]
+# levels = ["exceptional", "strong", "possible", "poor", "unknown"]
+# same_as_judge = true
+harness = "pi"
+model = "your-provider/your-model"
+effort = "medium"
+batch_size = 5
+
+[calibrate]
+harness = "pi"
+model = "your-provider/your-model"
+effort = "medium"
+batch_size = 1

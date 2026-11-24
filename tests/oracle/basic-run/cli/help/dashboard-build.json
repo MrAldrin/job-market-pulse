@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "dashboard-build",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse dashboard-build [-h] [--offline]\n\noptions:\n  -h, --help  show this help message and exit\n  --offline   Use only Bun's local cache\n"
+}

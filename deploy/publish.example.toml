@@ -1,0 +1,32 @@
+# Copy to local_only/publish.toml (ignored by git) and fill in. Never commit the copy.
+# Used by src/cli/pulse-publish.ts.
+# Relative paths here are relative to the repository root.
+
+# Required for the snapshot step. Explicit profile ID; there is no discovery.
+profile = "your-profile-id"
+profile_root = "."
+
+# Exactly one of these: a private digest HTML file, or an existing digest SQLite DB.
+html = "/absolute/private/digest.html"
+# digest_db = "/absolute/path/to/existing-digests.sqlite"
+
+# Optional. Defaults shown.
+# market_db = "data/market.sqlite3"
+# output_db = "local_only/phone/digests.sqlite"
+
+# Private inputs are never uploaded by default. See docs/operations/phone-snapshots.md.
+# allow_private_inputs = false
+
+# For v1–v3, service and volume can be names. Command-line flags can override them.
+# If volume is absent, the Railway CLI asks.
+service = "digest-view"
+# volume = "data"
+
+# For v4, set all four IDs for the approved viewer. Replace service above
+# with its ID and set volume to its ID. Differing overrides block v4.
+# project = "<Railway project UUID>"
+# environment = "<Railway environment UUID>"
+
+# Optional HTTPS origin. Used for /healthz hints.
+# No URL path, credentials, query or fragment. Credential setup needs owner approval.
+# public_url = "https://viewer.example"

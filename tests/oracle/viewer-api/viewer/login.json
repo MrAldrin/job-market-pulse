@@ -1,0 +1,53 @@
+{
+  "request": {
+    "$bytes_hex": "504f5354202f6c6f67696e20485454502f312e310d0a486f73743a207669657765722e73796e7468657469632e746573740d0a436f6e6e656374696f6e3a20636c6f73650d0a436f6e74656e742d4c656e6774683a2036350d0a436f6e74656e742d547970653a206170706c69636174696f6e2f782d7777772d666f726d2d75726c656e636f6465640d0a0d0a757365726e616d653d696e76656e7465642670617373776f72643d73796e7468657469632d70617373776f72642d30313233343536373839266e6578743d253246"
+  },
+  "response": {
+    "body": {
+      "$bytes_hex": ""
+    },
+    "headers": [
+      [
+        "Server",
+        "BaseHTTP/0.6 Python/3.13.11"
+      ],
+      [
+        "Date",
+        "Mon, 19 Oct 2026 12:00:00 GMT"
+      ],
+      [
+        "Content-Type",
+        "text/html; charset=utf-8"
+      ],
+      [
+        "Content-Length",
+        "0"
+      ],
+      [
+        "Cache-Control",
+        "no-store"
+      ],
+      [
+        "Referrer-Policy",
+        "no-referrer"
+      ],
+      [
+        "X-Content-Type-Options",
+        "nosniff"
+      ],
+      [
+        "Content-Security-Policy",
+        "default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-3yL3uEuz0XoDldm4c62qP1/b2oPsm2Bb9rheVGWpjKs=' 'sha256-2nH/lyAAxXyC8tFRH4ZEEIoJllB7IbrSSRpQuOFGqyk=' 'sha256-9LRImpH1SBVMudYqdJa+IUN+MoL0foi3w7+PJ7Y88us='; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
+      ],
+      [
+        "Location",
+        "/"
+      ],
+      [
+        "Set-Cookie",
+        "jmp_session=1795003200.498db70d46887c3dbaba97873acef1c8efbd7fc55b99dcbb1d323b674d3ff42c; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=2592000"
+      ]
+    ],
+    "status": 303
+  }
+}

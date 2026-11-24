@@ -1,0 +1,50 @@
+[
+  {
+    "application_due": null,
+    "detail_missing": false,
+    "employer": "Invented Works",
+    "expires_at": "2099-01-01T00:00:00+00:00",
+    "full_review": {
+      "ad_text_reviewed": true,
+      "assessed_at": "2026-10-19T12:00:00+00:00",
+      "evidence": [
+        "Synthetic SQL software work."
+      ],
+      "fit": "exceptional",
+      "hard_constraints": "pass",
+      "id": "00000000-0000-0000-0000-000000000001",
+      "reason": "SQL software work directly matches building software and learning.",
+      "uncertainties": [],
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    "full_review_attempt_status": "completed",
+    "full_review_blocked_sub_reason": null,
+    "full_review_input_fingerprint": "cb6a8ccfe377b75f23863872f9d34eeeafa28c5d571f20cfc853d48e2c694490",
+    "full_review_result_id": "00000000-0000-0000-0000-000000002735",
+    "full_review_status": "completed",
+    "lifecycle_status": "saved_source_unconfirmed",
+    "listing_id": "00000000-0000-0000-0000-000000000001",
+    "locations": [
+      "INVENTED"
+    ],
+    "preferences_fingerprint": "6a3e16c92e6943b3d93c0d413bcc6341da855851d968ddf8ee0a9791ecbe5e60",
+    "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+    "provenance": "Validated staged review",
+    "recommendable": true,
+    "review_prompt_version": "fae4848c2bf92642fa79289ccfeb24f437a03d632cd5d8f012147a6238b6a3b1",
+    "rules_fingerprint": "2e8c809cb8945e4edd0760d0207b3d22789f628542f3f778b64068bf99e62905",
+    "scoring_version": "title-evidence-hard-radius-v3",
+    "screening": {
+      "assessed_at": "2026-10-19T12:00:00+00:00",
+      "id": "00000000-0000-0000-0000-000000000001",
+      "outcome": "advance_to_full_review",
+      "reason": "Software work warrants reading the full advertisement.",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    "screening_attempt_status": "completed",
+    "screening_status": "advance_to_full_review",
+    "source_version": "2026-10-19T10:00:00+00:00",
+    "title": "Software developer",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000001"
+  }
+]

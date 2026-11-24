@@ -1,0 +1,43 @@
+{
+  "foreign_key_check": [],
+  "integrity_check": [
+    [
+      "ok"
+    ]
+  ],
+  "present": true,
+  "schema_objects": [
+    [
+      "table",
+      "shortlist_feedback",
+      "shortlist_feedback",
+      "CREATE TABLE shortlist_feedback (\n    profile_id TEXT NOT NULL\n        CHECK (typeof(profile_id) = 'text'\n               AND length(profile_id) BETWEEN 1 AND 64)\n        CHECK (profile_id NOT GLOB '*[^a-z0-9-]*')\n        CHECK (profile_id NOT GLOB '-*' AND profile_id NOT GLOB '*-'\n               AND profile_id NOT GLOB '*--*'),\n    listing_id TEXT NOT NULL\n        CHECK (typeof(listing_id) = 'text'\n               AND length(listing_id) BETWEEN 1 AND 128)\n        CHECK (listing_id NOT GLOB '*[^a-z0-9_-]*'),\n    starred INTEGER NOT NULL DEFAULT 0\n        CHECK (typeof(starred) = 'integer' AND starred IN (0, 1)),\n    reaction TEXT CHECK (reaction IS NULL OR\n                          (typeof(reaction) = 'text' AND reaction IN ('up', 'down'))),\n    updated_at TEXT NOT NULL\n        CHECK (typeof(updated_at) = 'text' AND length(updated_at) = 25\n               AND substr(updated_at, 20) = '+00:00'),\n    PRIMARY KEY (profile_id, listing_id)\n) WITHOUT ROWID"
+    ]
+  ],
+  "tables": {
+    "shortlist_feedback": {
+      "columns": [
+        "profile_id",
+        "listing_id",
+        "starred",
+        "reaction",
+        "updated_at"
+      ],
+      "primary_key": [
+        "profile_id",
+        "listing_id"
+      ],
+      "rows": [
+        [
+          "invented",
+          "00000000-0000-0000-0000-000000000001",
+          0,
+          null,
+          "2026-10-19T12:00:00+00:00"
+        ]
+      ],
+      "sql": "CREATE TABLE shortlist_feedback (\n    profile_id TEXT NOT NULL\n        CHECK (typeof(profile_id) = 'text'\n               AND length(profile_id) BETWEEN 1 AND 64)\n        CHECK (profile_id NOT GLOB '*[^a-z0-9-]*')\n        CHECK (profile_id NOT GLOB '-*' AND profile_id NOT GLOB '*-'\n               AND profile_id NOT GLOB '*--*'),\n    listing_id TEXT NOT NULL\n        CHECK (typeof(listing_id) = 'text'\n               AND length(listing_id) BETWEEN 1 AND 128)\n        CHECK (listing_id NOT GLOB '*[^a-z0-9_-]*'),\n    starred INTEGER NOT NULL DEFAULT 0\n        CHECK (typeof(starred) = 'integer' AND starred IN (0, 1)),\n    reaction TEXT CHECK (reaction IS NULL OR\n                          (typeof(reaction) = 'text' AND reaction IN ('up', 'down'))),\n    updated_at TEXT NOT NULL\n        CHECK (typeof(updated_at) = 'text' AND length(updated_at) = 25\n               AND substr(updated_at, 20) = '+00:00'),\n    PRIMARY KEY (profile_id, listing_id)\n) WITHOUT ROWID"
+    }
+  },
+  "user_version": 0
+}

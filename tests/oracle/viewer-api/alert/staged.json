@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-10-19T12:00:00.000000+00:00",
+  "digest_key": "invented-discord",
+  "eml_path": "/tmp/pulse-port-oracle/viewer-api/installation/local_only/profiles/invented/outbox/invented/artifacts/ccef83f1f310acb021eb82246d2976b6d3adfc1e976898262881f0c1dc72e8ad.eml",
+  "html_path": "/tmp/pulse-port-oracle/viewer-api/installation/local_only/profiles/invented/outbox/invented/artifacts/ccef83f1f310acb021eb82246d2976b6d3adfc1e976898262881f0c1dc72e8ad.html",
+  "profile_id": "invented",
+  "push_preview_path": "/tmp/pulse-port-oracle/viewer-api/installation/local_only/profiles/invented/outbox/invented/artifacts/ccef83f1f310acb021eb82246d2976b6d3adfc1e976898262881f0c1dc72e8ad.push-preview.json",
+  "status": "staged",
+  "updated_at": "2026-10-19T12:00:00.000000+00:00"
+}

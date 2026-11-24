@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Job Market Pulse
+Comment=Open the local dashboard
+Exec="/ABSOLUTE/PATH/TO/BUN" --no-env-file "/ABSOLUTE/PATH/TO/CHECKOUT/src/cli/pulse.ts" desktop
+Icon=/ABSOLUTE/PATH/TO/CHECKOUT/desktop/icons/icon-512.png
+Terminal=false
+Categories=Utility;

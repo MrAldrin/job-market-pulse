@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "review-session"
+  ],
+  "exit_status": 2,
+  "stderr": "",
+  "stdout": "{\"type\":\"blocked\",\"status\":\"blocked\",\"error_code\":\"model_settings_unavailable\"}\n"
+}

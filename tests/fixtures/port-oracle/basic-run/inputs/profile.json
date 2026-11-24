@@ -1,0 +1,4 @@
+{
+  "preferences": "[geography]\norigin_latitude = 60.0\norigin_longitude = 10.0\norigin_source = \"invented\"\nradius_km = 40.0\npreferred_municipalities = [\"Invented town\"]\n[jobs]\npreferred_terms = [\"developer\"]\nallowed_occupation_categories = [\"IT\"]\nexcluded_title_terms = [\"recruiter\"]\n",
+  "narrative": "## Invented profile\nEnjoys building software and learning.\n"
+}

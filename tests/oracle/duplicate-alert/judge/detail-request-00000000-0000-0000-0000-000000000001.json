@@ -1,0 +1,135 @@
+{
+  "calls": [
+    {
+      "kind": "detail",
+      "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000001"
+    },
+    {
+      "kind": "detail",
+      "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000002"
+    },
+    {
+      "kind": "detail",
+      "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000003"
+    },
+    {
+      "kind": "detail",
+      "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000004"
+    },
+    {
+      "kind": "detail",
+      "path": "/api/v1/feedentry/00000000-0000-0000-0000-000000000005"
+    }
+  ],
+  "result": {
+    "available": [
+      {
+        "byte_count": 60,
+        "detail_changed": "2026-10-19T10:00:00+00:00",
+        "fingerprint": "82272148c4d5c2796787ae9cafe2622212d12bcbb8fc9745bde232c93480c404",
+        "listing_id": "00000000-0000-0000-0000-000000000001",
+        "provenance": null,
+        "snapshot": {
+          "employer": "Invented Works",
+          "expires_at": "2099-01-01T00:00:00+00:00",
+          "locations": [
+            "INVENTED"
+          ],
+          "occupation_categories": [
+            "IT"
+          ],
+          "title": "Software developer"
+        },
+        "snapshot_id": "36b3963782ef2db6308a0bea316fe5c3e874ac679942a834647192baf0fc016e",
+        "source_version": "2026-10-19T10:00:00+00:00",
+        "text": "An invented data role. Lønn kr 701 000 – 803 000 per år."
+      },
+      {
+        "byte_count": 55,
+        "detail_changed": "2026-10-19T10:00:00+00:00",
+        "fingerprint": "8d695938c8121fe16386a1bfa48d6b12fa635bd4269a861c1f845bee4aed6809",
+        "listing_id": "00000000-0000-0000-0000-000000000002",
+        "provenance": null,
+        "snapshot": {
+          "employer": "Invented Works",
+          "expires_at": "2099-01-01T00:00:00+00:00",
+          "locations": [
+            "INVENTED"
+          ],
+          "occupation_categories": [
+            "IT"
+          ],
+          "title": "Software developer"
+        },
+        "snapshot_id": "192f26d40928e4a66887f0535b8f5be1cc0812d6a497d227eb0df36e4d606d19",
+        "source_version": "2026-10-19T10:00:00+00:00",
+        "text": "An invented engineering role. Lønn kr 900 000 per år."
+      },
+      {
+        "byte_count": 28,
+        "detail_changed": "2026-10-19T10:00:00+00:00",
+        "fingerprint": "9015e50c381d896ec4abe912a596bdef4499ef86f28c324d3444bfb3d23f460c",
+        "listing_id": "00000000-0000-0000-0000-000000000003",
+        "provenance": null,
+        "snapshot": {
+          "employer": "Invented Works",
+          "expires_at": "2099-01-01T00:00:00+00:00",
+          "locations": [
+            "INVENTED"
+          ],
+          "occupation_categories": [
+            "IT"
+          ],
+          "title": "Software developer"
+        },
+        "snapshot_id": "d8e4b9bb1767dc9e74bb9cde05ea7d7d105fce1983ccdd61df51df4e49b5d64c",
+        "source_version": "2026-10-19T10:00:00+00:00",
+        "text": "Synthetic SQL software work."
+      },
+      {
+        "byte_count": 28,
+        "detail_changed": "2026-10-19T10:00:00+00:00",
+        "fingerprint": "9015e50c381d896ec4abe912a596bdef4499ef86f28c324d3444bfb3d23f460c",
+        "listing_id": "00000000-0000-0000-0000-000000000004",
+        "provenance": null,
+        "snapshot": {
+          "employer": "Invented Works",
+          "expires_at": "2099-01-01T00:00:00+00:00",
+          "locations": [
+            "INVENTED"
+          ],
+          "occupation_categories": [
+            "IT"
+          ],
+          "title": "Software developer"
+        },
+        "snapshot_id": "d8e4b9bb1767dc9e74bb9cde05ea7d7d105fce1983ccdd61df51df4e49b5d64c",
+        "source_version": "2026-10-19T10:00:00+00:00",
+        "text": "Synthetic SQL software work."
+      },
+      {
+        "byte_count": 28,
+        "detail_changed": "2026-10-19T10:00:00+00:00",
+        "fingerprint": "9015e50c381d896ec4abe912a596bdef4499ef86f28c324d3444bfb3d23f460c",
+        "listing_id": "00000000-0000-0000-0000-000000000005",
+        "provenance": null,
+        "snapshot": {
+          "employer": "Invented Works",
+          "expires_at": "2099-01-01T00:00:00+00:00",
+          "locations": [
+            "INVENTED"
+          ],
+          "occupation_categories": [
+            "IT"
+          ],
+          "title": "Database engineer"
+        },
+        "snapshot_id": "b39becbda58adf82dcd0751d7bddf8c2fc9d0dfccdd014dada6d59b6f6bbf6b4",
+        "source_version": "2026-10-19T10:00:00+00:00",
+        "text": "Synthetic SQL software work."
+      }
+    ],
+    "request_count": 5,
+    "unavailable": []
+  }
+}

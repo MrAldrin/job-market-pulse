@@ -1,0 +1,26 @@
+[
+  {
+    "created_at": "2026-10-19T12:00:00+00:00",
+    "event_id": "star:00000000-0000-0000-0000-000000000001:2026-10-19T12:00:00+00:00",
+    "kind": "star",
+    "listing_id": "00000000-0000-0000-0000-000000000001",
+    "origin": "phone_shortlist",
+    "reason": "",
+    "result_id": null,
+    "source": "nav",
+    "source_version": null,
+    "value": true
+  },
+  {
+    "created_at": "2026-10-19T12:00:00+00:00",
+    "event_id": "reaction:00000000-0000-0000-0000-000000000001:2026-10-19T12:00:00+00:00",
+    "kind": "reaction",
+    "listing_id": "00000000-0000-0000-0000-000000000001",
+    "origin": "phone_shortlist",
+    "reason": "",
+    "result_id": null,
+    "source": "nav",
+    "source_version": null,
+    "value": "up"
+  }
+]

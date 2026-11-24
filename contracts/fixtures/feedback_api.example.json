@@ -1,0 +1,25 @@
+{
+  "get_response": {
+    "csrf_token": "0000000000000000000000000000000000000000000000000000000000000000",
+    "listing_ids": [
+      "00000000-0000-0000-0000-000000000001"
+    ],
+    "states": {
+      "00000000-0000-0000-0000-000000000001": {
+        "starred": false,
+        "reaction": null
+      }
+    }
+  },
+  "post_request": {
+    "listing_id": "00000000-0000-0000-0000-000000000001",
+    "field": "starred",
+    "value": true
+  },
+  "post_response": {
+    "state": {
+      "starred": true,
+      "reaction": null
+    }
+  }
+}

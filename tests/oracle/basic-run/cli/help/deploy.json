@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "deploy",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse deploy [-h] [--apply] [--yes] [--service SERVICE]\n\noptions:\n  -h, --help         show this help message and exit\n  --apply            Deploy viewer code\n  --yes              Skip confirmation after owner approval\n  --service SERVICE  Railway service name\n"
+}

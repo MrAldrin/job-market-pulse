@@ -1,0 +1,9 @@
+{
+  "destination": "https://discord.synthetic.test/api/webhooks/1/invented-token",
+  "host": "discord.synthetic.test",
+  "target": "/api/webhooks/1/invented-token?wait=true",
+  "responses": [
+    {"status": 400, "body": "{}"},
+    {"status": 200, "body": "{\"id\":\"1234567890123456789\"}"}
+  ]
+}

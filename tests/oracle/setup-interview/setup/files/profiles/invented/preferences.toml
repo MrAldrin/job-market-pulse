@@ -1,0 +1,2 @@
+"geography" = { "origin_latitude" = 60.0, "origin_longitude" = 10.0, "origin_source" = "Kartverket Postnummerområder, catalogue-reported CC BY 4.0, EPSG:4326, approximate interior-chord midpoint, looked up 2026-10-19", "radius_km" = 40.0, "home_label" = "0123 INVENTED", "area_postcode" = "0123" }
+"jobs" = { "allowed_occupation_categories" = ["IT"], "preferred_terms" = [] }

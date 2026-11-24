@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "review-claude",
+    "--check"
+  ],
+  "exit_status": 2,
+  "stderr": "",
+  "stdout": "Review not started (model_settings_unavailable).\n"
+}

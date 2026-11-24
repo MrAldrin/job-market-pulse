@@ -1,0 +1,21 @@
+{
+  "schema": "pulse.doctor",
+  "schema_version": 1,
+  "platform": "linux",
+  "checks": [
+    {
+      "id": "bun",
+      "required": true,
+      "ok": true,
+      "message": "Running Bun 1.4.4.",
+      "fix": null
+    },
+    {
+      "id": "ntfy_topic",
+      "required": false,
+      "ok": false,
+      "message": "No ntfy topic is configured.",
+      "fix": "Leave unset if you do not need notifications."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "bundle": "changed-removed",
+  "capture_id": "invented-changed-removed",
+  "classification": "synthetic",
+  "clock": "2026-10-19T12:00:00+00:00",
+  "completeness": "scenario-specific synthetic inputs; not whole-market coverage",
+  "configuration_provenance": "fixture profile/preferences/model answers plus unchanged copied tracked assets",
+  "controlled_inputs": {
+    "hostname": "oracle.synthetic.test",
+    "monotonic": 123.0,
+    "uuid4_first_integer": 10000,
+    "wall_clock_utc": "2026-10-19T12:00:00+00:00"
+  },
+  "expected_sha256": {
+    "alert/before-ledger.json": "39011bf2c6ca216617b98a1cfa976ee3b6f11b9cb37f0d846d9b63597d1b355d",
+    "filter/run-1.json": "e9bbe4629ad5940438a3d385dfc6d185935d63969445b0d60d7eb79fdb905dc8",
+    "filter/run-2.json": "87f4207291fb929232202252651d822dc9e3e34990dc0302fb866562aae45a31",
+    "judge/before-store.json": "39011bf2c6ca216617b98a1cfa976ee3b6f11b9cb37f0d846d9b63597d1b355d",
+    "profile/bundle.json": "889693bf03510db8617250d6d0d42a3aadfc824ffcaf4c34516f5c9d2451bf3c",
+    "provenance/safety.json": "7b679a2068d92ce6552aea0bc05416953c9040f719675776b8f8ea8a93ea83e3",
+    "resolver/run-1.json": "9141961defbc9f2f65c63744d058d585ce48ccdd46bcb900bfafa81cc14ca0e9",
+    "resolver/run-2.json": "23319a351db689b577fbc51c24c7a66330408bbd8df3648ed168d173452860fe",
+    "snapshot/metadata.json": "f94df24f6dcf4bd0748007281ca9bcd3d2ab8bc8a32f9186d8e1b5a81288368d",
+    "snapshot/snapshot-v1.json": "a90f05eadd36f3bcedad40f3438bab8a800f21aac7e203c6dd812b77ddc9a1eb",
+    "snapshot/upload-container.json": "c2e4c1e056d61152d563e27baedf9b75b09f96758754df571e4f82330c0f1e5a",
+    "source/run-1.json": "ddede917dd7de67dd8b7f818acd8e549d0f01280ae9c4f0874e7dfac1c002193",
+    "source/run-2.json": "5f2863e29a81c70c1779f19f71b0c778a6c20579ece8b6c0a4f20b1659cc43ac"
+  },
+  "expires_at": null,
+  "fixture_version": 1,
+  "id_seed": 10000,
+  "input_bundles": [],
+  "product_base_change": "pqkpkzkv",
+  "product_base_commit": "17c4a4bb3831a3007a1fa9f6bb29671665c9d37a",
+  "python": "3.13.11",
+  "schema_versions": {
+    "bundle": 1,
+    "candidate_manifest": 1,
+    "snapshot": 1
+  },
+  "sha256": {
+    "inputs/profile.json": "ea653a0a52c0316a1217ee8d897121b2a2c33706bda76626bd2b3a5e84a649bf",
+    "inputs/resolver.json": "6f08d3b926051408336d1f564dab1c0d1a5393425843b8f5c928364b40dfc966",
+    "inputs/source.json": "e4915fb97fd4cd9e3acfb93f228fd049be4db8ccee3dc04f377c7172dcf5ac0c",
+    "responses/none.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "tools": {
+    "python": "3.13.11",
+    "sqlite": "3.50.4"
+  }
+}

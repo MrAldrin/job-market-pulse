@@ -1,0 +1,12 @@
+{
+  "diagnostics": {
+    "branch": "received",
+    "partial": false,
+    "stop_reason": "stop"
+  },
+  "error_code": null,
+  "input_tokens": 100,
+  "kind": "result",
+  "output_tokens": 40,
+  "text": "Synthetic Pi answer."
+}

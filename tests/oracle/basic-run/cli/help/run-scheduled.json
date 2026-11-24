@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "run-scheduled",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse run-scheduled [-h] [--only-if-due] [--period PERIOD]\n                           [--anchor ANCHOR]\n\noptions:\n  -h, --help       show this help message and exit\n  --only-if-due\n  --period PERIOD  Schedule period from the timer renderer\n  --anchor ANCHOR  Interval anchor as YYYY-MM-DD\n"
+}

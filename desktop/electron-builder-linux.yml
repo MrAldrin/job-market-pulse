@@ -1,0 +1,42 @@
+appId: no.jobmarketpulse.desktop
+productName: Job Market Pulse
+electronDist: node_modules/electron/dist
+afterPack: ./desktop/stage-linux.cjs
+# The static AppImage runtime supports extraction without FUSE.
+toolsets:
+  appimage: '1.0.3'
+directories:
+  app: local_only/package-linux/app
+  output: local_only/package-linux/output
+files:
+  - main.mjs
+  - appearance.mjs
+  - appearance-preload.cjs
+  - icons/icon-512.png
+  - '!**/node_modules/**'
+extraResources:
+  - from: local_only/package-linux/resources
+    to: .
+    filter:
+      - pulse
+      - pulse-dashboard
+      - pulse-probe.mjs
+      - config/area_extents.json
+      - config/market_taxonomy.toml
+      - config/occupation_categories.toml
+      - config/title_exclusions.neutral.toml
+      - skills/pulse-interview/questions.toml
+      - skills/pulse-interview/profile-template.md
+      - contracts/fixtures/snapshot.example.json
+linux:
+  target: AppImage
+  category: Office
+  executableName: job-market-pulse
+  maintainer: Job Market Pulse
+  syncDesktopName: true
+  # Not build/icon.png: build/ holds the SvelteKit output.
+  icon: desktop/icons/icon-512.png
+appImage:
+  artifactName: JobMarketPulse.AppImage
+npmRebuild: false
+publish: null

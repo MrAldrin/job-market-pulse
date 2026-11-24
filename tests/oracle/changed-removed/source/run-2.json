@@ -1,0 +1,1406 @@
+{
+  "foreign_key_check": [],
+  "integrity_check": [
+    [
+      "ok"
+    ]
+  ],
+  "present": true,
+  "schema_objects": [
+    [
+      "index",
+      "sqlite_autoindex_ad_application_deadlines_1",
+      "ad_application_deadlines",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_ad_detail_versions_1",
+      "ad_detail_versions",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_ad_locations_1",
+      "ad_locations",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_ad_occupation_checks_1",
+      "ad_occupation_checks",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_ad_occupations_1",
+      "ad_occupations",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_ad_salaries_1",
+      "ad_salaries",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_ad_status_evidence_1",
+      "ad_status_evidence",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_ad_texts_1",
+      "ad_texts",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_ads_1",
+      "ads",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_events_1",
+      "events",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_pages_1",
+      "pages",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_state_1",
+      "state",
+      null
+    ],
+    [
+      "index",
+      "sqlite_autoindex_versions_1",
+      "versions",
+      null
+    ],
+    [
+      "table",
+      "ad_application_deadlines",
+      "ad_application_deadlines",
+      "CREATE TABLE ad_application_deadlines (\n            uuid TEXT PRIMARY KEY, changed TEXT NOT NULL, application_due TEXT,\n            rolling INTEGER NOT NULL DEFAULT 0\n        )"
+    ],
+    [
+      "table",
+      "ad_detail_versions",
+      "ad_detail_versions",
+      "CREATE TABLE ad_detail_versions (\n            uuid TEXT PRIMARY KEY, saved_changed TEXT NOT NULL,\n            detail_changed TEXT NOT NULL\n        )"
+    ],
+    [
+      "table",
+      "ad_locations",
+      "ad_locations",
+      "CREATE TABLE ad_locations (\n        uuid TEXT PRIMARY KEY, points TEXT NOT NULL, incomplete INTEGER NOT NULL,\n        provenance TEXT NOT NULL\n    )"
+    ],
+    [
+      "table",
+      "ad_occupation_checks",
+      "ad_occupation_checks",
+      "CREATE TABLE ad_occupation_checks (\n            uuid TEXT PRIMARY KEY, saved_changed TEXT NOT NULL,\n            category_count INTEGER NOT NULL\n        )"
+    ],
+    [
+      "table",
+      "ad_occupations",
+      "ad_occupations",
+      "CREATE TABLE ad_occupations (\n            uuid TEXT NOT NULL, scheme TEXT NOT NULL,\n            level1 TEXT NOT NULL, level2 TEXT NOT NULL,\n            code TEXT NOT NULL, name TEXT NOT NULL,\n            PRIMARY KEY (uuid, scheme, level1, level2, code, name)\n        )"
+    ],
+    [
+      "table",
+      "ad_salaries",
+      "ad_salaries",
+      "CREATE TABLE ad_salaries (\n        uuid TEXT PRIMARY KEY, form TEXT\n            CHECK(form IS NULL OR form IN ('range','single','vague','max')),\n        min_nok REAL, max_nok REAL,\n        period TEXT CHECK(period IS NULL OR period IN ('year','month','hour')),\n        sko_code TEXT, ltr_min INTEGER, ltr_max INTEGER,\n        detail_changed TEXT NOT NULL,\n        period_inferred INTEGER NOT NULL DEFAULT 0,\n        amount_unclear INTEGER NOT NULL DEFAULT 0\n    )"
+    ],
+    [
+      "table",
+      "ad_status_evidence",
+      "ad_status_evidence",
+      "CREATE TABLE ad_status_evidence (\n            uuid TEXT PRIMARY KEY, changed TEXT NOT NULL, status TEXT NOT NULL\n                CHECK(status IN ('ACTIVE','INACTIVE','STOPPED','DELETED'))\n        )"
+    ],
+    [
+      "table",
+      "ad_texts",
+      "ad_texts",
+      "CREATE TABLE ad_texts (\n            uuid TEXT PRIMARY KEY, text TEXT NOT NULL, detail_changed TEXT NOT NULL,\n            closed_at TEXT\n        )"
+    ],
+    [
+      "table",
+      "ads",
+      "ads",
+      "CREATE TABLE ads (\n            uuid TEXT PRIMARY KEY, changed TEXT NOT NULL,\n            first_seen TEXT NOT NULL, observed TEXT NOT NULL,\n            title TEXT NOT NULL, employer TEXT NOT NULL, locations TEXT NOT NULL,\n            topics TEXT NOT NULL, detail_missing INTEGER NOT NULL,\n            expires TEXT, source TEXT\n        )"
+    ],
+    [
+      "table",
+      "events",
+      "events",
+      "CREATE TABLE events (id TEXT PRIMARY KEY)"
+    ],
+    [
+      "table",
+      "pages",
+      "pages",
+      "CREATE TABLE pages (\n            url TEXT PRIMARY KEY, etag TEXT, modified TEXT\n        )"
+    ],
+    [
+      "table",
+      "state",
+      "state",
+      "CREATE TABLE state (key TEXT PRIMARY KEY, value TEXT NOT NULL)"
+    ],
+    [
+      "table",
+      "versions",
+      "versions",
+      "CREATE TABLE versions (uuid TEXT PRIMARY KEY, changed TEXT NOT NULL)"
+    ],
+    [
+      "trigger",
+      "ads_detail_version_cleanup",
+      "ads",
+      "CREATE TRIGGER ads_detail_version_cleanup\n        AFTER DELETE ON ads\n        BEGIN\n            DELETE FROM ad_detail_versions WHERE uuid = OLD.uuid;\n        END"
+    ],
+    [
+      "trigger",
+      "ads_location_cleanup",
+      "ads",
+      "CREATE TRIGGER ads_location_cleanup\n        AFTER DELETE ON ads\n        BEGIN DELETE FROM ad_locations WHERE uuid=OLD.uuid; END"
+    ],
+    [
+      "trigger",
+      "ads_occupation_cleanup",
+      "ads",
+      "CREATE TRIGGER ads_occupation_cleanup\n        AFTER DELETE ON ads\n        BEGIN\n            DELETE FROM ad_occupations WHERE uuid = OLD.uuid;\n            DELETE FROM ad_occupation_checks WHERE uuid = OLD.uuid;\n        END"
+    ],
+    [
+      "trigger",
+      "ads_text_cleanup",
+      "ads",
+      "CREATE TRIGGER ads_text_cleanup\n        AFTER DELETE ON ads\n        BEGIN\n            DELETE FROM ad_texts WHERE uuid = OLD.uuid AND closed_at IS NULL;\n        END"
+    ]
+  ],
+  "tables": {
+    "ad_application_deadlines": {
+      "columns": [
+        "uuid",
+        "changed",
+        "application_due",
+        "rolling"
+      ],
+      "primary_key": [
+        "uuid"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000000003",
+          "2026-10-19T10:00:00+00:00",
+          null,
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000004",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-27T12:00:00+00:00",
+          0
+        ]
+      ],
+      "sql": "CREATE TABLE ad_application_deadlines (\n            uuid TEXT PRIMARY KEY, changed TEXT NOT NULL, application_due TEXT,\n            rolling INTEGER NOT NULL DEFAULT 0\n        )"
+    },
+    "ad_detail_versions": {
+      "columns": [
+        "uuid",
+        "saved_changed",
+        "detail_changed"
+      ],
+      "primary_key": [
+        "uuid"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000000001",
+          "2026-10-19T11:00:00+00:00",
+          "2026-10-19T11:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000004",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000005",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000006",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000007",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000008",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000009",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000a",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000b",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000c",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000d",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000e",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000f",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000010",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000011",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000012",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000013",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000014",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T10:00:00+00:00"
+        ]
+      ],
+      "sql": "CREATE TABLE ad_detail_versions (\n            uuid TEXT PRIMARY KEY, saved_changed TEXT NOT NULL,\n            detail_changed TEXT NOT NULL\n        )"
+    },
+    "ad_locations": {
+      "columns": [
+        "uuid",
+        "points",
+        "incomplete",
+        "provenance"
+      ],
+      "primary_key": [
+        "uuid"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000000001",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T11:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T11:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T11:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"050699e295b6e36f8c5d9f532cdb81369249a243fede51355d1daadcfc65a9ed\", \"source_version\": \"2026-10-19T11:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-000000000001\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000004",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"ca94ccec2580e740b64628a3a0cb7713ddfec711c70ce7cc7c8708b05a074075\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-000000000004\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000005",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"2309117e453ce9776b551807fbb45a53a809d7eefb0b860325a9127585903ec4\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-000000000005\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000008",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"42ebae7e51c7c85c12a2e5f2e89562db3ab52c8194313e532647462ce70daf0e\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-000000000008\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000009",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"fb205e9a69232ebc45355e742b5e11a3961583524ff7996cb46b3c4f177ce7d8\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-000000000009\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000b",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"9d06ac719e03618418611aaf4ae1ee30b074dab8a33ae351f2fad100759f124f\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-00000000000b\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000c",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"b0f659b5ce3a9a991ffd9ca5f4f5f878d7c1127eee9afcfd1cd69668eb11b9ef\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-00000000000c\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000d",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"31614985a58bbfd2c74dd102c7fb0a095b3b53d9b3a635fd8408a4af52bf3bd3\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-00000000000d\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000f",
+          "[[62.0, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"3cab930da6d2d3655171a5161a27f60f5956e6afa7eefc9a9d8f56b29c56c8ff\", \"sha256\": \"5a146c2249d36b877874fb9960652d400be63b5a1f897bedce30ab2c3804432c\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-00000000000f\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000011",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"c5eadb69f34b24a7faa171c42085e5a693013bb69519b1f22a22baae2b9d729a\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-000000000011\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000012",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"873f92f8380238821ac004f12d51d7b92bcac0fb1a38228a397bf49de15f2ce1\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-000000000012\", \"version\": 1}}"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000013",
+          "[[60.01, 10.0]]",
+          0,
+          "{\"method\": \"exact_unique_address_postcode_epsg4326_approximate\", \"provider\": \"https://ws.geonorge.no/adresser/v1/sok\", \"provider_stedfestingverifisert\": [true], \"retrieved_at\": \"2026-10-19T12:00:00+00:00\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"workplace_fingerprint\": {\"detail_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_saved_changed\": \"2026-10-19T10:00:00+00:00\", \"detail_version_source\": \"ad_detail_versions\", \"incomplete\": false, \"point_digest_version\": 1, \"points_sha256\": \"f0d25c54e72ea97ec58cde4cac27129cfbaa207f741db0a964f565b54e2bf1b9\", \"sha256\": \"a49a50e0c7b794b33756647965401208b18c52a35545256e04393a1cac36bfb6\", \"source_version\": \"2026-10-19T10:00:00+00:00\", \"uuid\": \"00000000-0000-0000-0000-000000000013\", \"version\": 1}}"
+        ]
+      ],
+      "sql": "CREATE TABLE ad_locations (\n        uuid TEXT PRIMARY KEY, points TEXT NOT NULL, incomplete INTEGER NOT NULL,\n        provenance TEXT NOT NULL\n    )"
+    },
+    "ad_occupation_checks": {
+      "columns": [
+        "uuid",
+        "saved_changed",
+        "category_count"
+      ],
+      "primary_key": [
+        "uuid"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000000001",
+          "2026-10-19T11:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000004",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000005",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000006",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000007",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000008",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000009",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000a",
+          "2026-10-19T10:00:00+00:00",
+          0
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000b",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000c",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000d",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000e",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000f",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000010",
+          "2026-10-19T10:00:00+00:00",
+          0
+        ],
+        [
+          "00000000-0000-0000-0000-000000000011",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000012",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000013",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ],
+        [
+          "00000000-0000-0000-0000-000000000014",
+          "2026-10-19T10:00:00+00:00",
+          1
+        ]
+      ],
+      "sql": "CREATE TABLE ad_occupation_checks (\n            uuid TEXT PRIMARY KEY, saved_changed TEXT NOT NULL,\n            category_count INTEGER NOT NULL\n        )"
+    },
+    "ad_occupations": {
+      "columns": [
+        "uuid",
+        "scheme",
+        "level1",
+        "level2",
+        "code",
+        "name"
+      ],
+      "primary_key": [
+        "uuid",
+        "scheme",
+        "level1",
+        "level2",
+        "code",
+        "name"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000000001",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-000000000004",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-000000000005",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-000000000006",
+          "occupationCategories",
+          "Bygg og anlegg",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-000000000007",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-000000000008",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-000000000009",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000b",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000c",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000d",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000e",
+          "occupationCategories",
+          "Bygg og anlegg",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000f",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-000000000011",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-000000000012",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-000000000013",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ],
+        [
+          "00000000-0000-0000-0000-000000000014",
+          "occupationCategories",
+          "IT",
+          "",
+          "",
+          ""
+        ]
+      ],
+      "sql": "CREATE TABLE ad_occupations (\n            uuid TEXT NOT NULL, scheme TEXT NOT NULL,\n            level1 TEXT NOT NULL, level2 TEXT NOT NULL,\n            code TEXT NOT NULL, name TEXT NOT NULL,\n            PRIMARY KEY (uuid, scheme, level1, level2, code, name)\n        )"
+    },
+    "ad_salaries": {
+      "columns": [
+        "uuid",
+        "form",
+        "min_nok",
+        "max_nok",
+        "period",
+        "sko_code",
+        "ltr_min",
+        "ltr_max",
+        "detail_changed",
+        "period_inferred",
+        "amount_unclear"
+      ],
+      "primary_key": [
+        "uuid"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000000001",
+          "range",
+          701000.0,
+          803000.0,
+          "year",
+          null,
+          null,
+          null,
+          "2026-10-19T11:00:00+00:00",
+          0,
+          0
+        ],
+        [
+          "00000000-0000-0000-0000-000000000002",
+          "single",
+          900000.0,
+          900000.0,
+          "year",
+          null,
+          null,
+          null,
+          "2026-10-19T10:00:00+00:00",
+          0,
+          0
+        ]
+      ],
+      "sql": "CREATE TABLE ad_salaries (\n        uuid TEXT PRIMARY KEY, form TEXT\n            CHECK(form IS NULL OR form IN ('range','single','vague','max')),\n        min_nok REAL, max_nok REAL,\n        period TEXT CHECK(period IS NULL OR period IN ('year','month','hour')),\n        sko_code TEXT, ltr_min INTEGER, ltr_max INTEGER,\n        detail_changed TEXT NOT NULL,\n        period_inferred INTEGER NOT NULL DEFAULT 0,\n        amount_unclear INTEGER NOT NULL DEFAULT 0\n    )"
+    },
+    "ad_status_evidence": {
+      "columns": [
+        "uuid",
+        "changed",
+        "status"
+      ],
+      "primary_key": [
+        "uuid"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000000001",
+          "2026-10-19T11:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000002",
+          "2026-10-19T11:00:00+00:00",
+          "INACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000003",
+          "2026-10-19T11:00:00+00:00",
+          "INACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000004",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000005",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000006",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000007",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000008",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000009",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000a",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000b",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000c",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000d",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000e",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000f",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000010",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000011",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000012",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000013",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000014",
+          "2026-10-19T10:00:00+00:00",
+          "ACTIVE"
+        ]
+      ],
+      "sql": "CREATE TABLE ad_status_evidence (\n            uuid TEXT PRIMARY KEY, changed TEXT NOT NULL, status TEXT NOT NULL\n                CHECK(status IN ('ACTIVE','INACTIVE','STOPPED','DELETED'))\n        )"
+    },
+    "ad_texts": {
+      "columns": [
+        "uuid",
+        "text",
+        "detail_changed",
+        "closed_at"
+      ],
+      "primary_key": [
+        "uuid"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000000001",
+          "An invented data role. Lønn kr 701 000 – 803 000 per år.",
+          "2026-10-19T11:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000000004",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000000005",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000000006",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000000007",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000000008",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000000009",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000a",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000b",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000c",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000d",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000e",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000f",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000000010",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000000011",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000000013",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ],
+        [
+          "00000000-0000-0000-0000-000000000014",
+          "Synthetic SQL software work.",
+          "2026-10-19T10:00:00+00:00",
+          null
+        ]
+      ],
+      "sql": "CREATE TABLE ad_texts (\n            uuid TEXT PRIMARY KEY, text TEXT NOT NULL, detail_changed TEXT NOT NULL,\n            closed_at TEXT\n        )"
+    },
+    "ads": {
+      "columns": [
+        "uuid",
+        "changed",
+        "first_seen",
+        "observed",
+        "title",
+        "employer",
+        "locations",
+        "topics",
+        "detail_missing",
+        "expires",
+        "source"
+      ],
+      "primary_key": [
+        "uuid"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000000001",
+          "2026-10-19T11:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Senior software developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000004",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Software developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000005",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Database engineer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000006",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Woodworker",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000007",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Developer recruiter",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000008",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Utvikler blåbær",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000009",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000a",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000b",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Operations coordinator",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000c",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000d",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Research fellow",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000e",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Data analyst",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"data science\", \"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000f",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000010",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000011",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000012",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000013",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000014",
+          "2026-10-19T10:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "2026-10-19T12:00:00+00:00",
+          "Developer",
+          "Invented Works",
+          "[\"INVENTED\"]",
+          "[\"programming\", \"databases / data engineering\"]",
+          0,
+          "2099-01-01T00:00:00+00:00",
+          "SYNTHETIC"
+        ]
+      ],
+      "sql": "CREATE TABLE ads (\n            uuid TEXT PRIMARY KEY, changed TEXT NOT NULL,\n            first_seen TEXT NOT NULL, observed TEXT NOT NULL,\n            title TEXT NOT NULL, employer TEXT NOT NULL, locations TEXT NOT NULL,\n            topics TEXT NOT NULL, detail_missing INTEGER NOT NULL,\n            expires TEXT, source TEXT\n        )"
+    },
+    "events": {
+      "columns": [
+        "id"
+      ],
+      "primary_key": [
+        "id"
+      ],
+      "rows": [
+        [
+          "event-1-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-1-2026-10-19T11:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-10-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-11-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-12-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-13-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-14-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-15-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-16-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-17-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-18-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-19-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-2-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-2-2026-10-19T11:00:00+00:00-INACTIVE"
+        ],
+        [
+          "event-20-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-3-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-3-2026-10-19T11:00:00+00:00-INACTIVE"
+        ],
+        [
+          "event-4-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-5-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-6-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-7-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-8-2026-10-18T12:00:00+00:00-ACTIVE"
+        ],
+        [
+          "event-9-2026-10-18T12:00:00+00:00-ACTIVE"
+        ]
+      ],
+      "sql": "CREATE TABLE events (id TEXT PRIMARY KEY)"
+    },
+    "pages": {
+      "columns": [
+        "url",
+        "etag",
+        "modified"
+      ],
+      "primary_key": [
+        "url"
+      ],
+      "rows": [
+        [
+          "https://pam-stilling-feed.nav.no/api/v1/feed/22222222-2222-4222-8222-222222222222",
+          null,
+          null
+        ]
+      ],
+      "sql": "CREATE TABLE pages (\n            url TEXT PRIMARY KEY, etag TEXT, modified TEXT\n        )"
+    },
+    "state": {
+      "columns": [
+        "key",
+        "value"
+      ],
+      "primary_key": [
+        "key"
+      ],
+      "rows": [
+        [
+          "caught_up",
+          "1"
+        ],
+        [
+          "checked",
+          "2026-10-19T12:00:00+00:00"
+        ],
+        [
+          "cursor",
+          "https://pam-stilling-feed.nav.no/api/v1/feed/22222222-2222-4222-8222-222222222222"
+        ]
+      ],
+      "sql": "CREATE TABLE state (key TEXT PRIMARY KEY, value TEXT NOT NULL)"
+    },
+    "versions": {
+      "columns": [
+        "uuid",
+        "changed"
+      ],
+      "primary_key": [
+        "uuid"
+      ],
+      "rows": [
+        [
+          "00000000-0000-0000-0000-000000000001",
+          "2026-10-19T11:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000002",
+          "2026-10-19T11:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000003",
+          "2026-10-19T11:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000004",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000005",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000006",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000007",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000008",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000009",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000a",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000b",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000c",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000d",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000e",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-00000000000f",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000010",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000011",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000012",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000013",
+          "2026-10-19T10:00:00+00:00"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000014",
+          "2026-10-19T10:00:00+00:00"
+        ]
+      ],
+      "sql": "CREATE TABLE versions (uuid TEXT PRIMARY KEY, changed TEXT NOT NULL)"
+    }
+  },
+  "user_version": 0
+}

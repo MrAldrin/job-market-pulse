@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "status"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "{\"status\": \"local\", \"profile_id\": \"invented\", \"latest_run\": {\"status\": \"unknown\", \"run_id\": null, \"last_outcome\": \"unknown\"}, \"snapshot\": {\"status\": \"available\", \"captured_at\": \"2026-10-19T12:00:00+00:00\"}, \"publication\": {\"status\": \"unknown\"}}\n"
+}

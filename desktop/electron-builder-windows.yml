@@ -1,0 +1,42 @@
+appId: no.jobmarketpulse.desktop
+productName: Job Market Pulse
+electronVersion: '45.4.1'
+toolsets:
+  nsis: '1.2.1'
+afterPack: ./desktop/stage-windows.cjs
+directories:
+  app: local_only/package-windows/app
+  output: local_only/package-windows/output
+files:
+  - main.mjs
+  - appearance.mjs
+  - appearance-preload.cjs
+  - icons/icon-512.png
+  - '!**/node_modules/**'
+extraResources:
+  - from: local_only/package-windows/resources
+    to: .
+    filter:
+      - pulse.exe
+      - pulse-dashboard.exe
+      - config/area_extents.json
+      - config/market_taxonomy.toml
+      - config/occupation_categories.toml
+      - config/title_exclusions.neutral.toml
+      - skills/pulse-interview/questions.toml
+      - skills/pulse-interview/profile-template.md
+      - contracts/fixtures/snapshot.example.json
+win:
+  target: nsis
+  signAndEditExecutable: false
+  signExecutable: false
+nsis:
+  artifactName: JobMarketPulse-Setup-x64.exe
+  script: desktop/installer-windows.nsi
+  installerLanguages: [en_US]
+  runAfterFinish: false
+  packElevateHelper: false
+  differentialPackage: false
+  useZip: true
+npmRebuild: false
+publish: null

@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "extract-text",
+    "--manifest",
+    "/tmp/pulse-port-oracle/basic-run/installation/wrong-profile-manifest.json",
+    "--id",
+    "00000000-0000-0000-0000-000000000001"
+  ],
+  "exit_status": 2,
+  "stderr": "",
+  "stdout": "{\"status\": \"blocked\", \"error_type\": \"ValueError\", \"notification_sent\": false}\n"
+}

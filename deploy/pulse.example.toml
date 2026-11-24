@@ -1,0 +1,3 @@
+# Copy to local_only/pulse.toml. Keep the copy out of version control.
+# Set one existing profile ID. The command never discovers a profile for you.
+profile = "your-profile-id"

@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "dashboard",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse dashboard [-h] [--port PORT] [--snapshot SNAPSHOT] [--dist DIST]\n                       [--read-only]\n\noptions:\n  -h, --help           show this help message and exit\n  --port PORT\n  --snapshot SNAPSHOT\n  --dist DIST\n  --read-only          Disable feedback\n"
+}

@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "publish"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "Publish preview: validated snapshot for profile 'invented' (data only).\nCommand not run: /tmp/pulse-port-oracle/basic-run/installation/scripts/railway_upload_snapshot.sh --db '<private-profile-export>' --service digest-view --apply\nPreview only. Use --apply to upload after owner approval.\n"
+}

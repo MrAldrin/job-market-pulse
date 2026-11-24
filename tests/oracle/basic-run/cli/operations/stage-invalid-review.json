@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "stage",
+    "--review",
+    "/tmp/pulse-port-oracle/basic-run/installation/invalid-review.json"
+  ],
+  "exit_status": 2,
+  "stderr": "",
+  "stdout": "{\"status\": \"blocked\", \"error_type\": \"FitContractError\", \"notification_sent\": false}\n"
+}

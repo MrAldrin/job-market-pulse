@@ -1,0 +1,4 @@
+{
+  "invalid-review.json": {"schema_version":999,"complete":true,"assessments":[]},
+  "wrong-profile-manifest.json": {"profile_id":"another-invented-profile","candidates":[]}
+}

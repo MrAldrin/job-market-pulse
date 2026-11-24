@@ -1,0 +1,19 @@
+{
+  "schema": "pulse.feedback_events",
+  "schema_version": 1,
+  "profile_id": "synthetic-owner",
+  "events": [
+    {
+      "event_id": "star:synthetic-job:2026-01-01T12:00:00+00:00",
+      "listing_id": "synthetic-job",
+      "source": "nav",
+      "source_version": null,
+      "kind": "star",
+      "value": true,
+      "reason": "",
+      "created_at": "2026-01-01T12:00:00+00:00",
+      "origin": "phone_shortlist",
+      "result_id": null
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "bundle": "setup-interview",
+  "capture_id": "invented-setup-interview",
+  "classification": "synthetic",
+  "clock": "2026-10-19T12:00:00+00:00",
+  "completeness": "scenario-specific synthetic inputs; not whole-market coverage",
+  "configuration_provenance": "fixture profile/preferences/model answers plus unchanged copied tracked assets",
+  "controlled_inputs": {
+    "hostname": "oracle.synthetic.test",
+    "monotonic": 123.0,
+    "uuid4_first_integer": 10000,
+    "wall_clock_utc": "2026-10-19T12:00:00+00:00"
+  },
+  "expected_sha256": {
+    "cli/init.json": "69e26e0bb2c6bca698d81fe8c015796423cee264bb8b8a13aef361f03d58932e",
+    "profile/bundle.json": "335b2fa438715e6ee307fca845790061a8a4d660bb062b74b329f64074412637",
+    "provenance/safety.json": "45c2442f98124b32b39976855941b09aa6a185331d7eb919cc23b7917abfbbe6",
+    "setup/file-index.json": "4de6ea064679d0aaec250b144baf0471552597ff76c8b3150c69468818ee10f4",
+    "setup/files/init-answers.toml": "240aa149b41ff09aa75e290634c7c32a50538795f70099c908c9d8cf998b526d",
+    "setup/files/models.toml": "32dd6e92e1d2b68f20142499446a7ecfeba2d5f260ab80a94379865abe14c73a",
+    "setup/files/profiles/invented/preferences.toml": "b66c0465c46ffa8562e000e822dfdce7564591c6b40405df23a670958174a089",
+    "setup/files/profiles/invented/profile.md": "e934619c8fa9d2ebee9fc61b624b49fee0c8baedced22c6bbbe4df09595e8e4e",
+    "setup/files/profiles/invented/profile.toml": "f2036615dfdf39c71632e31da2d82cfbd2aea8988d0d30062f7bd26c0a7f164f",
+    "setup/files/pulse.toml": "cd3a0e3a4ea6150b0bf8d00c9c8fd7e6d27efe3564b9aacdb4982d78b56662bb",
+    "setup/model-requests.json": "89c0c81ceecc04d2a6bdab041d7d8beb83be7a88b451f3595976ece546e90b1a"
+  },
+  "expires_at": null,
+  "fixture_version": 1,
+  "id_seed": 10000,
+  "input_bundles": [],
+  "product_base_change": "pqkpkzkv",
+  "product_base_commit": "17c4a4bb3831a3007a1fa9f6bb29671665c9d37a",
+  "python": "3.13.11",
+  "schema_versions": {
+    "bundle": 1,
+    "candidate_manifest": 1,
+    "snapshot": 1
+  },
+  "sha256": {
+    "inputs/answers.json": "c72a23eaa4b3fe8f1d4a15daef2355b1f3f86375413da99ce28917118680e636",
+    "responses/interview.json": "5c1a28223fe2d6e88bb0f4ff0ac0ae1db87f4906ae053c2e87695a64f8c79cb3"
+  },
+  "tools": {
+    "python": "3.13.11",
+    "sqlite": "3.50.4"
+  }
+}

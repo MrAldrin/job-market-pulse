@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "NonEmptyString": {
+      "type": "string",
+      "description": "a non empty string",
+      "title": "nonEmptyString",
+      "minLength": 1
+    }
+  },
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "platform",
+    "checks"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "enum": [
+        "pulse.doctor"
+      ]
+    },
+    "schema_version": {
+      "type": "number",
+      "enum": [
+        1
+      ]
+    },
+    "platform": {
+      "$ref": "#/$defs/NonEmptyString"
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "required",
+          "ok",
+          "message",
+          "fix"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "a string matching the pattern ^[a-z][a-z0-9_]*$",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "message": {
+            "$ref": "#/$defs/NonEmptyString"
+          },
+          "fix": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/NonEmptyString"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

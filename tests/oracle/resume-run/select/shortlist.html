@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Your job shortlist</title><style>body{margin:0;background:#f4f6f8;color:#172b3a;font:17px/1.5 system-ui,sans-serif}main{max-width:680px;margin:auto;padding:28px 18px 48px}h1{font-size:2rem;line-height:1.15;margin-bottom:8px}h2{font-size:1.22rem;margin:10px 0 4px}.intro,.meta{color:#526574}.meta{font-size:.87rem}.employer{margin-top:0;font-weight:600}.job,.empty{background:white;border:2px solid #dce3e9;border-radius:14px;padding:20px;margin:20px 0}.job.is-new{border-color:#247b72;box-shadow:0 0 0 1px #247b72}.new-label{display:inline-block;background:#d9f2e8;color:#14584f;padding:2px 10px;border-radius:20px;font-size:.8rem;font-weight:700}[hidden]{display:none!important}a{color:#17675f}.job-link{font-weight:650}footer{max-width:680px;margin:auto;padding:0 18px 28px}</style></head><body><main data-shortlist="invented"><h1>Your job shortlist</h1><p class="intro">Saved matches</p><p class="intro">exceptional; open; exceptional first, then newest first</p><p class="meta">Updated 19 Oct 2026 at 12:00 UTC</p><p>Good matches stay here across refreshes, until closed or expired.</p><article class="job is-new" data-job="00000000-0000-0000-0000-000000000001"><span class="new-label">New</span><h2>Software developer</h2><p class="employer">Invented Works</p><p>SQL software work directly matches building software and learning.</p><p class="meta">Exceptional match · First found: 2026-10-19</p><p class="meta">Deadline: 2099-01-01T00:00:00+00:00</p><p class="meta">Source status unconfirmed</p><a class="job-link" href="https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000001">View job →</a></article><p class="meta">New borders stay until you see a job, then for three days. This browser remembers; another browser may show them as new again.</p><noscript><p>Enable JavaScript to remember which jobs you have seen.</p></noscript></main><script>(() => {
+  const root = document.querySelector('[data-shortlist]');
+  if (!root) return;
+  const duration = 3 * 24 * 60 * 60 * 1000;
+  const cards = [...root.querySelectorAll('[data-job]')];
+  const key = card => 'jmp-shortlist-v1:' + root.dataset.shortlist + ':' + card.dataset.job;
+  const read = card => {
+    try { const n = Number(localStorage.getItem(key(card))); return n > 0 ? n : null; }
+    catch (_) { return null; }
+  };
+  const update = () => cards.forEach(card => {
+    const seen = read(card);
+    const fresh = seen === null || Date.now() - seen < duration;
+    card.classList.toggle('is-new', fresh);
+    card.querySelector('.new-label').hidden = !fresh;
+  });
+  const observer = new IntersectionObserver(entries => {
+    if (document.visibilityState !== 'visible') return;
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.intersectionRatio < 0.25) return;
+      const card = entry.target;
+      if (read(card) === null) {
+        try { localStorage.setItem(key(card), String(Date.now())); } catch (_) {}
+      }
+    });
+    update();
+  }, {threshold: 0.25});
+  cards.forEach(card => observer.observe(card));
+  document.addEventListener('visibilitychange', () => {
+    update();
+    cards.forEach(card => { observer.unobserve(card); observer.observe(card); });
+  });
+  window.addEventListener('storage', update);
+  setInterval(update, 60000);
+  update();
+})();</script></body></html>

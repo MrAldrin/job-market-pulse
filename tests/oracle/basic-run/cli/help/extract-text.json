@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "extract-text",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse extract-text [-h] --manifest MANIFEST --id ID\n                          [--title-rules TITLE_RULES]\n\noptions:\n  -h, --help            show this help message and exit\n  --manifest MANIFEST\n  --id ID\n  --title-rules TITLE_RULES\n"
+}

@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "profile",
+    "--help"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "usage: pulse profile [-h] {check,apply-suggestions} ...\n\npositional arguments:\n  {check,apply-suggestions}\n    check               List all missing profile setup items\n    apply-suggestions   Review interview suggestions before changing filters\n\noptions:\n  -h, --help            show this help message and exit\n"
+}

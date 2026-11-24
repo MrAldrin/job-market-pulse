@@ -1,0 +1,1 @@
+{"type":"message_end","message":{"role":"assistant","content":[{"type":"text","text":"Synthetic Pi answer."}],"provider":"openai","model":"synthetic-pi-model","usage":{"input":100,"output":40},"stopReason":"stop","timestamp":0}}

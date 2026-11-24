@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "snapshot",
+    "export",
+    "--out",
+    "/tmp/pulse-port-oracle/basic-run/installation/snapshot-cli.json"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "Wrote 5 jobs (1 on the shortlist) to /tmp/pulse-port-oracle/basic-run/installation/snapshot-cli.json.\n"
+}

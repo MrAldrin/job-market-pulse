@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "refresh",
+    "--dry-run",
+    "--no-publish"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "stdout": "Pipeline: /synthetic/bin/python3.13 -u /tmp/pulse-port-oracle/basic-run/installation/src/pulse/orchestration/run_local_pipeline.py --root /tmp/pulse-port-oracle/basic-run/installation --profile invented --publish-step 5\nPublish: skipped (--no-publish)\nFeedback: after snapshot, fetch from configured viewer HTTPS origin; warning on failure.\nRefresh status: dry run; nothing executed.\n"
+}

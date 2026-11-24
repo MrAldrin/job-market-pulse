@@ -1,0 +1,120 @@
+{
+  "assessments_complete": true,
+  "candidates": [
+    {
+      "assessed_at": "2026-10-19T12:00:00+00:00",
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "fit": "exceptional",
+      "hard_constraints": [
+        [
+          "personal",
+          "pass"
+        ]
+      ],
+      "id": "00000000-0000-0000-0000-000000000001",
+      "reason": "SQL software work directly matches building software and learning.",
+      "salary": "Lønn ukjent",
+      "title": "Software developer",
+      "uncertainties": [],
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000001",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "assessed_at": "2026-10-19T12:00:00+00:00",
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "fit": "strong",
+      "hard_constraints": [
+        [
+          "personal",
+          "pass"
+        ]
+      ],
+      "id": "00000000-0000-0000-0000-000000000002",
+      "reason": "Software work fits, but the learning opportunities are not established.",
+      "salary": "Lønn ukjent",
+      "title": "Software developer",
+      "uncertainties": [
+        "Learning opportunities and role scope are not stated."
+      ],
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000002",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "assessed_at": "2026-10-19T12:00:00+00:00",
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "fit": "possible",
+      "hard_constraints": [
+        [
+          "personal",
+          "pass"
+        ]
+      ],
+      "id": "00000000-0000-0000-0000-000000000003",
+      "reason": "Some software work matches; the role scope is uncertain.",
+      "salary": "Lønn ukjent",
+      "title": "Software developer",
+      "uncertainties": [
+        "Learning opportunities and role scope are not stated."
+      ],
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000003",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "assessed_at": "2026-10-19T12:00:00+00:00",
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "fit": "possible",
+      "hard_constraints": [
+        [
+          "personal",
+          "pass"
+        ]
+      ],
+      "id": "00000000-0000-0000-0000-000000000004",
+      "reason": "Software work is relevant, but the role scope and learning opportunities are not stated.",
+      "salary": "Lønn ukjent",
+      "title": "Software developer",
+      "uncertainties": [
+        "Learning opportunities and role scope are not stated."
+      ],
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000004",
+      "version": "2026-10-19T10:00:00+00:00"
+    },
+    {
+      "assessed_at": "2026-10-19T12:00:00+00:00",
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "fit": "poor",
+      "hard_constraints": [
+        [
+          "personal",
+          "pass"
+        ]
+      ],
+      "id": "00000000-0000-0000-0000-000000000005",
+      "reason": "The described work is not a convincing match for building software.",
+      "salary": "Lønn ukjent",
+      "title": "Database engineer",
+      "uncertainties": [],
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000005",
+      "version": "2026-10-19T10:00:00+00:00"
+    }
+  ],
+  "delivered": [],
+  "hard_constraint_names": [
+    "personal"
+  ],
+  "include_market_only": false,
+  "market_context": null,
+  "mode": "passive",
+  "pack": null,
+  "profile_fingerprint": "426751a1569cf637bf73487a1943295d127e2384082c08d3c40fc64463e1980c",
+  "profile_id": "invented",
+  "snapshot": {
+    "caught_up": true,
+    "checked_at": "2026-10-19T12:00:00+00:00"
+  }
+}

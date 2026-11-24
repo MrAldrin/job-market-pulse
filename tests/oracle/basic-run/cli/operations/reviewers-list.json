@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "--root",
+    "/tmp/pulse-port-oracle/basic-run/installation",
+    "--profile",
+    "invented",
+    "reviewers",
+    "list"
+  ],
+  "exit_status": 2,
+  "stderr": "Model settings unavailable (model_settings_unavailable). Use local_only/models.toml.\n",
+  "stdout": ""
+}

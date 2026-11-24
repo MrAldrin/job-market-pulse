@@ -1,0 +1,234 @@
+{
+  "counts": {
+    "closed": 0,
+    "eligible": 13,
+    "failed": 0,
+    "open": 5,
+    "pending": 0,
+    "reviewed": 5,
+    "screened_out": 8
+  },
+  "generated_at": "2026-10-19T12:00:00+00:00",
+  "jobs": [
+    {
+      "assessment": {
+        "ad_text_reviewed": true,
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "exceptional",
+        "hard_constraints": "pass",
+        "reason": "SQL software work directly matches building software and learning.",
+        "uncertainties": []
+      },
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "first_found_at": "2026-10-19T12:00:00.000000+00:00",
+      "id": "00000000-0000-0000-0000-000000000001",
+      "locations": [
+        "INVENTED"
+      ],
+      "result_id": "00000000-0000-0000-0000-000000002735",
+      "reviewed_at": "2026-10-19T12:00:00.000000+00:00",
+      "source": "nav",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "status": "open",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000001"
+    },
+    {
+      "assessment": {
+        "ad_text_reviewed": true,
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "strong",
+        "hard_constraints": "pass",
+        "reason": "Software work fits, but the learning opportunities are not established.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ]
+      },
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "first_found_at": "2026-10-19T12:00:00.000000+00:00",
+      "id": "00000000-0000-0000-0000-000000000002",
+      "locations": [
+        "INVENTED"
+      ],
+      "result_id": "00000000-0000-0000-0000-000000002736",
+      "reviewed_at": "2026-10-19T12:00:00.000000+00:00",
+      "source": "nav",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "status": "open",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000002"
+    },
+    {
+      "assessment": {
+        "ad_text_reviewed": true,
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "possible",
+        "hard_constraints": "pass",
+        "reason": "Some software work matches; the role scope is uncertain.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ]
+      },
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "first_found_at": "2026-10-19T12:00:00.000000+00:00",
+      "id": "00000000-0000-0000-0000-000000000003",
+      "locations": [
+        "INVENTED"
+      ],
+      "result_id": "00000000-0000-0000-0000-000000002737",
+      "reviewed_at": "2026-10-19T12:00:00.000000+00:00",
+      "source": "nav",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "status": "open",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000003"
+    },
+    {
+      "assessment": {
+        "ad_text_reviewed": true,
+        "evidence": [],
+        "fit": "possible",
+        "hard_constraints": "pass",
+        "reason": "Software work is relevant, but the role scope and learning opportunities are not stated.",
+        "uncertainties": [
+          "Learning opportunities and role scope are not stated."
+        ]
+      },
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "first_found_at": "2026-10-19T12:00:00.000000+00:00",
+      "id": "00000000-0000-0000-0000-000000000004",
+      "locations": [
+        "INVENTED"
+      ],
+      "result_id": "00000000-0000-0000-0000-000000002738",
+      "reviewed_at": "2026-10-19T12:00:00.000000+00:00",
+      "source": "nav",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "status": "open",
+      "title": "Software developer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000004"
+    },
+    {
+      "assessment": {
+        "ad_text_reviewed": true,
+        "evidence": [
+          "Synthetic SQL software work."
+        ],
+        "fit": "poor",
+        "hard_constraints": "pass",
+        "reason": "The described work is not a convincing match for building software.",
+        "uncertainties": []
+      },
+      "employer": "Invented Works",
+      "expires_at": "2099-01-01T00:00:00+00:00",
+      "first_found_at": "2026-10-19T12:00:00.000000+00:00",
+      "id": "00000000-0000-0000-0000-000000000005",
+      "locations": [
+        "INVENTED"
+      ],
+      "result_id": "00000000-0000-0000-0000-000000002739",
+      "reviewed_at": "2026-10-19T12:00:00.000000+00:00",
+      "source": "nav",
+      "source_version": "2026-10-19T10:00:00+00:00",
+      "status": "open",
+      "title": "Database engineer",
+      "url": "https://arbeidsplassen.nav.no/stillinger/stilling/00000000-0000-0000-0000-000000000005"
+    }
+  ],
+  "market": null,
+  "profile": {
+    "id": "invented",
+    "mode": "passive"
+  },
+  "reviewed_trend": {
+    "monthly": [
+      {
+        "count": 5,
+        "label": "2026-10",
+        "start": "2026-10-01"
+      }
+    ],
+    "weekly": [
+      {
+        "count": 5,
+        "label": "week-2026-W43",
+        "start": "2026-10-19"
+      }
+    ]
+  },
+  "salary": {
+    "ads": [
+      {
+        "changed": "2026-10-19 10:00",
+        "closed": false,
+        "employer": "Invented Works",
+        "form": "range",
+        "high": 803000.0,
+        "job_id": "00000000-0000-0000-0000-000000000001",
+        "low": 701000.0,
+        "ltr_max": null,
+        "ltr_min": null,
+        "month": "2026-10",
+        "outside_plausible_range": false,
+        "period": "year",
+        "period_inferred": false,
+        "sko_code": null,
+        "sko_or_vague": false,
+        "title": "Software developer",
+        "yearly_midpoint": 752000.0
+      },
+      {
+        "changed": "2026-10-19 10:00",
+        "closed": false,
+        "employer": "Invented Works",
+        "form": "single",
+        "high": 900000.0,
+        "job_id": "00000000-0000-0000-0000-000000000002",
+        "low": 900000.0,
+        "ltr_max": null,
+        "ltr_min": null,
+        "month": "2026-10",
+        "outside_plausible_range": false,
+        "period": "year",
+        "period_inferred": false,
+        "sko_code": null,
+        "sko_or_vague": false,
+        "title": "Software developer",
+        "yearly_midpoint": 900000.0
+      }
+    ],
+    "monthly": [
+      {
+        "facts": 2,
+        "median_yearly": null,
+        "month": "2026-10",
+        "numeric": 2,
+        "sko_or_vague": 0
+      }
+    ],
+    "undated": 0
+  },
+  "schema": "pulse.snapshot",
+  "schema_version": 1,
+  "shortlist": {
+    "job_ids": [
+      "00000000-0000-0000-0000-000000000001"
+    ],
+    "rule": "exceptional; open; exceptional first, then newest first"
+  },
+  "source": {
+    "checked_at": "2026-10-19T12:00:00+00:00",
+    "coverage_note": "Bounded NAV change-feed pool; excludes FINN-sourced ads.",
+    "name": "nav"
+  }
+}

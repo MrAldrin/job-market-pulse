@@ -2,7 +2,7 @@
 
 # Job Market Pulse
 
-Find jobs in Norway that fit your profile and review them on your computer.
+Let AI find the jobs in Norway that fit your profile.
 
 ## What you get
 

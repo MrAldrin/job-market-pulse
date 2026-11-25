@@ -1,18 +1,19 @@
 import { FileSystem } from "@effect/platform";
 import { Effect, Predicate } from "effect";
 import { realpath } from "node:fs";
-import { dirname, join, resolve, sep } from "node:path";
-import { installationSetting } from "../lib/server/shared/installation-paths.ts";
+import { dirname, join, resolve } from "node:path";
+import { containsPath, installationSetting } from "../lib/server/shared/installation-paths.ts";
 import { isDeepStrictEqual, promisify } from "node:util";
 import { TomlDate, type TomlTable } from "smol-toml";
 import { ProfileFiles } from "../lib/server/profile/files.ts";
 import type { Answers } from "../lib/server/profile/narrative.ts";
 import { pythonFloat } from "../lib/server/shared/python-json.ts";
 import { parseToml } from "../lib/server/shared/toml.ts";
-import { checkInitPath, createInitParents, initError, initOwnedFiles, initPaths, initSnapshotDigest, initText, isInitTomlTable, loadInitState, readInitFile, relativeInitPath, rereadInitSelectedFile, type InitState } from "./init-state.ts";
+import { checkInitPath, createInitParents, initError, initOwnedFiles, initPaths, initSnapshotDigest, initText, isExpectedInitMode, isInitTomlTable, loadInitState, readInitFile, relativeInitPath, rereadInitSelectedFile, type InitState } from "./init-state.ts";
 
 const resumeHint = "Run pulse init normally (without --resume) to start again.";
 const answerError = () => initError("Setup answers could not be read as TOML.");
+const nativePath = promisify(realpath.native);
 const floatAnswers = new Set(["origin_latitude", "origin_longitude", "radius_km"]);
 const staleOriginKeys = ["latitude_input", "longitude_input", "home_label", "origin_latitude", "origin_longitude", "origin_source", "area_postcode"];
 
@@ -48,15 +49,24 @@ const normalizeAnswers = (answers: TomlTable): TomlTable => Object.fromEntries(O
 const readExplicitAnswers = (root: string, path: string) => Effect.gen(function* () {
   const fs = yield* FileSystem.FileSystem;
   const managed = join(root, initPaths.profiles);
-  const inside = (resolved: string) => resolved === managed || resolved.startsWith(managed + sep);
   const managedError = () => initError("Use a standalone answers file outside the managed profiles directory.");
 
-  if (inside(resolve(path))) return yield* managedError();
+  if (containsPath(managed, resolve(path))) return yield* managedError();
 
-  // The platform realPath wrapper normalizes away missing components before '..'.
-  const physical = yield* Effect.tryPromise({ try: () => promisify(realpath.native)(path), catch: answerError });
+  // The platform realPath wrapper can normalize away missing components before '..'.
+  const physical = yield* Effect.tryPromise({ try: () => nativePath(path), catch: answerError });
 
-  if (inside(physical)) return yield* managedError();
+  if (containsPath(managed, physical)) return yield* managedError();
+
+  if (process.platform === "win32") {
+    // Use the same native spelling on both sides. The selected root can use an
+    // NTFS short name while the resolved file uses the corresponding long name.
+    const canonicalManaged = yield* Effect.tryPromise({ try: () => nativePath(managed), catch: (cause) => cause }).pipe(
+      Effect.catchAll((cause) => Predicate.isRecord(cause) && cause["code"] === "ENOENT" ? Effect.succeed(null) : Effect.fail(answerError())),
+    );
+
+    if (canonicalManaged !== null && containsPath(canonicalManaged, physical)) return yield* managedError();
+  }
 
   return yield* fs.readFile(physical).pipe(
     Effect.mapError(answerError), Effect.flatMap((bytes) => initText({ bytes, mode: 0 })), Effect.flatMap(parseToml), Effect.mapError(answerError),
@@ -182,12 +192,17 @@ export const saveInitCheckpoint = (state: InitState, scope: InitScope, answers: 
 
   yield* parseToml(content);
   const original = yield* readInitFile(state.root, path);
-
-  if (original?.mode === 0o600 && Buffer.from(original.bytes).equals(Buffer.from(content))) return "unchanged";
-
   const files = yield* ProfileFiles;
+  const windows = process.platform === "win32";
+
+  if (original !== null && isExpectedInitMode(original.mode) && Buffer.from(original.bytes).equals(Buffer.from(content))) {
+    if (windows) yield* files.verifyPrivateFile(state.root, path);
+
+    return "unchanged";
+  }
+
   yield* createInitParents(state.root, parent);
-  yield* (original === null ? files.create(state.root, path, content) : files.replace(state.root, path, content));
+  yield* (original === null ? files.create(state.root, path, content, windows) : files.replace(state.root, path, content, windows));
 
   return "saved";
 });

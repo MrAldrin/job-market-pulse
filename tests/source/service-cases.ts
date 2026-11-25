@@ -39,7 +39,8 @@ const resources = Effect.scoped(Effect.gen(function* () {
   assert.equal(yield* readLocationCheckpoint(path), null);
   yield* saveLocationCheckpoint(path, id);
   assert.equal(yield* fs.readFileString(path), JSON.stringify({ after: id }));
-  assert.equal(Number((yield* fs.stat(path)).mode) & 0o777, 0o600);
+
+  if (process.platform !== "win32") assert.equal(Number((yield* fs.stat(path)).mode) & 0o777, 0o600);
   assert.equal(yield* readLocationCheckpoint(path), id);
 
   for (const value of ['{"after":"bad"}', `{"after":"${id}","extra":true}`, "x".repeat(4097)]) {

@@ -13,7 +13,8 @@ const marker = (name: string) => join(root, name);
 // Match the adapter's second-signal forced exit. No HTTP server, source or model runs here.
 let stopping = false;
 
-const deadline = setTimeout(() => process.exit(3), 8_000);
+// Keep the watchdog beyond the Windows test's two marker waits.
+const deadline = setTimeout(() => process.exit(3), process.platform === "win32" ? 30_000 : 8_000);
 
 const stop = (signal: string) => {
   appendFileSync(marker("signals"), signal + "\n");

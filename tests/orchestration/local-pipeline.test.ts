@@ -4,19 +4,23 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { expect, it } from "vitest";
 
+// These full pipeline fixtures run real Windows ACL probes. The resume case also captures a snapshot.
+const resumeTimeout = process.platform === "win32" ? 165_000 : 20_000;
+const resetTimeout = process.platform === "win32" ? 150_000 : 20_000;
+
 it("resumes the actual local workflow and captures saved review results without repeating collection inside Judge", () => {
-  const result = spawnSync("bun", ["tests/orchestration/local-pipeline-bun.ts"], { encoding: "utf8", timeout: 20_000 });
+  const result = spawnSync("bun", ["tests/orchestration/local-pipeline-bun.ts"], { encoding: "utf8", timeout: resumeTimeout });
 
   expect(result.error, result.stderr).toBeUndefined();
   expect(result.status, result.stderr).toBe(0);
-}, 25_000);
+}, resumeTimeout + 5_000);
 
 it("does not resubmit a matching permanent unknown model outcome after pipeline reset", () => {
-  const result = spawnSync("bun", ["tests/orchestration/local-pipeline-bun.ts", "permanent-unknown"], { encoding: "utf8", timeout: 20_000 });
+  const result = spawnSync("bun", ["tests/orchestration/local-pipeline-bun.ts", "permanent-unknown"], { encoding: "utf8", timeout: resetTimeout });
 
   expect(result.error, result.stderr).toBeUndefined();
   expect(result.status, result.stderr).toBe(0);
-}, 25_000);
+}, resetTimeout + 5_000);
 
 it("the direct checkout CLI refuses an unready profile without a lock, auth check or stage", () => {
   const root = mkdtempSync(join(tmpdir(), "pulse-local-cli-"));

@@ -7,6 +7,7 @@ import { Profile, ProfileLive } from "../../src/lib/server/profile/service.ts";
 import { ProfileInitialization } from "../../src/lib/server/profile/initialization.ts";
 import { fixtureNarrative, fixturePreferences, run, syntheticSplit } from "./fixtures.ts";
 import { sha256 } from "../../src/lib/server/shared/python-json.ts";
+import { setWindowsFixturePublicRead } from "../orchestration/windows-acl-fixture.ts";
 
 const id = "invented";
 
@@ -140,7 +141,8 @@ describe("Profile resource service", () => {
     yield* fs.chmod(fixture.profileFile, 0o644);
     yield* profile.setMode(fixture.root, id, "active");
     expect(yield* fs.readFileString(fixture.profileFile)).toBe(before.replace("mode = 'passive'", "mode = 'active'"));
-    expect((yield* fs.stat(fixture.profileFile)).mode & 0o777).toBe(0o600);
+
+    if (process.platform !== "win32") expect((yield* fs.stat(fixture.profileFile)).mode & 0o777).toBe(0o600);
     expect((yield* profile.load(fixture.root, id)).bundle.policy.exceptional_only).toBe(false);
     expect(yield* fs.readFileString(fixture.preferencesFile)).toBe(fixturePreferences);
   })));
@@ -164,6 +166,18 @@ describe("Profile resource service", () => {
     expect(Either.isLeft(yield* profile.load(fixture.root, id).pipe(Effect.either))).toBe(true);
   })));
 
+  it.skipIf(process.platform !== "win32")("refuses to create private profile files in a directory readable by Everyone", () => run(Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    const root = yield* fs.makeTempDirectoryScoped({ prefix: "pulse-unsafe-profile-" });
+    const files = yield* ProfileFiles;
+    const path = join(root, "profile.md");
+    setWindowsFixturePublicRead(root, true);
+
+    const result = yield* Effect.either(files.create(root, path, "Synthetic private content"));
+    expect(Either.isLeft(result)).toBe(true);
+    expect(yield* fs.readDirectory(root)).toEqual([]);
+  })));
+
   it("initializes private split placeholders without a legacy preference file", async () => run(Effect.gen(function* () {
     const fs = yield* FileSystem.FileSystem;
     const root = yield* fs.makeTempDirectoryScoped({ prefix: "pulse-b2-init-" });
@@ -172,9 +186,15 @@ describe("Profile resource service", () => {
     const profile = yield* Profile;
     expect((yield* profile.inspect(root, id)).readiness_reason).toBe("shared source database is missing");
     expect(yield* fs.exists(paths.preferences_file)).toBe(false);
-    expect((yield* fs.stat(paths.directory)).mode & 0o777).toBe(0o700);
 
-    for (const name of ["profile.toml", "profile.md", "filters.toml", "screen.toml", "judge.toml"]) expect((yield* fs.stat(join(paths.directory, name))).mode & 0o777).toBe(0o600);
+    if (process.platform !== "win32") expect((yield* fs.stat(paths.directory)).mode & 0o777).toBe(0o700);
+
+    for (const name of ["profile.toml", "profile.md", "filters.toml", "screen.toml", "judge.toml"]) {
+      const info = yield* fs.stat(join(paths.directory, name));
+      expect(info.type).toBe("File");
+
+      if (process.platform !== "win32") expect(info.mode & 0o777).toBe(0o600);
+    }
 
     expect(Either.isLeft(yield* Effect.either(initializer.create(root, id, "")))).toBe(true);
     expect(Either.isLeft(yield* Effect.either(initializer.create(root, "bad/slug", "")))).toBe(true);

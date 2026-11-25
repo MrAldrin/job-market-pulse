@@ -3,9 +3,13 @@ import { BadArgument } from "@effect/platform/Error";
 import { BunFileSystem } from "@effect/platform-bun";
 import { Effect } from "effect";
 import { expect, test, vi } from "vitest";
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { stageNames } from "../../src/lib/server/orchestration/pipeline-core.ts";
 import { runLockedPipeline } from "../../src/lib/server/orchestration/pipeline-runner.ts";
-import { verifyWindowsPrivateDirectory, verifyWindowsPrivateSqlite, verifyWindowsWritableSqlite, windowsAclProbeArgv } from "../../src/lib/server/shared/windows-private-files.ts";
+import { verifyWindowsPrivateDirectory, verifyWindowsPrivateFile, verifyWindowsPrivateSqlite, verifyWindowsWritableSqlite, windowsAclProbeArgv } from "../../src/lib/server/shared/windows-private-files.ts";
+import { setWindowsFixturePublicRead } from "./windows-acl-fixture.ts";
 
 const user = "S-1-5-21-123-456-789-1001";
 const anotherUser = "S-1-5-21-123-456-789-1002";
@@ -90,6 +94,27 @@ test("refuses report directories that give another user access", async () => {
   const read = (values: readonly (typeof privateDir)[]) => () => Effect.succeed({ user, entries: values });
   await expect(Effect.runPromise(verifyWindowsPrivateDirectory(directory, read(reply)))).resolves.toBeUndefined();
   await expect(Effect.runPromise(verifyWindowsPrivateDirectory(directory, read(reply.with(3, parent))))).rejects.toThrow();
+});
+
+test.runIf(process.platform === "win32")("native NTFS verification accepts a private fixture and rejects unsafe or missing storage", async () => {
+  const root = await mkdtemp(join(tmpdir(), "pulse-native-acl-"));
+  const nested = join(root, "synthetic 'ø' folder");
+  const database = join(nested, "judge.sqlite3");
+  const journal = `${database}-journal`;
+
+  try {
+    await mkdir(nested);
+    await writeFile(database, "synthetic");
+    await writeFile(journal, "synthetic");
+    await expect(Effect.runPromise(verifyWindowsPrivateDirectory(root))).resolves.toBeUndefined();
+    await expect(Effect.runPromise(verifyWindowsPrivateSqlite(root, database))).resolves.toMatchObject({ existed: true, existingFiles: [database, journal] });
+
+    setWindowsFixturePublicRead(journal, true);
+    await expect(Effect.runPromise(verifyWindowsPrivateSqlite(root, database))).rejects.toThrow("Cannot verify private Windows storage permissions");
+    setWindowsFixturePublicRead(nested, true);
+    await expect(Effect.runPromise(verifyWindowsPrivateFile(nested, database, true))).rejects.toThrow("Cannot verify private Windows storage permissions");
+    await expect(Effect.runPromise(verifyWindowsPrivateDirectory(join(root, "missing")))).rejects.toThrow("Cannot verify private Windows storage permissions");
+  } finally { await rm(root, { force: true, recursive: true }); }
 });
 
 test("uses a fixed non-interactive PowerShell script and refuses a relative or UNC system directory", () => {

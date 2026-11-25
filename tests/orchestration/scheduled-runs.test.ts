@@ -44,17 +44,28 @@ test("records running, success, and sanitized failure with last good", async () 
 
   await run(finishScheduledRun(root, "sample", second, now, "token=PRIVATE"));
   expect(await run(latestScheduledRun(root, "sample"))).toEqual({ status: "failed", started_at: normalized, ended_at: normalized, failed_stage: "runner", error: "Scheduled refresh could not finish.", last_good_at: normalized });
-  expect((await fs.stat(path)).mode & 0o777).toBe(0o600);
-  expect((await fs.stat(directory)).mode & 0o777).toBe(0o700);
+
+  if (process.platform !== "win32") expect((await fs.stat(path)).mode & 0o777).toBe(0o600);
+
+  if (process.platform !== "win32") expect((await fs.stat(directory)).mode & 0o777).toBe(0o700);
 });
 
 test("read does not alter permissions", async () => {
   const { root, path } = await fixture();
 
   await run(startScheduledRun(root, "sample", now));
-  await fs.chmod(path, 0o640);
-  await run(latestScheduledRun(root, "sample"));
-  expect((await fs.stat(path)).mode & 0o777).toBe(0o640);
+  const windows = process.platform === "win32";
+  await fs.chmod(path, windows ? 0o444 : 0o640);
+
+  try {
+    await run(latestScheduledRun(root, "sample"));
+    const { mode } = await fs.stat(path);
+
+    if (windows) expect(mode & 0o200).toBe(0);
+    else expect(mode & 0o777).toBe(0o640);
+  } finally {
+    if (windows) await fs.chmod(path, 0o600);
+  }
 });
 
 test("finishing requires the intended persisted row and never recreates missing history", async () => {

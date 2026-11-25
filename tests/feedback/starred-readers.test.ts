@@ -9,6 +9,7 @@ import { buildStarredJobsResponse } from "../../src/lib/server/feedback/starred-
 import { readSelectedStars } from "../../src/lib/server/feedback/starred-reader.ts";
 import { readLatestStarredMetadata } from "../../src/lib/server/snapshot/store.ts";
 import oracle from "../oracle/viewer-api/viewer/starred-export.json";
+import { setFixturePublicRead } from "../orchestration/windows-acl-fixture.ts";
 
 const profile = "invented";
 const listing = "00000000-0000-0000-0000-000000000001";
@@ -75,7 +76,8 @@ test("the two owning readers reproduce the frozen v1 body and do not change eith
 
   expect(Buffer.from(result).toString("hex")).toBe(oracle.response.body.$bytes_hex);
   expect(await Promise.all([readFile(phone), readFile(snapshot), readdir(directory)])).toEqual(before);
-  expect((await lstat(snapshot)).mode & 0o777).toBe(0o644);
+
+  if (process.platform !== "win32") expect((await lstat(snapshot)).mode & 0o777).toBe(0o644);
 });
 
 test("selects every star for one profile, sorted, without consulting a snapshot", async () => {
@@ -201,10 +203,11 @@ test("Snapshot refuses corrupt, wrong-type or over-limit metadata without fallin
 
 test("private feedback permissions and the file size limit remain in force", async () => {
   await save(phone, phoneFixture);
-  await chmod(phone, 0o644);
+  await setFixturePublicRead(phone, true);
   await expect(Effect.runPromise(stars())).rejects.toThrow("Starred-jobs source is unavailable");
-  expect((await lstat(phone)).mode & 0o777).toBe(0o644);
-  await chmod(phone, 0o600);
+
+  if (process.platform !== "win32") expect((await lstat(phone)).mode & 0o777).toBe(0o644);
+  await setFixturePublicRead(phone, false);
   await truncate(phone, 32 * 1024 * 1024 + 1);
   await expect(Effect.runPromise(stars())).rejects.toThrow("Starred-jobs source is unavailable");
 });

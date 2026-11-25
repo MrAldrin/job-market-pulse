@@ -75,3 +75,28 @@ test("Windows failure files preserve stages and exit codes but never serialize p
     for (const file of reports) await rm(dirname(file), { recursive: true, force: true });
   }
 });
+
+test.runIf(process.platform === "win32")("Windows saves a redacted failure report in verified test storage", async () => {
+  const prefix = "Windows failure report: ";
+  const reports: string[] = [];
+
+  try {
+    await Effect.runPromise(Effect.gen(function* () {
+      const output = yield* Effect.console;
+      const result = { exitCode: 2 };
+      const diagnose = diagnoseWindowsFailure<typeof result>("refresh", "runner", ({ exitCode }) => ({ stage: "review", exitCode }));
+      expect(yield* Effect.succeed(result).pipe(diagnose, Console.withConsole({ ...output, error: (message) => Effect.sync(() => {
+        if (Predicate.isString(message) && message.startsWith(prefix)) reports.push(message.slice(prefix.length));
+      }) }))).toBe(result);
+    }));
+
+    expect(reports).toHaveLength(1);
+    const file = reports[0];
+
+    if (!file) throw new Error("Missing native Windows failure report");
+
+    expect(JSON.parse(await readFile(file, "utf8"))).toMatchObject({ schema: "pulse.windows-failure", stage: "review", exit_code: 2 });
+  } finally {
+    for (const file of reports) await rm(dirname(file), { recursive: true, force: true });
+  }
+});

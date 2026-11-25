@@ -32,7 +32,8 @@ test("enable and disable share one private settings file; Doctor sees presence o
 
   const revision = yield* saveNtfySettings(root, before.revision, values);
   expect(yield* fs.readFileString(ntfySettingsPath(root))).toContain(secretTopic);
-  expect((yield* fs.stat(ntfySettingsPath(root))).mode & 0o777).toBe(0o600);
+
+  if (process.platform !== "win32") expect((yield* fs.stat(ntfySettingsPath(root))).mode & 0o777).toBe(0o600);
   expect(yield* probe).toBe(true);
   expect(yield* ntfyEnabled(root)).toBe(true);
   const after = yield* read;

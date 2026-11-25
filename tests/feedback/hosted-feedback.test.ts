@@ -1,9 +1,10 @@
 import { Effect, Either } from "effect";
-import { chmod, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { expect, test } from "vitest";
 import { decodeHostedFeedback, readCachedHostedFeedback } from "../../src/lib/server/feedback/hosted-feedback.ts";
+import { setFixturePublicRead } from "../orchestration/windows-acl-fixture.ts";
 
 const instant = "2026-01-01T12:00:00+00:00";
 
@@ -43,7 +44,7 @@ test("the local export can read a saved copy but rejects unsafe or unrelated fil
     await writeFile(path, encode(document()), { mode: 0o600 });
     expect(await Effect.runPromise(readCachedHostedFeedback(selection))).toEqual([star, reaction]);
     expect(Either.isLeft(await Effect.runPromise(Effect.either(readCachedHostedFeedback({ ...selection, profileId: "other" }))))).toBe(true);
-    await chmod(path, 0o644);
+    await setFixturePublicRead(path, true);
     expect(Either.isLeft(await Effect.runPromise(Effect.either(readCachedHostedFeedback(selection))))).toBe(true);
   } finally { await rm(cacheDirectory, { recursive: true, force: true }); }
 });

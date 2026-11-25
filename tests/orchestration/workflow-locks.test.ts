@@ -1,7 +1,7 @@
 import { Command } from "@effect/platform";
 import { BunContext } from "@effect/platform-bun";
 import { Effect, Either, Fiber, Layer } from "effect";
-import { mkdtempSync, mkdirSync, rmSync, statSync, symlinkSync, writeFileSync } from "node:fs";
+import { lstatSync, mkdtempSync, mkdirSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { constants as osConstants, tmpdir } from "node:os";
 import { dlopen, FFIType, read } from "bun:ffi";
 import { join } from "node:path";
@@ -83,7 +83,10 @@ describe("workflow locks", () => {
 
     if (Either.isLeft(result.same)) expect(result.same.left.code).toBe("busy");
     expect(result.other).toBe(75);
-    expect(statSync(path).mode & 0o777).toBe(0o600);
+    const lockFile = lstatSync(path);
+    expect(lockFile.isFile()).toBe(true);
+
+    if (process.platform !== "win32") expect(lockFile.mode & 0o777).toBe(0o600);
     expect(await run(child(path).pipe(Effect.provide(BunContext.layer)))).toBe(0);
   });
 

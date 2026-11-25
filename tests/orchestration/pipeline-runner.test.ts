@@ -69,6 +69,7 @@ describe("locked pipeline runner", () => {
     }
   });
 
+  // Record writes in this case use real Windows ACL probes across three runs.
   it("persists a sanitized retry, resumes from sync, tolerates market failure and starts a new lineage", async () => {
     const root = await mkdtemp(join(tmpdir(), "pulse-runner-"));
     const path = join(root, "run.json");
@@ -129,7 +130,7 @@ describe("locked pipeline runner", () => {
     } finally {
       await rm(root, { recursive: true, force: true });
     }
-  });
+  }, process.platform === "win32" ? 70_000 : undefined);
 
   it("keeps the last successful Market recording across a later skipped run", async () => {
     const run = memoryRun();

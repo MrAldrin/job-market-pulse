@@ -21,7 +21,13 @@ const prepareWrite = io(async () => {
   catch (error) { if (!(error instanceof Error && "code" in error && error.code === "EEXIST")) throw error; }
 });
 
-const verifyRead = io(async () => { assert.equal((await stat(path)).mode & 0o777, 0o600); });
+const verifyRead = io(async () => {
+  const info = await stat(path);
+  assert(info.isFile());
+
+  if (process.platform !== "win32") assert.equal(info.mode & 0o777, 0o600);
+});
+
 const run = <A, E>(program: Effect.Effect<A, E>) => Effect.runPromise(program);
 
 const code = <A>(program: Effect.Effect<A, AlertError>) => run(Effect.either(program)).then((result) => {

@@ -3,12 +3,16 @@ import { constants } from "node:fs";
 import * as fs from "node:fs/promises";
 import { dirname, isAbsolute, join } from "node:path";
 import { randomUUID } from "node:crypto";
+import { verifyWindowsPrivateDirectory, verifyWindowsPrivateFile, verifyWindowsPrivateSqlite } from "../shared/windows-private-files.ts";
 import { AlertError } from "./errors.ts";
 
 const failure = (code: string) => new AlertError({ code });
 const io = <A>(code: string, body: () => Promise<A>) => Effect.tryPromise({ try: body, catch: () => failure(code) });
 const missing = Schema.is(Schema.Struct({ code: Schema.Literal("ENOENT") }));
 const collision = Schema.is(Schema.Struct({ code: Schema.Literal("EEXIST") }));
+const windows = process.platform === "win32";
+const verifyFile = (path: string) => Effect.runPromise(verifyWindowsPrivateFile(dirname(path), path, true));
+const verifyDirectory = (path: string) => Effect.runPromise(verifyWindowsPrivateDirectory(path));
 
 export class AlertArtifacts extends Context.Tag("pulse/AlertArtifacts")<AlertArtifacts, {
   readonly directory: (path: string, create?: boolean, privateLeaf?: boolean) => Effect.Effect<void, AlertError>;
@@ -24,7 +28,10 @@ export const AlertArtifactsLive = Layer.succeed(AlertArtifacts, AlertArtifacts.o
     if (create) await fs.mkdir(path, { recursive: true, mode: 0o700 });
     const info = await fs.stat(path);
 
-    if (!info.isDirectory() || (privateLeaf && (info.mode & 0o077) !== 0)) throw failure("unsafe_path");
+    if (!info.isDirectory()) throw failure("unsafe_path");
+
+    if (privateLeaf && windows) await verifyDirectory(path);
+    else if (privateLeaf && (info.mode & 0o077) !== 0) throw failure("unsafe_path");
   }),
   exists: (path) => io("artifact_invalid", async () => {
     try {
@@ -37,10 +44,12 @@ export const AlertArtifactsLive = Layer.succeed(AlertArtifacts, AlertArtifacts.o
     }
   }),
   privateFile: (path, create = false) => io("unsafe_path", async () => {
+    const verify = () => Effect.runPromise(verifyWindowsPrivateSqlite(dirname(path), path));
+    const initial = windows ? await verify() : null;
     let handle;
 
     try {
-      if (create) {
+      if (create && !initial?.existed) {
         try {
           handle = await fs.open(path, constants.O_RDWR | constants.O_CREAT | constants.O_EXCL, 0o600);
           await handle.chmod(0o600);
@@ -53,7 +62,9 @@ export const AlertArtifactsLive = Layer.succeed(AlertArtifacts, AlertArtifacts.o
       handle ??= await fs.open(path, constants.O_RDONLY);
       const info = await handle.stat();
 
-      if (!info.isFile() || (info.mode & 0o777) !== 0o600) throw failure("unsafe_path");
+      if (!info.isFile() || (!windows && (info.mode & 0o777) !== 0o600)) throw failure("unsafe_path");
+
+      if (windows && !initial?.existed && !(await verify()).existed) throw failure("unsafe_path");
     } finally { await handle?.close(); }
   }),
   read: (path, maximum) => io("artifact_invalid", async () => {
@@ -63,7 +74,10 @@ export const AlertArtifactsLive = Layer.succeed(AlertArtifacts, AlertArtifacts.o
     try {
       const info = await handle.stat();
 
-      if (!info.isFile() || (info.mode & 0o777) !== 0o600 || info.size > maximum) throw failure("artifact_invalid");
+      if (!info.isFile() || (!windows && (info.mode & 0o777) !== 0o600) || info.size > maximum) throw failure("artifact_invalid");
+
+      if (windows) await verifyFile(path);
+
       const bytes = new Uint8Array(maximum + 1);
       let length = 0;
 
@@ -89,7 +103,10 @@ export const AlertArtifactsLive = Layer.succeed(AlertArtifacts, AlertArtifacts.o
       try {
         const info = await handle.stat();
 
-        if (!info.isFile() || (info.mode & 0o777) !== 0o600 || info.size !== content.byteLength) throw failure("artifact_conflict");
+        if (!info.isFile() || (!windows && (info.mode & 0o777) !== 0o600) || info.size !== content.byteLength) throw failure("artifact_conflict");
+
+        if (windows) await verifyFile(path);
+
         const bytes = await handle.readFile();
 
         if (!Buffer.from(content).equals(bytes)) throw failure("artifact_conflict");
@@ -99,16 +116,23 @@ export const AlertArtifactsLive = Layer.succeed(AlertArtifacts, AlertArtifacts.o
     };
 
     if (await equalExisting()) return;
+
+    if (windows) await verifyDirectory(dirname(path));
+
     const temporary = join(dirname(path), `.delivery-${randomUUID()}`);
     const handle = await fs.open(temporary, constants.O_WRONLY | constants.O_CREAT | constants.O_EXCL, 0o600);
 
     try {
-      await handle.chmod(0o600); await handle.writeFile(content); await handle.sync(); await handle.close();
+      if (windows) await verifyFile(temporary);
+      else await handle.chmod(0o600);
+      await handle.writeFile(content); await handle.sync(); await handle.close();
 
       try { await fs.link(temporary, path); }
       catch (error) {
         if (!collision(error) || !await equalExisting()) throw error;
       }
+
+      if (windows) return; // A Windows directory is not a POSIX fsync target.
 
       const directory = await fs.open(dirname(path), constants.O_RDONLY | constants.O_DIRECTORY);
 

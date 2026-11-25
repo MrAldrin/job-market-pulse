@@ -20,10 +20,15 @@ const facts = Schema.is(Schema.Struct({
 
 // Use raw ACEs, not a formatted ACL or a localized command transcript. The
 // input is data in an environment variable, never PowerShell source or argv.
+// Use the Windows PowerShell framework serializer: the JSON cmdlets can stall
+// during module loading in a child with an isolated environment.
 const probeScript = String.raw`
 $ErrorActionPreference = 'Stop'
+$PSModuleAutoLoadingPreference = 'None'
 try {
-  $paths = ConvertFrom-Json -InputObject $env:PULSE_ACL_PATHS
+  [void][Reflection.Assembly]::Load('System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35')
+  $json = [System.Web.Script.Serialization.JavaScriptSerializer]::new()
+  $paths = $json.DeserializeObject($env:PULSE_ACL_PATHS)
   $drive = [IO.DriveInfo]::new([IO.Path]::GetPathRoot($paths[0]))
   if ($drive.DriveType -ne 'Fixed' -or $drive.DriveFormat -ne 'NTFS') { exit 1 }
   $entries = [Collections.Generic.List[object]]::new()
@@ -42,7 +47,7 @@ try {
     })
     $entries.Add(@{ directory = $directory; owner = $sd.Owner.Value; aces = $aces })
   }
-  @{ user = [Security.Principal.WindowsIdentity]::GetCurrent().User.Value; entries = $entries.ToArray() } | ConvertTo-Json -Compress -Depth 6
+  [Console]::WriteLine($json.Serialize(@{ user = [Security.Principal.WindowsIdentity]::GetCurrent().User.Value; entries = $entries.ToArray() }))
 } catch { exit 1 }
 `;
 

@@ -249,11 +249,9 @@ const makeDashboardRun = (target: LocalSettingsTarget, refresh: CheckoutRefresh[
       }));
     });
 
-    const worker = Effect.interruptible(execute).pipe(diagnoseWindowsFailure<ScheduledRefreshOutcome | undefined>(
-      "dashboard-run", "runner", (result) => result === undefined || (result.exitCode === 0 && result.completionIds.length === 1) ? null
-        : { stage: result.failedStage ?? "pipeline", exitCode: result.exitCode },
-      { committed: () => completed },
-    ), Effect.onExit((exit) => Effect.gen(function* () {
+    // Publish the result before best-effort diagnostics. The server scope still
+    // owns the reporter, but the ACL check must not keep the run panel waiting.
+    const worker = Effect.interruptible(execute).pipe(Effect.onExit((exit) => Effect.gen(function* () {
       if (Exit.isFailure(exit)) yield* setResult(Exit.failCause(exit.cause));
       else if (exit.value !== undefined) {
         failureRecord = final?.record;
@@ -267,7 +265,11 @@ const makeDashboardRun = (target: LocalSettingsTarget, refresh: CheckoutRefresh[
       );
 
       yield* Deferred.succeed(admitted, busy ? "busy" : refused);
-    })));
+    })), diagnoseWindowsFailure<ScheduledRefreshOutcome | undefined>(
+      "dashboard-run", "runner", (result) => result === undefined || (result.exitCode === 0 && result.completionIds.length === 1) ? null
+        : { stage: result.failedStage ?? "pipeline", exitCode: result.exitCode },
+      { committed: () => completed },
+    ));
 
     yield* Effect.forkIn(worker, scope);
 

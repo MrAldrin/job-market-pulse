@@ -9,7 +9,7 @@ import { isAbsolute, join } from "node:path";
 import { PassThrough } from "node:stream";
 import { fileURLToPath } from "node:url";
 import { afterEach, expect, it, vi } from "vitest";
-import { HarnessReadiness, harnessReadinessLayer, type ProbeLauncher } from "../../src/lib/server/judge/harness-readiness.ts";
+import { HarnessReadiness, HarnessReadinessLive, harnessReadinessLayer, type ProbeLauncher } from "../../src/lib/server/judge/harness-readiness.ts";
 import { ownsProbeSession, probeTicks, readyReceipt, startProbe, superviseProbe } from "../../src/lib/server/judge/harness-readiness-supervisor.ts";
 import { ReviewerError } from "../../src/lib/server/judge/reviewer-errors.ts";
 import type { Reviewer } from "../../src/lib/server/judge/reviewers.ts";
@@ -19,7 +19,10 @@ const pi: Reviewer = { id: "screen", harness: "pi", provider: "synthetic", model
 const claude: Reviewer = { ...pi, id: "judge", harness: "claude-code", provider: "anthropic", model: "synthetic-judge" };
 const executable = "/synthetic/bin/pi";
 const ready = '{"status":"ready","other":"synthetic"}\n';
-const check = (reviewer: Reviewer, launcher: ProbeLauncher, fileSystem = BunFileSystem.layer) => HarnessReadiness.pipe(Effect.flatMap((service) => service.check(reviewer)), Effect.provide(harnessReadinessLayer(launcher)), Effect.provide(fileSystem));
+
+const check = (reviewer: Reviewer, launcher: ProbeLauncher, fileSystem = BunFileSystem.layer, platform: NodeJS.Platform = "linux") =>
+  HarnessReadiness.pipe(Effect.flatMap((service) => service.check(reviewer)), Effect.provide(harnessReadinessLayer(launcher, platform)), Effect.provide(fileSystem));
+
 const notReady = Either.left(new ReviewerError({ code: "pi_not_ready" }));
 const fakeDirs = new Set<string>();
 const bunRuntime = globalThis.Bun;
@@ -49,6 +52,19 @@ it("uses fixed names and never starts a supervisor for Claude or missing Pi", as
   await expect(Effect.runPromise(check(claude, launcher))).resolves.toBe("/synthetic/bin/claude");
   await expect(Effect.runPromise(check(pi, launcher).pipe(Effect.flip))).resolves.toEqual(new ReviewerError({ code: "pi_unavailable" }));
   expect(lookup.mock.calls).toEqual([["claude"], ["pi"]]);
+  expect(launcher.start).not.toHaveBeenCalled();
+});
+
+it("looks up only claude.exe and refuses Pi before probing on Windows", async () => {
+  const path = "C:\\synthetic\\claude.exe";
+  const lookup = stubLookup((name) => name === "claude.exe" ? path : null);
+  const launcher = { start: vi.fn(() => { throw new Error("unexpected spawn"); }), now: vi.fn(() => 0n), groupAbsent: vi.fn() };
+
+  await expect(Effect.runPromise(check(claude, launcher, BunFileSystem.layer, "win32"))).resolves.toBe(path);
+  await expect(Effect.runPromise(check(pi, launcher, BunFileSystem.layer, "win32").pipe(Effect.flip)))
+    .resolves.toEqual(new ReviewerError({ code: "pi_requires_linux_probe" }));
+  expect(lookup.mock.calls).toEqual([["claude.exe"]]);
+  expect(launcher.now).not.toHaveBeenCalled();
   expect(launcher.start).not.toHaveBeenCalled();
 });
 
@@ -225,7 +241,8 @@ const parent = (script: (child: EventEmitter, stdout: PassThrough) => void, abse
     cwd = probeCwd;
     fakeDirs.add(cwd);
     expect(readdirSync(cwd)).toEqual([]);
-    expect(statSync(cwd).mode & 0o077).toBe(0);
+
+    if (process.platform !== "win32") expect(statSync(cwd).mode & 0o077).toBe(0);
     queueMicrotask(() => { script(child, stdout); started.resolve(); });
 
     return child;
@@ -357,7 +374,9 @@ it("parent does not add a second wait when verified directory removal stalls", a
   probe.assertReleased(true, true);
 });
 
-it.each(["ready", "wrong bytes", "missing startup flag", "unowned", "unsafe stdin", "expired"] as const)("native isolated helper handles %s", (mode) => {
+// The isolated supervisor uses Linux process groups and /proc. Other hosts
+// exercise the platform guard instead of substituting a fake native success.
+if (process.platform === "linux") it.each(["ready", "wrong bytes", "missing startup flag", "unowned", "unsafe stdin", "expired"] as const)("native isolated helper handles %s", (mode) => {
   const candidate = process.env.npm_execpath;
 
   if (!candidate || !isAbsolute(candidate)) throw new Error("Use the pinned Bun script runner for the native readiness test");
@@ -376,4 +395,13 @@ it.each(["ready", "wrong bytes", "missing startup flag", "unowned", "unsafe stdi
   expect(existsSync(join(fixture, "unexpected-call"))).toBe(false);
 
   if (result.status === 0) expect(result.stderr).toBe("");
+});
+else if (process.platform === "win32") it("native Windows readiness refuses Pi without looking up an executable", async () => {
+  const lookup = stubLookup(() => { throw new Error("unexpected executable lookup"); });
+
+  const result = HarnessReadiness.pipe(Effect.flatMap((service) => service.check(pi)), Effect.flip,
+    Effect.provide(HarnessReadinessLive), Effect.provide(BunFileSystem.layer));
+
+  await expect(Effect.runPromise(result)).resolves.toEqual(new ReviewerError({ code: "pi_requires_linux_probe" }));
+  expect(lookup).not.toHaveBeenCalled();
 });

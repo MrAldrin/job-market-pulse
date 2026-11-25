@@ -91,7 +91,7 @@ test("replays the frozen interview prompts, stdout slice, draft bytes and file-i
     const draft = readFileSync(new URL(`../oracle/setup-interview/${indexed.artifact}`, import.meta.url));
     expect(Buffer.from(step.plan.content)).toEqual(draft);
     expect({ path: step.plan.path, mode: `0o${step.plan.mode.toString(8)}`, digest: sha256(step.plan.content), size: Buffer.byteLength(step.plan.content) })
-      .toEqual({ path, mode: indexed.mode, digest: indexed.sha256, size: indexed.size_bytes });
+      .toEqual({ path: join(path), mode: indexed.mode, digest: indexed.sha256, size: indexed.size_bytes });
     expect(step.plan).toMatchObject({ overwrite: false, expectedDigest: "missing" });
     expect(yield* fs.readDirectory(root)).toEqual([]);
   }).pipe(Effect.provideService(InterviewTurn, transport)));

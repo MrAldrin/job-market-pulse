@@ -11,7 +11,7 @@ import { decodeFilters, decodeJudge, decodeScreen, mergePreferences } from "../l
 import { bundledResource, installationSetting } from "../lib/server/shared/installation-paths.ts";
 import { writeToml } from "../lib/server/shared/toml.ts";
 import type { InterviewFilePlan } from "./interview-step.ts";
-import { checkInitPath, createInitParents, initError, initOwnedFiles, initPaths, initProfilePaths, initSnapshotDigest, initText, isInitTomlTable, pathsOverlap, relativeInitPath, rereadInitSelectedFile, type InitFileSnapshot, type InitOwnedFile, type InitProfile, type InitSelectedSnapshot, type InitState } from "./init-state.ts";
+import { checkInitPath, createInitParents, initError, initOwnedFiles, initPaths, initProfilePaths, initSnapshotDigest, initText, isExpectedInitMode, isInitTomlTable, pathsOverlap, relativeInitPath, rereadInitSelectedFile, type InitFileSnapshot, type InitOwnedFile, type InitProfile, type InitSelectedSnapshot, type InitState } from "./init-state.ts";
 
 export const planInitProfileMode = (profile: InitProfile, mode: "passive" | "active") => replaceModeText(profile.configText, mode);
 
@@ -127,8 +127,10 @@ const verifyBaselines = (state: InitState) => Effect.gen(function* () {
   }
 });
 
+const windows = process.platform === "win32";
+
 const fileAction = (file: PlannedFile) => file.original === null ? "new"
-  : file.original.mode === 0o600 && Buffer.from(file.content).equals(file.original.bytes) ? "unchanged" : "replace";
+  : isExpectedInitMode(file.original.mode) && Buffer.from(file.content).equals(file.original.bytes) ? "unchanged" : "replace";
 
 export interface InitPlanEntry {
   readonly kind: "file" | "directory";
@@ -177,8 +179,12 @@ const writeBackup = (root: string, path: string, original: InitFileSnapshot) => 
   if (yield* checkInitPath(root, path, "File")) return yield* backupError();
 
   const fs = yield* FileSystem.FileSystem;
+  const files = yield* ProfileFiles;
   yield* Effect.gen(function* () {
     const temporary = yield* fs.makeTempFileScoped({ directory: dirname(path), prefix: ".init-backup-" });
+
+    if (windows) yield* files.verifyPrivateFile(root, temporary);
+
     yield* fs.chmod(temporary, 0o600);
     const file = yield* fs.open(temporary, { flag: "w", mode: 0o600 });
     yield* file.writeAll(original.bytes);
@@ -276,10 +282,24 @@ export const reviewInitPlan = (state: InitState, edits: InitPlanEdits) => Effect
     entries.push({ kind: "file", action, path });
   }
 
+  const verifyUnchanged = Effect.gen(function* () {
+    if (!windows) return;
+
+    const resources = yield* ProfileFiles;
+
+    for (const file of plan) {
+      if ("content" in file && fileAction(file) === "unchanged") yield* resources.verifyPrivateFile(state.root, file.path);
+    }
+  });
+
   const apply = <R, E>(consent: InitConsent<R, E>) => Effect.gen(function* () {
     if (consent.dryRun) return "dry-run";
 
-    if (entries.every((entry) => entry.action === "unchanged")) return "unchanged";
+    if (entries.every((entry) => entry.action === "unchanged")) {
+      yield* verifyUnchanged;
+
+      return "unchanged";
+    }
 
     if (consent.nonInteractive) return "needs-terminal";
 
@@ -292,6 +312,7 @@ export const reviewInitPlan = (state: InitState, edits: InitPlanEdits) => Effect
     // No settings (including backups or directories) are touched until every baseline passes.
     const backups = yield* prepareBackups(state, plan);
     yield* verifyBaselines(state);
+    yield* verifyUnchanged;
     const resources = yield* ProfileFiles;
 
     for (const file of plan) {
@@ -308,14 +329,15 @@ export const reviewInitPlan = (state: InitState, edits: InitPlanEdits) => Effect
 
       yield* createInitParents(state.root, dirname(file.path));
 
-      if (file.original === null) yield* resources.create(state.root, file.path, file.content);
+      if (file.original === null) yield* resources.create(state.root, file.path, file.content, windows);
       else {
         const backup = backups.get(file);
 
         if (backup === undefined) return yield* backupError();
 
+        if (windows) yield* resources.verifyPrivateFile(state.root, file.path);
         yield* writeBackup(state.root, backup, file.original);
-        yield* resources.replace(state.root, file.path, file.content);
+        yield* resources.replace(state.root, file.path, file.content, windows);
       }
     }
 

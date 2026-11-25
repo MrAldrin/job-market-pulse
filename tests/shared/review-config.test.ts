@@ -18,7 +18,7 @@ describe("explicit review source selection", () => {
     const service = yield* ReviewConfiguration.pipe(Effect.provide(reviewConfigurationLayer(root)));
     expect(yield* service.selectedFeedDb("data/explicit.sqlite3")).toBe(join(root, "data", "explicit.sqlite3"));
     expect(yield* service.projectPath("relative.sqlite3")).toBe(join(root, "relative.sqlite3"));
-    expect(yield* service.projectPath(root + "/absolute.sqlite3")).toBe(root + "/absolute.sqlite3");
+    expect(yield* service.projectPath(root + "/absolute.sqlite3")).toBe(join(root, "absolute.sqlite3"));
     expect(Either.isLeft(yield* Effect.either(service.selectedFeedDb()))).toBe(true);
     yield* fs.writeFileString(config, 'feed_db = "data/selected.sqlite3"');
     expect(yield* service.selectedFeedDb()).toBe(join(root, "data", "selected.sqlite3"));

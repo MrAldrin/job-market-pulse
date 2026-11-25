@@ -1,6 +1,6 @@
 import { readdir } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
-import { join } from "node:path";
+import { join, sep } from "node:path";
 import { Schema } from "effect";
 import { expect, test } from "vitest";
 
@@ -28,5 +28,5 @@ test("new server, contract and CLI files cannot bypass the ownership map", async
 
   for (const directory of ["src/lib/server", "src/lib/contracts", "src/cli"]) paths.push(...await walk(directory));
 
-  expect(Object.keys(map.typescript_modules).sort()).toEqual(paths.sort());
+  expect(Object.keys(map.typescript_modules).sort()).toEqual(paths.map((path) => path.split(sep).join("/")).sort());
 });

@@ -44,7 +44,7 @@ try {
     assert.deepEqual(yield* reader.sql`PRAGMA query_only`, [{ query_only: 1 }]);
   }));
   assert.deepEqual(await readdir(directory), beforeMissingRead);
-  await run(rejects(openJudgeConnection({ ...selection, directory: join(directory, "absent-root"), path: join(directory, "absent-root", "review.sqlite3") }, "completion-ledger"), "Private profile directory is unavailable"));
+  await run(rejects(openJudgeConnection({ ...selection, directory: join(directory, "absent-root"), path: join(directory, "absent-root", "review.sqlite3") }, "completion-ledger"), process.platform === "win32" ? "Cannot safely open" : "Private profile directory is unavailable"));
   assert.deepEqual(await readdir(directory), beforeMissingRead);
 
   const rollbackPath = join(directory, "rollback", "review.sqlite3");
@@ -57,8 +57,14 @@ try {
   }));
   // A rolled-back namespace does NOT imply that acquisition never created the
   // private file or parent directory. Both survive, exactly as in the frozen IO.
-  assert.equal((await stat(rollbackPath)).mode & 0o777, 0o600);
-  assert.equal((await stat(join(directory, "rollback"))).mode & 0o777, 0o700);
+  const rollbackFile = await stat(rollbackPath);
+  const rollbackDirectory = await stat(join(directory, "rollback"));
+  assert(rollbackFile.isFile() && rollbackDirectory.isDirectory());
+
+  if (process.platform !== "win32") {
+    assert.equal(rollbackFile.mode & 0o777, 0o600);
+    assert.equal(rollbackDirectory.mode & 0o777, 0o700);
+  }
 
   await run(Effect.gen(function* () {
     const connection = yield* openJudgeConnection(selection, "completion-ledger");
@@ -82,7 +88,8 @@ try {
     const objects = yield* connection.sql.unsafe("SELECT type,name,tbl_name,sql FROM sqlite_master ORDER BY type,name").values;
     assert.deepEqual(objects, expected.schema_objects.filter((row: readonly (string | null)[]) => row[2]?.startsWith("reviewed_")));
   }));
-  assert.equal((await stat(selection.path)).mode & 0o777, 0o600);
+
+  if (process.platform !== "win32") assert.equal((await stat(selection.path)).mode & 0o777, 0o600);
   const mainBefore = await readFile(selection.path);
   const filesBefore = await readdir(join(directory, "legacy"));
   await run(Effect.gen(function* () {

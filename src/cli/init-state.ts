@@ -37,6 +37,9 @@ export const checkInitPath = (root: string, path: string, kind: "File" | "Direct
   return yield* (yield* ProfileFiles).check(root, path, kind);
 });
 
+// Windows mode bits describe the read-only attribute, not the NTFS ACL.
+export const isExpectedInitMode = (mode: number): boolean => process.platform === "win32" ? (mode & 0o200) !== 0 : mode === 0o600;
+
 export interface InitFileSnapshot {
   readonly bytes: Uint8Array;
   readonly mode: number;

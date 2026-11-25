@@ -96,7 +96,8 @@ describe("phone shortlist feedback store", () => {
   it("returns ordered defaults from a new private file, including object-key-like IDs", async () => {
     const ids = [listing, "__proto__", "constructor"];
     expect(await run(read("invented", ids))).toEqual(new Map(ids.map((id) => [id, defaults])));
-    expect((await lstat(path)).mode & 0o777).toBe(0o600);
+
+    if (process.platform !== "win32") expect((await lstat(path)).mode & 0o777).toBe(0o600);
   });
 
   it("persists across opens, preserves the other field and isolates profiles and batches", async () => {

@@ -138,8 +138,21 @@ await Effect.runPromise(Effect.scoped(Effect.gen(function* () {
   }
 
   // Execute only an invented program, through the real managed Command adapter.
-  const executable = join(root, "offline-pi");
-  yield* fs.writeFileString(executable, `#!${process.execPath}\nconst p=JSON.parse(await Bun.stdin.text());\nconst r={...p.response_template,assessments:p.candidates.map(c=>({id:c.id,version:c.version,outcome:"screened_out",reason:"Synthetic role is outside scope."}))};\nconsole.log(JSON.stringify({type:"message_end",message:{role:"assistant",model:"offline",stopReason:"stop",content:[{type:"text",text:JSON.stringify(r)}],usage:{input:7,output:3}}}));\n`, { mode: 0o700 });
+  const windows = process.platform === "win32";
+  const executable = join(root, windows ? "offline-pi.exe" : "offline-pi");
+  const script = windows ? join(root, "offline-pi.js") : executable;
+  const code = `const p=JSON.parse(await Bun.stdin.text());\nconst r={...p.response_template,assessments:p.candidates.map(c=>({id:c.id,version:c.version,outcome:"screened_out",reason:"Synthetic role is outside scope."}))};\nconsole.log(JSON.stringify({type:"message_end",message:{role:"assistant",model:"offline",stopReason:"stop",content:[{type:"text",text:JSON.stringify(r)}],usage:{input:7,output:3}}}));\n`;
+  yield* fs.writeFileString(script, windows ? code : `#!${process.execPath}\n${code}`, { mode: 0o700 });
+
+  if (windows) {
+    // Windows cannot execute a shebang script. Use the local pinned runtime,
+    // not a shell wrapper or a downloaded cross-compile target.
+    const build = yield* Effect.promise(() => Bun.build({ entrypoints: [script],
+      compile: { executablePath: process.execPath, outfile: executable, autoloadDotenv: false, autoloadBunfig: false },
+    }));
+
+    assert(build.success);
+  }
 
   const result = yield* runReviewSession(optionsFor("driver"), { executableFor: () => Effect.succeed(executable), onEvent: () => Effect.sync(() => assert.equal(held, true)), retry: () => Effect.die("Unexpected driver retry") }).pipe(Effect.provide(lock));
 

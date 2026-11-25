@@ -1,6 +1,7 @@
-import { Schema } from "effect";
+import { Effect, Schema } from "effect";
 import { open, stat } from "node:fs/promises";
-import { resolve, sep } from "node:path";
+import { dirname, resolve, sep } from "node:path";
+import { verifyWindowsPrivateFile } from "../shared/windows-private-files.ts";
 
 const missing = Schema.is(Schema.Struct({ code: Schema.Literal("ENOENT") }));
 const unsafe = () => new Error("Invalid private hosted feedback file");
@@ -19,7 +20,11 @@ export const readHostedFeedbackFile = async (path: string, maximum: number) => {
 
   if (!info) return null;
 
-  if (!info.isFile() || (info.mode & 0o077) !== 0 || info.size > maximum) throw unsafe();
+  if (!info.isFile() || info.size > maximum) throw unsafe();
+
+  if (process.platform === "win32") await Effect.runPromise(verifyWindowsPrivateFile(dirname(path), path, true));
+  else if ((info.mode & 0o077) !== 0) throw unsafe();
+
   const file = await open(path, "r");
 
   try {

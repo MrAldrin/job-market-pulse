@@ -78,7 +78,8 @@ const makeUpload = (root: string, targetArgs = legacyTarget) => {
     expect(command.stdin).toBe("pipe");
     expect(command.args).toEqual([...targetArgs, "upload", "--overwrite", path, "/digests.sqlite"]);
     expect(path).not.toContain(root);
-    expect(statSync(path).mode & 0o777).toBe(0o600);
+
+    if (process.platform !== "win32") expect(statSync(path).mode & 0o777).toBe(0o600);
     const db = new Database(path, { readonly: true });
 
     try { expect(db.query("SELECT count(*) AS n FROM digest_snapshots").get()).toEqual({ n: 1 }); }
@@ -107,7 +108,8 @@ const harness = (root: string, targetArgs?: string[]) => {
     return (yield* input.io.ask("Install?")) === "yes";
   }));
 
-  const which = vi.fn<(name: string, searchPath?: string) => string | null>((name) => name === "railway" ? railway() : null);
+  const railwayName = process.platform === "win32" ? "railway.exe" : "railway";
+  const which = vi.fn<(name: string, searchPath?: string) => string | null>((name) => name === railwayName ? railway() : null);
   const timerStatus = vi.fn<Schedule["Type"]["status"]>(() => Effect.succeed({ installed: false, partial: false }));
   const remove = vi.fn<Schedule["Type"]["remove"]>(() => Effect.succeed(true));
   const runNow = vi.fn<Schedule["Type"]["runNow"]>(() => Effect.succeed(true));
@@ -319,7 +321,9 @@ test("refresh reports that a stopped run needs reset without upload", () => run(
     ...complete, status: "previous_stopped", exitCode: 2,
   }));
 
-  expect(stopped).toEqual({ exitCode: 2, completionIds: [], failedStage: "pipeline", requiresReset: true });
+  const failedStage = process.platform === "win32" ? "snapshot" : "pipeline";
+
+  expect(stopped).toEqual({ exitCode: 2, completionIds: [], failedStage, requiresReset: true });
 })));
 
 test.each([4, 5])("v%s private inputs require profile opt-in and all four destination IDs", (version) => run(Effect.gen(function* () {
@@ -611,7 +615,7 @@ test("backup keeps saved job metadata, omits cached ad text, and does not overwr
     expect(backup.query("SELECT count(*) AS n FROM ad_texts").get()).toEqual({ n: 0 });
   } finally { backup.close(); }
 
-  expect(statSync(output).mode & 0o777).toBe(0o600);
+  if (process.platform !== "win32") expect(statSync(output).mode & 0o777).toBe(0o600);
   const saved = yield* fs.readFile(output);
   expect(yield* Effect.flip(dispatch("sqlite_backup", "--db", db, "--output", output))).toBeInstanceOf(BackupError);
   expect(yield* fs.readFile(output)).toEqual(saved);

@@ -33,9 +33,9 @@ CLI and server use parent-pipe closure for graceful shutdown. Windows writer
 locks hold a nonsharing file handle. Windows refresh checks NTFS permissions
 before source work and again before Judge opens its database. It refuses
 permission checks that it cannot verify. POSIX Judge permission checks are
-unchanged. Native Windows behavior is not verified. The
-[Windows tester guide](docs/operations/short-cli.md#windows-refresh-and-failure-reports)
-lists the supported harness and reporting steps.
+unchanged. Offline Windows CI tests private storage and synthetic refresh.
+The [Windows tester guide](docs/operations/short-cli.md#windows-refresh-and-failure-reports)
+explains the verification limits, supported harness and reporting steps.
 Railway serves the last uploaded snapshot. It does not run the pipeline, edit
 settings or serve feedback routes.
 

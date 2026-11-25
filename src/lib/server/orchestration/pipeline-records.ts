@@ -21,10 +21,14 @@ export const pipelineRecords = (root: string, path: string, profileId: string) =
     }).pipe(Effect.mapError((error) => error instanceof PipelineError ? error : failure())),
     write: (record: RunRecord) => Effect.gen(function* () {
       const content = JSON.stringify(record) + "\n";
+      const windows = process.platform === "win32";
 
-      if (yield* files.check(root, path, "File")) yield* files.replace(root, path, content);
+      if (yield* files.check(root, path, "File")) yield* files.replace(root, path, content, windows);
       else {
-        yield* files.create(root, path, content);
+        yield* files.create(root, path, content, windows);
+
+        if (windows) return; // The staged file was synced; Windows cannot fsync this directory fd.
+
         const directory = yield* fs.open(dirname(path), { flag: "r" });
         yield* directory.sync;
       }

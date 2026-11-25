@@ -21,7 +21,12 @@ describe("explicit legacy settings converter", () => {
     expect(yield* fs.readFileString(fixture.profileFile)).toBe(fixture.config);
     expect(yield* fs.readFileString(join(fixture.directory, "screen.toml"))).toBe(fixture.rules);
 
-    for (const path of written) expect((yield* fs.stat(path)).mode & 0o777).toBe(0o600);
+    for (const path of written) {
+      const info = yield* fs.stat(path);
+      expect(info.type).toBe("File");
+
+      if (process.platform !== "win32") expect(info.mode & 0o777).toBe(0o600);
+    }
 
     const profile = yield* Profile;
     const result = yield* profile.load(fixture.root, "invented");

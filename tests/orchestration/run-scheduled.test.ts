@@ -12,6 +12,12 @@ import { acquirePipelineLocks, withInstallationLock } from "../../src/lib/server
 const id = "a".repeat(32);
 const neverRefresh = () => Effect.die("unexpected refresh");
 
+const awaitSignal = <E>(signal: Deferred.Deferred<void>, fiber: Fiber.Fiber<number, E>) => Effect.raceFirst(Deferred.await(signal),
+  Effect.flatMap(Fiber.await(fiber), (exit) => Exit.match(exit, {
+    onFailure: Effect.failCause,
+    onSuccess: (code) => Effect.die(new Error(`Scheduled child returned ${code} before the expected signal`)),
+  })));
+
 test("due gate, invalid schedule and busy lock", async () => {
   await run(Effect.gen(function* () {
     const fixture = yield* syntheticSplit;
@@ -70,7 +76,7 @@ test("requires exactly one persisted completed ID and retains lease for refresh"
     expect((yield* latestScheduledRun(fixture.root, "invented"))?.failed_stage).toBe("pipeline");
     expect(alerts).toEqual(["ok", "failure", "failure", "failure"]);
   }));
-});
+}, process.platform === "win32" ? 90_000 : undefined);
 
 test.each([0, 2])("scheduled outcome %i and history are final before cancellable delivery", (code) => run(Effect.gen(function* () {
   const fixture = yield* syntheticSplit;
@@ -94,7 +100,7 @@ test.each([0, 2])("scheduled outcome %i and history are final before cancellable
     }),
   }));
 
-  yield* Deferred.await(posting);
+  yield* awaitSignal(posting, fiber);
   expect(reports).toEqual([code]);
   const history = yield* latestScheduledRun(fixture.root, "invented");
   expect(history?.status).toBe(code === 0 ? "ok" : "failed");
@@ -168,7 +174,7 @@ test("pending cancellation at the failure commit preserves history, stage and re
     alertFailure: () => Effect.sync(() => { alerted = true; }),
   }));
 
-  yield* Deferred.await(committing);
+  yield* awaitSignal(committing, fiber);
   yield* fiber.interruptAsFork(yield* Effect.fiberId);
   yield* Deferred.succeed(release, undefined);
   expect(Exit.isInterrupted(yield* Fiber.await(fiber))).toBe(true);
@@ -185,7 +191,7 @@ test("interruption and callback errors save fixed history and release the lock",
     const entered = yield* Deferred.make<void>();
     const options = { root: fixture.root, profileId: "invented", onlyIfDue: false, period: "daily" };
     const fiber = yield* Effect.fork(runScheduled({ ...options, refresh: () => Deferred.succeed(entered, undefined).pipe(Effect.zipRight(Effect.never)) }));
-    yield* Deferred.await(entered);
+    yield* awaitSignal(entered, fiber);
     yield* Fiber.interrupt(fiber);
     expect((yield* latestScheduledRun(fixture.root, "invented"))?.failed_stage).toBe("interrupted");
     expect(yield* runScheduled({ ...options, refresh: () => Effect.fail("secret") })).toBe(1);

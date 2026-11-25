@@ -144,7 +144,7 @@ export const profileFilesLayer = (
       });
     }).pipe(Effect.scoped, Effect.mapError((error) => error instanceof ProfileError ? error : privateFailure())),
     verifyPrivateFile: (root: string, path: string) => privateAcl(root, path, path, true),
-    create: (root: string, path: string, content: string, requirePrivateAcl = false) => Effect.gen(function* () {
+    create: (root: string, path: string, content: string, requirePrivateAcl = process.platform === "win32") => Effect.gen(function* () {
       if (yield* check(root, path, "File")) return yield* new ProfileError({ message: "Split settings already exist; nothing may be overwritten" });
 
       if (requirePrivateAcl) yield* privateAcl(root, path, path, false);
@@ -172,7 +172,7 @@ export const profileFilesLayer = (
       // The platform remove API requires recursive=true even for an empty directory.
       yield* fs.remove(path, { recursive: true });
     }).pipe(Effect.mapError(privateFailure)),
-    replace: (root: string, path: string, content: string, requirePrivateAcl = false) => Effect.gen(function* () {
+    replace: (root: string, path: string, content: string, requirePrivateAcl = process.platform === "win32") => Effect.gen(function* () {
       if (!(yield* check(root, path, "File"))) return yield* privateFailure();
 
       if (requirePrivateAcl) yield* privateAcl(root, path, path, true);

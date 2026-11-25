@@ -1,11 +1,12 @@
 import { syntheticServeOrigin } from "../shared/serve-hosts.ts";
 import { BunContext } from "@effect/platform-bun";
-import { Deferred, Effect, Layer, Redacted, Schema, TestClock, TestContext } from "effect";
+import { Deferred, Effect, FiberId, Layer, Redacted, Schema, TestClock, TestContext } from "effect";
 import fc from "fast-check";
 import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { expect, test } from "vitest";
+import { pathToFileURL } from "node:url";
+import { expect, test, vi } from "vitest";
 import { CheckoutRefresh } from "../../src/cli/pulse-refresh.ts";
 import { LocalRunStart, LocalRunStatusResponse, localRunLogLimit, localRunStartPath, localRunStatusPath } from "../../src/lib/contracts/local-run.ts";
 import { decodeStrict } from "../../src/lib/contracts/support.ts";
@@ -19,6 +20,7 @@ import { completedRecord, stageNames, startRecord, type RunRecord } from "../../
 import { pipelineRecords } from "../../src/lib/server/orchestration/pipeline-records.ts";
 import { macPiUnavailable, piNodeTooOld } from "../../src/lib/server/orchestration/pipeline-review.ts";
 import { runLockedPipeline } from "../../src/lib/server/orchestration/pipeline-runner.ts";
+import * as diagnostics from "../../src/lib/server/orchestration/windows-failure-report.ts";
 import { requireInstallationLease, withInstallationLock } from "../../src/lib/server/orchestration/workflow-locks.ts";
 import { ProfileFilesLive } from "../../src/lib/server/profile/files.ts";
 import { LocalProfileSettings } from "../../src/lib/server/profile/local-settings.ts";
@@ -98,7 +100,7 @@ const client = (server: DashboardServer["Type"], socketAddress = "127.0.0.1") =>
   return { send, status, start };
 };
 
-const waitForFinish = (readStatus: ReturnType<typeof client>["status"]) => Effect.gen(function* () {
+const waitForFinish = (readStatus: ReturnType<typeof client>["status"], deadlineMillis = 2_000) => Effect.gen(function* () {
   let state = yield* readStatus;
 
   while (state.status === "running") {
@@ -107,7 +109,7 @@ const waitForFinish = (readStatus: ReturnType<typeof client>["status"]) => Effec
   }
 
   return state;
-}).pipe(Effect.timeout("2 seconds"));
+}).pipe(Effect.timeout(deadlineMillis));
 
 test("only an exact positive confirmation is valid", () => {
   const decodeStart = decodeStrict(LocalRunStart);
@@ -426,6 +428,37 @@ test("failure after a retry wait keeps an end time and does not expose raw error
   }).pipe(Effect.provide(fixture(desktopConfig(root), refresh)));
 }))));
 
+test("terminal status and a new run do not wait for the previous failure report", () => withRoot(async (root) => {
+  const entered = Deferred.unsafeMake<void>(FiberId.none);
+  const release = Deferred.unsafeMake<void>(FiberId.none);
+  const reported = Deferred.unsafeMake<void>(FiberId.none);
+  let attempts = 0;
+  let reporters = 0;
+
+  const refresh: CheckoutRefresh["Type"]["run"] = () => Effect.sync(() => ++attempts === 1 ? { exitCode: 2, completionIds: [] } : success);
+
+  const diagnostic = vi.spyOn(diagnostics, "diagnoseWindowsFailure").mockImplementation(() => (worker) => Effect.onExit(worker, () => ++reporters !== 1 ? Effect.void
+    : Deferred.succeed(entered, undefined).pipe(Effect.zipRight(Deferred.await(release)), Effect.zipRight(Deferred.succeed(reported, undefined)))));
+
+  try {
+    await Effect.runPromise(Effect.gen(function* () {
+      const { status, start } = client(yield* DashboardServer);
+      const token = (yield* status).csrf_token;
+      expect((yield* start(token))?.status).toBe(202);
+      yield* Deferred.await(entered);
+      expect(yield* status).toMatchObject({ status: "failed", ended_at: expect.any(String) });
+      expect((yield* start(token))?.status).toBe(202);
+      expect(yield* waitForFinish(status)).toMatchObject({ status: "succeeded" });
+      yield* Deferred.succeed(release, undefined);
+      yield* Deferred.await(reported);
+      expect(yield* status).toMatchObject({ status: "succeeded" });
+    }).pipe(Effect.ensuring(Deferred.succeed(release, undefined)), Effect.provide(fixture(config(root), refresh))));
+  } finally { diagnostic.mockRestore(); }
+}));
+
+// Recovery uses real record writes. Each private write starts several Windows ACL probes.
+const recoveryPollMillis = process.platform === "win32" ? 22_000 : 2_000;
+
 test.each([
   { label: "Pi not found", preflightError: "Review preflight failed (pi_unavailable).", message: "could not find Pi" },
   { label: "Pi with old Node", preflightError: piNodeTooOld, message: "Node is too old. Use a supported Node version" },
@@ -471,7 +504,7 @@ test.each([
       const token = (yield* status).csrf_token;
       expect((yield* start(token, resetBody(runId)))?.status).toBe(409);
       expect((yield* start(token))?.status).toBe(202);
-      const failed = yield* waitForFinish(status);
+      const failed = yield* waitForFinish(status, recoveryPollMillis);
       expect(failed).toMatchObject({
         status: "failed", reset_run_id: stageFailure ? runId : null,
         error: expect.stringContaining(message),
@@ -499,7 +532,7 @@ test.each([
 
       expect(calls).toBe(1);
       expect((yield* start(token, stageFailure ? resetBody(runId) : undefined))?.status).toBe(202);
-      expect(yield* waitForFinish(status)).toMatchObject({ status: "succeeded", reset_run_id: null });
+      expect(yield* waitForFinish(status, recoveryPollMillis)).toMatchObject({ status: "succeeded", reset_run_id: null });
       expect(yield* records.read).toMatchObject({
         run_id: nextId, previous_run_id: runId, failed_attempts: 0, status: "completed", ended_at: expect.any(String),
         reset_at: stageFailure ? expect.any(String) : null,
@@ -508,7 +541,7 @@ test.each([
       expect(calls).toBe(2);
     }).pipe(Effect.provide(fixture(config(root), refresh)));
   }).pipe(Effect.provide(files)));
-}));
+}), process.platform === "win32" ? 40_000 : undefined);
 
 test("a reopened server reads only safe facts from the last saved pipeline record", () => withRoot(async (root) => {
   const directory = join(root, "local_only", "profiles", profileId);
@@ -544,7 +577,9 @@ test("a reopened server reads only safe facts from the last saved pipeline recor
 }));
 
 test("tracked configuration resolves relative to both source and adapter bundle", () => {
-  for (const url of ["file:///checkout/src/lib/server/filter/service.ts", "file:///checkout/build/server/chunks/runtime.js"]) {
-    expect(packageConfigPath(url, "area_extents.json")).toBe("/checkout/config/area_extents.json");
+  const root = process.platform === "win32" ? "C:\\checkout" : "/checkout";
+
+  for (const path of ["src/lib/server/filter/service.ts", "build/server/chunks/runtime.js"]) {
+    expect(packageConfigPath(pathToFileURL(join(root, path)).href, "area_extents.json")).toBe(join(root, "config", "area_extents.json"));
   }
 });

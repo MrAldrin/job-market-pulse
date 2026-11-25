@@ -101,7 +101,8 @@ test("the existing readers see the saved values without changes to other setting
   expect(yield* Effect.flip(editor.testModel(target, probe))).toMatchObject({ code: "invalid" });
   expect(yield* editor.refreshModels(target)).toEqual([candidate]);
   expect((yield* editor.read(target)).models.pi_catalog).toEqual([candidate]);
-  expect((yield* fs.stat(join(target.root, "local_only", "pi-model-catalog.json"))).mode & 0o777).toBe(0o600);
+
+  if (process.platform !== "win32") expect((yield* fs.stat(join(target.root, "local_only", "pi-model-catalog.json"))).mode & 0o777).toBe(0o600);
   expect(yield* Effect.flip(editor.save(target, { ...model, effort: "max" }))).toMatchObject({ code: "invalid" });
   yield* editor.testModel(target, probe);
   expect(yield* fs.readFileString(modelPath)).toBe(modelText);
@@ -123,7 +124,9 @@ test("the existing readers see the saved values without changes to other setting
   });
   expect(yield* fs.readFileString(filterPath)).toContain("radius_km = 40.0");
 
-  for (const path of [modelPath, filterPath]) expect((yield* fs.stat(path)).mode & 0o777).toBe(0o600);
+  if (process.platform !== "win32") {
+    for (const path of [modelPath, filterPath]) expect((yield* fs.stat(path)).mode & 0o777).toBe(0o600);
+  }
 })));
 
 test("profile, CLI readiness and scheduler readers load edited settings", () => run(Effect.gen(function* () {
@@ -203,7 +206,7 @@ test("profile, CLI readiness and scheduler readers load edited settings", () => 
   expect(current).toMatchObject({ filters: values, judge: { preferred_terms }, screen: { values: screen }, schedule: schedule.values, narrative: { text: narrative } });
 
   for (const path of [filterPath, loaded.bundle.paths.profile_file, loaded.bundle.paths.narrative_file]) {
-    expect((yield* fs.stat(path)).mode & 0o777).toBe(0o600);
+    if (process.platform !== "win32") expect((yield* fs.stat(path)).mode & 0o777).toBe(0o600);
   }
 
   yield* editor.save(target, { kind: "schedule", revision: scheduleRevision, values: { expression: "never", anchor: null } });

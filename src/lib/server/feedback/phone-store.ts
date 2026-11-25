@@ -3,8 +3,9 @@ import { SqlClient } from "@effect/sql";
 import { SqlError } from "@effect/sql/SqlError";
 import { Clock, Context, Effect, Layer, Option, Schema } from "effect";
 import { open, stat } from "node:fs/promises";
-import { isAbsolute } from "node:path";
+import { dirname, isAbsolute, resolve } from "node:path";
 import { acquireSqliteResource, type SqliteResource } from "../shared/sqlite-resource.ts";
+import { verifyWindowsPrivateSqlite } from "../shared/windows-private-files.ts";
 import { decodePhoneStoreRow, inspectPhoneStoreSchema, PHONE_FEEDBACK_DDL, PhoneFeedbackInputError, PhoneFeedbackStoreError, PhoneListingId, PhoneListingIds, PhoneProfileId, PhoneReaction, type PhoneStoreRow } from "./phone-store-schema.ts";
 
 const READ_BATCH_SIZE = 500;
@@ -32,7 +33,12 @@ export class PhoneFeedbackStore extends Context.Tag("pulse/PhoneFeedbackStore")<
 }>() {}
 
 const prepareLocalPath = (filename: string) => Effect.tryPromise({
-  try: async () => {
+  try: async (signal) => {
+    const path = resolve(filename);
+    const verify = process.platform === "win32" ? verifyWindowsPrivateSqlite(dirname(path), path) : null;
+
+    if (verify && (await Effect.runPromise(verify, { signal })).existed) return;
+
     try {
       const file = await open(filename, "wx", 0o600);
       await file.close();
@@ -42,7 +48,9 @@ const prepareLocalPath = (filename: string) => Effect.tryPromise({
 
     const info = await stat(filename);
 
-    if (!info.isFile() || (process.platform !== "win32" && (info.mode & 0o077) !== 0)) throw unavailable();
+    if (!info.isFile() || (verify === null && (info.mode & 0o077) !== 0)) throw unavailable();
+
+    if (verify && !(await Effect.runPromise(verify, { signal })).existed) throw unavailable();
   },
   catch: unavailable,
 });

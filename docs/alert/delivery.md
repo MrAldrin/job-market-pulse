@@ -17,7 +17,8 @@ Captured settings show only on/off. Doctor reports only topic presence.
 On Windows, Pulse checks the NTFS permissions of the settings directory and
 existing file before it reads the topic. It also checks inheritance and the
 staged file before it writes settings. If Pulse cannot verify private access,
-it refuses the save or skips the send. Native Windows behavior is not verified.
+it refuses the save or skips the send. Offline Windows tests cover private
+settings reads and writes.
 
 The [notification contract](../../contracts/ntfy-notifications.md) defines
 the short messages and the run gates. This opt-in is separate from snapshot

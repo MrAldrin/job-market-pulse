@@ -3,7 +3,7 @@ import { SqliteClient } from "@effect/sql-sqlite-bun";
 import type { FileSystem } from "@effect/platform";
 import { Cause, Context, Effect, Either, Exit, Layer, type Scope } from "effect";
 import { strict as assert } from "node:assert";
-import { chmod, mkdtemp, readFile, readdir, rm, stat } from "node:fs/promises";
+import { mkdtemp, readFile, readdir, rm, stat } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { emptyProvenance, type RunContext } from "../../src/lib/contracts/judge-state.ts";
@@ -23,6 +23,7 @@ import { runAttempts, runProgress } from "../../src/lib/server/judge/views.ts";
 import { getSavedResult } from "../../src/lib/server/judge/results.ts";
 import { beginModelCall, finishModelCall, modelCallLog } from "../../src/lib/server/judge/model-log.ts";
 import { PythonFloat, pythonJson } from "../../src/lib/server/shared/python-json.ts";
+import { setFixturePublicRead } from "../orchestration/windows-acl-fixture.ts";
 
 const directory = await mkdtemp(join(tmpdir(), "pulse-judge-state-"));
 const path = join(directory, "review.sqlite3");
@@ -84,7 +85,11 @@ try {
     else process.env["PULSE_DATA_DIR"] = previousDataDir;
   }
 
-  const absent = { ...selection, directory: join(directory, "absent"), path: join(directory, "absent", "review.sqlite3"), readonly: true };
+  const missingProfile = { ...selection, directory: join(directory, "absent"), path: join(directory, "absent", "review.sqlite3"), readonly: true };
+
+  if (process.platform === "win32") await run(rejects(openJudgeDatabase(missingProfile), "Cannot safely open"));
+
+  const absent = process.platform === "win32" ? { ...selection, readonly: true } : missingProfile;
   await selected((handle) => Effect.gen(function* () {
     assert.equal(handle.initialized, false);
     const emptySnapshot = yield* currentSnapshotFromValues(handle, { manifest, candidates: manifest.candidates, eligible_count: 2 }, now);
@@ -236,7 +241,7 @@ try {
     assert.equal((yield* handle.sql`SELECT namespace FROM personal_state_schema WHERE namespace='caller'`).length, 1);
   }));
 
-  assert.equal((await stat(path)).mode & 0o777, 0o600);
+  if (process.platform !== "win32") assert.equal((await stat(path)).mode & 0o777, 0o600);
   const before = await readFile(path);
   const files = await readdir(directory);
   await selected((handle) => Effect.gen(function* () {
@@ -302,9 +307,9 @@ try {
     yield* closeRun(handle, runId, "stale", now, true);
   }), other);
 
-  await chmod(path, 0o644);
-  await run(rejects(openJudgeDatabase({ ...selection, readonly: true }), "private regular file"));
-  await chmod(path, 0o600);
+  await setFixturePublicRead(path, true);
+  await run(rejects(openJudgeDatabase({ ...selection, readonly: true }), process.platform === "win32" ? "Cannot safely open" : "private regular file"));
+  await setFixturePublicRead(path, false);
 } finally {
   await rm(directory, { recursive: true, force: true });
 }

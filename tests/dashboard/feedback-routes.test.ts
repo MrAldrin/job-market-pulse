@@ -1,6 +1,6 @@
 import { Database } from "bun:sqlite";
 import { Clock, Effect, Layer, Redacted } from "effect";
-import { chmod, lstat, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { lstat, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, beforeEach, expect, test } from "vitest";
@@ -12,6 +12,7 @@ import { DashboardServer, DashboardServerLive } from "../../src/lib/server/dashb
 import { LocalProfileSettings } from "../../src/lib/server/profile/local-settings.ts";
 import { DashboardSnapshot } from "../../src/lib/server/dashboard/snapshot.ts";
 import { PHONE_FEEDBACK_DDL } from "../../src/lib/server/feedback/phone-store-schema.ts";
+import { setFixturePublicRead } from "../orchestration/windows-acl-fixture.ts";
 
 const host = "viewer.synthetic.test";
 const bearer = "Bearer " + "invented_".repeat(6);
@@ -244,7 +245,7 @@ test("refuses the snapshot path and non-private feedback files without changing 
   }));
 
   await writeFile(feedbackDb, bytes, { flag: "wx", mode: 0o600 });
-  await chmod(feedbackDb, 0o644);
+  await setFixturePublicRead(feedbackDb, true);
   await serve()(Effect.gen(function* () {
     expect((yield* send(request(browserPath, "GET", { cookie })))?.status).toBe(503);
   }));

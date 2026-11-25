@@ -11,6 +11,7 @@ import { DiscordHttp, DiscordTransport, DiscordTransportLive } from "../../src/l
 import { AlertError } from "../../src/lib/server/alert/errors.ts";
 import { DeliveryOutbox, DeliveryOutboxLive } from "../../src/lib/server/alert/outbox.ts";
 import { AlertDispatch, AlertDispatchLive, AlertProfileLock, confirmationText } from "../../src/lib/server/alert/service.ts";
+import { setFixturePublicRead } from "../orchestration/windows-acl-fixture.ts";
 
 const root = await mkdtemp(join(tmpdir(), "pulse-alert-service-"));
 const profileDirectory = join(root, "local_only/profiles/invented");
@@ -90,7 +91,7 @@ const program = Effect.gen(function* () {
   yield* Effect.promise(() => writeFile(pending.push_preview_path, '{"title":"private job"}', { mode: 0o600 }));
   assert.equal(yield* code(dispatch.preflight(pending.digest_key, config)), "artifact_invalid");
   assert.equal((yield* outbox.readDigest(pending.digest_key)).staged.status, "staged");
-  yield* Effect.promise(() => chmod(pending.push_preview_path, 0o644));
+  yield* Effect.promise(() => setFixturePublicRead(pending.push_preview_path, true));
   assert.equal(yield* code(files.read(pending.push_preview_path, 1024)), "artifact_invalid");
 
   const configPath = join(profileDirectory, "delivery.toml");
@@ -100,8 +101,10 @@ const program = Effect.gen(function* () {
 
   assert.equal(Redacted.value(loaded.destination), Redacted.value(config.destination));
   assert.equal(yield* code(loadDestinationConfig(profile).pipe(Effect.provideService(AlertEnvironment, { destination: "https://other.example.invalid/token", channel: "redacted_discord", secret: undefined }))), "config_sources_conflict");
-  assert.equal((yield* Effect.promise(() => lstat(ledgerPath))).mode & 0o777, 0o600);
-  assert.equal((yield* Effect.promise(() => lstat(outbox.artifactsDirectory))).mode & 0o777, 0o700);
+
+  if (process.platform !== "win32") assert.equal((yield* Effect.promise(() => lstat(ledgerPath))).mode & 0o777, 0o600);
+
+  if (process.platform !== "win32") assert.equal((yield* Effect.promise(() => lstat(outbox.artifactsDirectory))).mode & 0o777, 0o700);
 });
 
 try {

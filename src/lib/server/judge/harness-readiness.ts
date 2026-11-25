@@ -182,13 +182,13 @@ const checkPi = (fs: FileSystem.FileSystem, launcher: ProbeLauncher, executable:
   Effect.mapError(piNotReady), Effect.catchAllDefect(() => piNotReady()),
 );
 
-export const harnessReadinessLayer = (launcher: ProbeLauncher) => Layer.effect(HarnessReadiness, Effect.gen(function* () {
+export const harnessReadinessLayer = (launcher: ProbeLauncher, platform: NodeJS.Platform) => Layer.effect(HarnessReadiness, Effect.gen(function* () {
   const fs = yield* FileSystem.FileSystem;
 
   return HarnessReadiness.of({ check: (reviewer) => Effect.gen(function* () {
     const name = harnessExecutables[reviewer.harness];
     const unavailable = () => new ReviewerError({ code: `${name}_unavailable` });
-    const windows = process.platform === "win32";
+    const windows = platform === "win32";
 
     if (windows && reviewer.harness === "pi") return yield* new ReviewerError({ code: "pi_requires_linux_probe" });
     const executable = yield* Effect.try({ try: () => Bun.which(windows ? `${name}.exe` : name), catch: unavailable });
@@ -201,4 +201,4 @@ export const harnessReadinessLayer = (launcher: ProbeLauncher) => Layer.effect(H
   }) });
 }));
 
-export const HarnessReadinessLive = harnessReadinessLayer(nativeLauncher);
+export const HarnessReadinessLive = harnessReadinessLayer(nativeLauncher, process.platform);

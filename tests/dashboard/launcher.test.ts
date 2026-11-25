@@ -13,7 +13,11 @@ const lockState = (root: string) => Effect.runPromise(withInstallationLock(root,
   Effect.catchTag("WorkflowLockError", (error) => Effect.succeed(error.code)),
 ));
 
-const shutdownMethods = process.platform === "win32" ? ["parent pipe"] : ["terminal Ctrl+C", "parent pipe"];
+const windows = process.platform === "win32";
+const shutdownMethods = windows ? ["parent pipe"] : ["terminal Ctrl+C", "parent pipe"];
+
+// Allow for the child launches and native lock acquisition on a loaded Windows runner.
+const markerTimeout = windows ? 12_000 : 3_000;
 
 test.each(shutdownMethods)("%s stops the local dashboard and waits for its refresh finalizer", async (method) => {
   const usePipe = method === "parent pipe";
@@ -46,7 +50,7 @@ test.each(shutdownMethods)("%s stops the local dashboard and waits for its refre
       cwd: root, env,
       detached: true, stdin: usePipe ? "pipe" : "ignore", stdout: "ignore", stderr: "inherit",
     });
-    await vi.waitFor(() => expect(existsSync(marker("ready"))).toBe(true), { timeout: 3_000 });
+    await vi.waitFor(() => expect(existsSync(marker("ready"))).toBe(true), { timeout: markerTimeout });
     expect(await lockState(root)).toBe("busy");
 
     // A terminal signals the whole foreground process group. In pipe mode,
@@ -54,7 +58,7 @@ test.each(shutdownMethods)("%s stops the local dashboard and waits for its refre
     if (usePipe && cli.stdin) await cli.stdin.end();
     else process.kill(-cli.pid, "SIGINT");
     interrupted = true;
-    await vi.waitFor(() => expect(existsSync(marker("finalizing"))).toBe(true), { timeout: 3_000 });
+    await vi.waitFor(() => expect(existsSync(marker("finalizing"))).toBe(true), { timeout: markerTimeout });
     expect(await lockState(root)).toBe("busy");
     expect(cli.exitCode).toBeNull();
 
@@ -78,4 +82,4 @@ test.each(shutdownMethods)("%s stops the local dashboard and waits for its refre
 
     await rm(root, { recursive: true, force: true });
   }
-}, 12_000);
+}, windows ? 60_000 : 12_000);

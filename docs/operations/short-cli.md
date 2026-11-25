@@ -334,9 +334,8 @@ Do not run a refresh, a model check, an upload or a scheduled task.
    keep `Uninstall.exe`. Run it and check that it removes the remaining app
    files without changing the fixtures or the test profile.
 
-Linux checks cover the build and fake scheduler calls. The native installer
-and the full `bun run check` workflow on `windows-latest` are unverified.
-Some existing tests assume POSIX behavior.
+Linux checks cover the build and fake scheduler calls. The native Windows
+installer remains unverified. See the offline Windows CI scope below.
 
 ### Windows refresh and failure reports
 
@@ -372,9 +371,16 @@ If an approved test fails:
 
 Pulse saves each failure file in a separate folder under the user temporary
 directory. It writes no file if it cannot verify that directory's NTFS
-permissions. It does not send the file. Delete the folder when you no longer
-need it. Native Windows refresh and Task Scheduler acceptance remains a
-separate test.
+permissions. The dashboard can show the final run status before the report is
+ready. Pulse does not send the file. Delete the folder when you no longer need
+it.
+
+Windows CI runs `bun run check` on `windows-latest` with synthetic data. It
+uses a new NTFS directory under the test user's home. The directory grants
+access only to that user. The CI script sets `TEMP` and `TMP` for the test
+process and deletes the directory after the checks. Native tests use the
+production verifier for private and unsafe storage. These tests do not verify
+the native installer, live refresh, Task Scheduler or notification delivery.
 
 ## Snapshot safety
 

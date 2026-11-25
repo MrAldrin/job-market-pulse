@@ -1,5 +1,6 @@
 import { syntheticServeHost, syntheticServeOrigin } from "../shared/serve-hosts.ts";
 import { ConfigProvider, Effect, Either, Fiber, Layer, Option, TestClock } from "effect";
+import { join } from "node:path";
 import { expect, test } from "vitest";
 import { localSettingsPath, LocalSettingsDocument } from "../../src/lib/contracts/local-settings.ts";
 import { decodeStrict } from "../../src/lib/contracts/support.ts";
@@ -171,13 +172,14 @@ test("hosted detection cannot downgrade login and invalid local bind fails witho
     expect(String(result)).not.toContain("synthetic-password-0123456789");
   }
 
-  const local = await configResult(new Map([["PULSE_DATA_DIR", "/synthetic/moved"], ["ADDRESS_HEADER", ""]]));
+  const directory = process.platform === "win32" ? "C:\\synthetic\\moved" : "/synthetic/moved";
+  const local = await configResult(new Map([["PULSE_DATA_DIR", directory], ["ADDRESS_HEADER", ""]]));
 
   expect(Either.isRight(local)).toBe(true);
 
   if (Either.isRight(local)) {
-    expect(local.right.snapshotDb).toBe("/synthetic/moved/digests.sqlite");
-    expect(local.right.feedbackDb).toBe("/synthetic/moved/shortlist-feedback.sqlite3");
+    expect(local.right.snapshotDb).toBe(join(directory, "digests.sqlite"));
+    expect(local.right.feedbackDb).toBe(join(directory, "shortlist-feedback.sqlite3"));
     expect(local.right.login).toBeNull();
   }
 });

@@ -18,7 +18,9 @@ const ddl = `CREATE TABLE feedback (
 const withPath = async (testCase: (path: string, directory: string) => Promise<void>) => {
   const directory = await mkdtemp(join(tmpdir(), "pulse-legacy-verdicts-"));
 
-  try { await testCase(join(directory, "legacy ?#.sqlite3"), directory); }
+  const name = process.platform === "win32" ? "legacy %#.sqlite3" : "legacy ?#.sqlite3";
+
+  try { await testCase(join(directory, name), directory); }
   finally { await rm(directory, { recursive: true }); }
 };
 

@@ -185,8 +185,10 @@ batch_size = 2
   assert.equal(row.starred?.jobs[0]?.listing_id, listingId);
   assert.match(new TextDecoder().decode(row.html), /Data engineer/);
   assert.deepEqual(yield* json.read(companion), document);
-  assert.equal((yield* fs.stat(output)).mode & 0o777, 0o600);
-  assert.equal((yield* fs.stat(companion)).mode & 0o777, 0o600);
+
+  if (process.platform !== "win32") assert.equal((yield* fs.stat(output)).mode & 0o777, 0o600);
+
+  if (process.platform !== "win32") assert.equal((yield* fs.stat(companion)).mode & 0o777, 0o600);
   const priorCompanion = yield* fs.readFileString(companion);
 
   for (const payload of ["", "Broken SQLite test input"]) {

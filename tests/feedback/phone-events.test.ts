@@ -62,7 +62,10 @@ test("reads past a batch of cleared controls and retains only controls for the s
       insert.run("invented", "z-last", 0, "down", stamp);
       insert.run("other", "z-last", 1, "up", stamp);
     })();
-  } finally { db.close(); }
+  } finally {
+    // Finalize prepared statements before closing so Windows can remove the database.
+    db.close(true);
+  }
 
   expect(await read(path)).toEqual([...starEvents, {
     event_id: `reaction:z-last:${stamp}`, listing_id: "z-last", source: "nav", source_version: null,

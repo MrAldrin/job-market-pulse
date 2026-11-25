@@ -22,8 +22,9 @@ Install Git, [Bun 1.4.4](https://bun.sh/docs/installation) and
 You only need a signed-in Pi or Claude Code session for AI review. No NAV
 account is needed.
 
-Tested on Linux. macOS and Windows may work but are untested. Reports are
-welcome. The app menu launcher is Linux-only.
+The setup below is for Linux. Windows has [offline CI checks](docs/operations/short-cli.md#windows-refresh-and-failure-reports),
+not native installer or live refresh acceptance. macOS is untested. The app
+menu launcher is Linux-only.
 
 ## Install
 

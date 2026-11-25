@@ -49,7 +49,8 @@ const captureProof = async () => {
     assert.equal(result.rowId, 1);
     assert.notEqual(result.jsonWarning, null);
     assert.equal(await readFile(companion, "utf8"), "not a snapshot");
-    assert.equal((await stat(output)).mode & 0o777, 0o600);
+
+    if (process.platform !== "win32") assert.equal((await stat(output)).mode & 0o777, 0o600);
     const latest = await Effect.runPromise(Effect.gen(function* () { return yield* (yield* SnapshotStore).latest(output); }).pipe(Effect.provide(SnapshotStoreLive)));
     assert.equal(latest?.dashboardBundle, null);
     assert.equal(Either.getOrThrow(decodeSnapshotDocumentBytes(latest!.dashboardJson!)).schema_version, 2);
@@ -65,10 +66,12 @@ const captureProof = async () => {
     assert.equal(second.jsonWarning, null);
     const local = await Effect.runPromise(Effect.flatMap(SnapshotJsonFile, (file) => file.read(freshJson)).pipe(Effect.provide(files)));
     assert.equal(local.schema_version, 1);
-    assert.equal((await stat(freshJson)).mode & 0o777, 0o600);
+
+    if (process.platform !== "win32") assert.equal((await stat(freshJson)).mode & 0o777, 0o600);
     const exported = join(directory, "one-row.sqlite3");
     await Effect.runPromise(exportLatestSnapshot(output, exported).pipe(Effect.provide(dependencies)));
-    assert.equal((await stat(exported)).mode & 0o777, 0o600);
+
+    if (process.platform !== "win32") assert.equal((await stat(exported)).mode & 0o777, 0o600);
   } finally { await rm(directory, { recursive: true, force: true }); }
 };
 
